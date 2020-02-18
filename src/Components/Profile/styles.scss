@@ -1,185 +1,190 @@
-// @import "./../../App.scss";
+ .tab_card {
+     margin-bottom: 40px;
+ }
 
-.tab_card {
-    margin-bottom: 40px;
-}
+ .field_item .item_Header,
+ .tab-title .heading {
+     display: flex;
+     align-items: center;
 
-.field_item .item_Header,
-.tab-title .heading {
-    display: flex;
-    align-items: center;
+     i {
+         margin-right: 10px;
 
-    i {
-        margin-right: 10px;
+     }
 
-    }
+     h4 {
+         margin: 0;
+     }
+ }
 
-    h4 {
-        margin: 0;
-    }
-}
+ .edit-action {
+     color: #fff;
+     padding-right: 12px;
+     display: flex;
 
-.edit-action {
-    color: #fff;
-    padding-right: 12px;
-    display: flex;
+     i {
+         padding-right: 8px;
+         margin-right: 0 !important;
 
-    i {
-        padding-right: 8px;
-        margin-right: 0 !important;
+         svg path {
+             fill: #fff;
+         }
+     }
 
-        svg path {
-            fill: #fff;
-        }
-    }
+     &:hover {
+         color: #fff;
+         text-decoration: none;
+     }
+ }
 
-    &:hover {
-        color: #fff;
-        text-decoration: none;
-    }
-}
+ .patient-content-diagnosis {
+     .tab-title {
+         width: 245px;
 
-.patient-content-diagnosis {
-    .tab-title {
-        width: 245px;
+     }
 
-    }
+     .ant-tabs-top-content .ant-tabs-tabpane-active {
+         padding: 1rem;
+         background-color: #fff;
 
-    .ant-tabs-top-content .ant-tabs-tabpane-active {
-        padding: 1rem;
-        background-color: #fff;
+     }
 
-    }
+     .ant-tabs-ink-bar {
+         display: none !important;
+     }
 
-    .ant-tabs-ink-bar {
-        display: none !important;
-    }
+     .ant-tabs-bar {
+         border-bottom: 0;
+     }
 
-    .ant-tabs-bar {
-        border-bottom: 0;
-    }
+     .ant-tabs-tab {
+         background-color: #fff;
+         padding: 0;
+         border: 1px solid #ABB3C94D;
+         margin-right: 16px;
+         margin-top: 20px;
+     }
 
-    .ant-tabs-tab {
-        background-color: #fff;
-        padding: 0;
-        border: 1px solid #ABB3C94D;
-        margin-right: 16px;
-        margin-top: 20px;
-    }
+     .tab-opened-content {
+         h5 {
+             font-size: 14px;
+         }
+     }
 
-    .tab-opened-content {
-        h5 {
-            font-size: 14px;
-        }
-    }
+     .tab-title {
 
-    .tab-title {
+         .heading,
+         .status,
+         .date {
+             padding: 12px 16px;
+         }
 
-        .heading,
-        .status,
-        .date {
-            padding: 12px 16px;
-        }
+         .status {
+             font-size: 24px;
+         }
 
-        .status {
-            font-size: 24px;
-        }
+         .date {
+             margin: 0;
+             padding: 0 0 10px 0;
+         }
 
-        .date {
-            margin: 0;
-            padding: 0 0 10px 0;
-        }
+         .icon-dir {
+             border-top: 1px solid #ABB3C94D;
 
-        .icon-dir {
-            border-top: 1px solid #ABB3C94D;
+             i {
+                 margin: 10px;
+             }
 
-            i {
-                margin: 10px;
-            }
+         }
+     }
+ }
 
-        }
-    }
-}
+ .ant-tabs-nav .ant-tabs-tab-active {
+     &.ant-tabs-tab {
+         border-color: #2187FF;
+     }
 
-.ant-tabs-nav .ant-tabs-tab-active {
-    &.ant-tabs-tab {
-        border-color: #2187FF;
-    }
+     .tab-title {
 
-    .tab-title {
+         .icon-dir {
+             border-top: 1px solid #2187FF;
+             color: #fff;
+             background-color: #2187FF;
+             padding: 10px;
 
-        .icon-dir {
-            border-top: 1px solid #2187FF;
-            color: #fff;
-            background-color: #2187FF;
-            padding: 10px;
+             i {
+                 margin: 10px;
+             }
 
-            i {
-                margin: 10px;
-            }
+         }
+     }
+ }
 
-        }
-    }
-}
+ .ant-tabs-nav-container-scrolling {
+     padding: 0 !important;
+ }
 
-.ant-tabs-nav-container-scrolling {
-    padding: 0 !important;
-}
+ .cardiac-icon {
+     svg path {
+         fill: rgb(92, 109, 150);
+     }
+ }
 
-.card_heading {
-    background-color: #0070B9;
-    padding: 20px 0px 20px 25px;
-    color: #FFFFFF;
-    font-size: 16px;
-    font-family: 'Inter-Bold';
-    margin-bottom: 0;
-    display: flex;
-    justify-content: space-between;
+ .card_title {
+     background-color: #0070B9;
+     padding: 15px 0px 15px 25px;
+     color: #FFFFFF;
+     font-size: 16px;
+     font-family: 'Inter-Bold';
+     margin-bottom: 0;
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
 
-    &.inside-tab {
-        background-color: #8992AD;
+     &.inside-tab {
+         background-color: #8992AD;
 
-        span {
-            display: flex;
-            align-items: center;
+         span {
+             display: flex;
+             align-items: center;
 
-            i {
-                margin-right: 12px;
-            }
+             i {
+                 margin-right: 12px;
+             }
 
-            span {
-                margin-left: 5px;
-            }
-        }
+             span {
+                 margin-left: 5px;
+             }
+         }
 
-        i svg path {
-            fill: #fff;
-        }
-    }
-}
+         i svg path {
+             fill: #fff;
+         }
+     }
+ }
 
-.preview-readings,
-.recentAlerts {
+ .preview-readings,
+ .recentAlerts {
 
 
-    .ant-table-thead {
-        tr {
-            th {
-                color: #5C6D96;
-                background-color: #E5F0F8 !important;
-            }
-        }
-    }
-}
+     .ant-table-thead {
+         tr {
+             th {
+                 color: #5C6D96;
+                 background-color: #E5F0F8 !important;
+             }
+         }
+     }
+ }
 
-.assigned-criteria {
-    .divide {
-        border: 1px solid rgba(0, 0, 0, .1);
-        width: 1px;
-        height: 100px;
-    }
+ .assigned-criteria {
+     .divide {
+         border: 1px solid rgba(0, 0, 0, .1);
+         width: 1px;
+         height: 100px;
+     }
 
-    .ant-table-small>.ant-table-content>.ant-table-body {
-        margin: 0;
-    }
-}
+     .ant-table-small>.ant-table-content>.ant-table-body {
+         margin: 0;
+     }
+ }

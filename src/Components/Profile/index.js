@@ -71,11 +71,15 @@ const columns = [
 	{
 		title: 'Date & Time',
 		dataIndex: 'name',
+		sorter: (a, b) => a.name.length - b.name.length,
+		sortDirections: [ 'descend', 'ascend' ],
 	},
 	{
 		title: 'Severity',
 		className: 'column-money',
 		dataIndex: 'money',
+		sorter: (a, b) => a.money.length - b.money.length,
+		sortDirections: [ 'descend', 'ascend' ],
 	},
 ];
 const assignedCriteriaColumns = [
@@ -459,13 +463,13 @@ export class PatientProfile extends Component {
 					<Col xl={10} lg={10} md={10} sm={12} xs={12}>
 						{/* start card */}
 						<div className="tab_card">
-							<h3 className="card_heading">Diagnosis</h3>
+							<h3 className="card_title">Diagnosis</h3>
 							<div className="card_fields">
 								<Row>
 									<Col xl={4} lg={4} md={4} sm={4} xs={4}>
 										<div className="field_item">
 											<div className="item_Header">
-												<CardiacIcon />
+												<CardiacIcon className="cardiac-icon" />
 												<h4>Cardiac</h4>
 											</div>
 
@@ -520,7 +524,7 @@ export class PatientProfile extends Component {
 					<Col xl={10} lg={10} md={10} sm={12} xs={12}>
 						{/* start card */}
 						<div className="tab_card patient-content-diagnosis">
-							<h3 className="card_heading">
+							<h3 className="card_title">
 								<span>
 									Measurements <span>(SpO2 - Heart Rate - Blood Pressure)</span>
 								</span>
@@ -555,7 +559,7 @@ export class PatientProfile extends Component {
 											<div className="tab-opened-body">
 												<div className="tab-opened-header">
 													<div className="tab_card">
-														<h3 className="card_heading inside-tab">
+														<h3 className="card_title inside-tab">
 															<span>
 																<CardiacIcon /> Heart Rate -
 																<span> Heart Rate monitoring</span>
@@ -602,7 +606,7 @@ export class PatientProfile extends Component {
 												</div>
 												<div className="tab-opened-header mt-3">
 													<div className="tab_card">
-														<h3 className="card_heading inside-tab">
+														<h3 className="card_title inside-tab">
 															<span>Assigned Criteria</span>
 
 															<span>
@@ -672,7 +676,7 @@ export class PatientProfile extends Component {
 											<div className="tab-opened-body">
 												<div className="tab-opened-header">
 													<div className="tab_card">
-														<h3 className="card_heading inside-tab">
+														<h3 className="card_title inside-tab">
 															<span>
 																<CardiacIcon /> Heart Rate -
 																<span> Heart Rate monitoring</span>
@@ -719,7 +723,7 @@ export class PatientProfile extends Component {
 												</div>
 												<div className="tab-opened-header mt-3">
 													<div className="tab_card">
-														<h3 className="card_heading inside-tab">
+														<h3 className="card_title inside-tab">
 															<span>Assigned Criteria</span>
 
 															<span>
@@ -789,7 +793,7 @@ export class PatientProfile extends Component {
 											<div className="tab-opened-body">
 												<div className="tab-opened-header">
 													<div className="tab_card">
-														<h3 className="card_heading inside-tab">
+														<h3 className="card_title inside-tab">
 															<span>
 																<CardiacIcon />SpO2
 															</span>
@@ -835,7 +839,7 @@ export class PatientProfile extends Component {
 												</div>
 												<div className="tab-opened-header mt-3">
 													<div className="tab_card">
-														<h3 className="card_heading inside-tab">
+														<h3 className="card_title inside-tab">
 															<span>Assigned Criteria</span>
 
 															<span>
@@ -891,7 +895,7 @@ export class PatientProfile extends Component {
 
 						<div className="recentAlerts">
 							<div className="tab_card">
-								<h3 className="card_heading">Recent Alerts</h3>
+								<h3 className="card_title">Recent Alerts</h3>
 								<div className="card_fields p-3">
 									<DefaultTable
 										{...defaultTableColumns}
@@ -903,7 +907,7 @@ export class PatientProfile extends Component {
 						</div>
 						<div className="recentAlerts">
 							<div className="tab_card">
-								<h3 className="card_heading">
+								<h3 className="card_title">
 									<span>Actions</span>
 									{this.state.editCheckboxTable ? (
 										<span>

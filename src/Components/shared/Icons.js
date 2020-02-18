@@ -464,7 +464,24 @@ const Motion = () => (
 		/>
 	</svg>
 );
-
+const MonitorView = () => (
+	<svg xmlns="http://www.w3.org/2000/svg" width="15" height="13" viewBox="0 0 15 13">
+		<path
+			class="a"
+			d="M3,10.222H9.667V3H3ZM3,16H9.667V11.667H3Zm8.333,0H18V8.778H11.333Zm0-13V7.333H18V3Z"
+			transform="translate(-3 -3)"
+		/>
+	</svg>
+);
+const ListView = () => (
+	<svg xmlns="http://www.w3.org/2000/svg" width="15" height="13" viewBox="0 0 15 13">
+		<path
+			class="a"
+			d="M3,14.8H4.667V12.2H3ZM3,20H4.667V17.4H3ZM3,9.6H4.667V7H3Zm3.333,5.2H18V12.2H6.333Zm0,5.2H18V17.4H6.333Zm0-13V9.6H18V7Z"
+			transform="translate(-3 -7)"
+		/>
+	</svg>
+);
 export const MenuIcon = (props) => <Icon component={Menu} {...props} />;
 export const NotificationIcon = (props) => <Icon component={Notification} {...props} />;
 export const AlertIcon = (props) => <Icon component={Alert} {...props} />;
@@ -498,3 +515,5 @@ export const TempIcon = (props) => <Icon component={Temp} {...props} />;
 export const MotionIcon = (props) => <Icon component={Motion} {...props} />;
 export const CancelIcon = (props) => <Icon component={Cancel} {...props} />;
 export const SaveIcon = (props) => <Icon component={Save} {...props} />;
+export const MonitorViewIcon = (props) => <Icon component={MonitorView} {...props} />;
+export const ListViewIcon = (props) => <Icon component={ListView} {...props} />;

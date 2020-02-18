@@ -11,7 +11,8 @@ import './styles.scss';
 export class PatientDetailsModal extends Component {
 	state = {
 		item: {},
-		loading: false
+		loading: false,
+		visible: false
 	};
 	handleOk = () => {
 		this.setState({ loading: true });

@@ -45,22 +45,20 @@ $red: #FA6557;
     padding-right: 30px !important;
 }
 
-.ant-table table {
-    .anticon {
-        font-size: 16px !important;
-    }
+.ant-modal-content,
+input,
+.ant-checkbox-inner {
+    border-radius: 0 !important;
 
-    .ant-table-tbody,
-    .ant-table-thead th {
-        background: #fff;
-
-    }
 }
 
 .text-green {
     color: $green;
 }
 
+button {
+    border-radius: 0 !important;
+}
 
 .border-yellow {
     border: 1px solid $yellow;

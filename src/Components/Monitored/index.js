@@ -4,17 +4,15 @@ import { Link } from 'react-router-dom';
 import { Card, Pagination, Row, Col, List, Input, Divider, Button, Avatar, Tabs, Icon, Typography } from 'antd';
 import dataService from './../services/data.service';
 import './styles.scss';
+
 import {
-	AssignIcon,
-	ReferIcon,
+	ListViewIcon,
+	MonitorViewIcon,
 	CardiacIcon,
 	BloodDropIcon,
-	HeartAlertIcon,
-	BloodGlucoseIcon,
 	HeartDynamicIcon,
 	WeightIcon,
 	TempIcon,
-	AlertIcon,
 } from './../shared/Icons';
 const { Title } = Typography;
 var classNames = require('classnames');
@@ -28,7 +26,7 @@ const monitoredPatientsData = [
 		mrn: '#123456',
 		firstName: 'Maha',
 		lastName: 'ahmed',
-		criticality: 'Critical-High',
+		criticality: 'critical-high',
 
 		measurements: [
 			{
@@ -52,7 +50,7 @@ const monitoredPatientsData = [
 			{
 				type: 'bgb',
 				criticalLow: false,
-				low: false,
+				low: true,
 				normal: false,
 				high: false,
 				criticalHigh: false,
@@ -133,7 +131,7 @@ const monitoredPatientsData = [
 		mrn: '#123456',
 		firstName: 'alaa',
 		lastName: 'Mohamad',
-		criticality: 'High',
+		criticality: 'high',
 		measurements: [
 			{
 				type: 'bpm',
@@ -149,14 +147,14 @@ const monitoredPatientsData = [
 				criticalLow: false,
 				low: false,
 				normal: false,
-				high: true,
-				criticalHigh: false,
-				value: '120',
+				high: false,
+				criticalHigh: true,
+				value: '130',
 			},
 			{
 				type: 'bgb',
 				criticalLow: false,
-				low: false,
+				low: true,
 				normal: false,
 				high: false,
 				criticalHigh: false,
@@ -237,50 +235,14 @@ const monitoredPatientsData = [
 		mrn: '#123456',
 		firstName: 'soad',
 		lastName: 'Mohamad',
-		criticality: 'Normal',
+		criticality: 'normal',
 		measurements: [
-			{
-				type: 'bpm',
-				criticalLow: false,
-				low: false,
-				normal: true,
-				high: false,
-				criticalHigh: false,
-				value: '110',
-			},
-			{
-				type: 'spo2',
-				criticalLow: false,
-				low: false,
-				normal: false,
-				high: false,
-				criticalHigh: true,
-				value: '130',
-			},
-			{
-				type: 'bgb',
-				criticalLow: false,
-				low: false,
-				normal: false,
-				high: false,
-				criticalHigh: false,
-				value: '70',
-			},
-			{
-				type: 'bga',
-				criticalLow: false,
-				low: false,
-				normal: false,
-				high: false,
-				criticalHigh: true,
-				value: '80',
-			},
 			{
 				type: 'bp',
 				criticalLow: false,
 				low: false,
-				normal: false,
-				high: true,
+				normal: true,
+				high: false,
 				criticalHigh: false,
 				value: '110',
 			},
@@ -297,9 +259,9 @@ const monitoredPatientsData = [
 				type: 'weight',
 				criticalLow: false,
 				low: false,
-				normal: false,
+				normal: true,
 				high: false,
-				criticalHigh: true,
+				criticalHigh: false,
 				value: '130',
 			},
 		],
@@ -308,8 +270,8 @@ const monitoredPatientsData = [
 				type: 'bpm',
 				criticalLow: false,
 				low: false,
-				normal: false,
-				high: true,
+				normal: true,
+				high: false,
 				criticalHigh: false,
 				value: '110',
 			},
@@ -317,16 +279,16 @@ const monitoredPatientsData = [
 				type: 'spo2',
 				criticalLow: false,
 				low: false,
-				normal: false,
+				normal: true,
 				high: false,
-				criticalHigh: true,
+				criticalHigh: false,
 				value: '130',
 			},
 			{
 				type: 'bgb',
 				criticalLow: false,
 				low: false,
-				normal: false,
+				normal: true,
 				high: false,
 				criticalHigh: false,
 				value: '70',
@@ -341,7 +303,7 @@ const monitoredPatientsData = [
 		mrn: '#123456',
 		firstName: 'amgad',
 		lastName: 'Mohamad',
-		criticality: 'Critical-Low',
+		criticality: 'critical-low',
 
 		measurements: [
 			{
@@ -367,7 +329,7 @@ const monitoredPatientsData = [
 				criticalLow: false,
 				low: false,
 				normal: false,
-				high: false,
+				high: true,
 				criticalHigh: false,
 				value: '70',
 			},
@@ -574,7 +536,7 @@ export default class MonitoredPatients extends Component {
 					<TabPane
 						tab={
 							<span>
-								<Icon type="unordered-list" /> List View
+								<ListViewIcon /> List View
 							</span>
 						}
 						key="1"
@@ -604,7 +566,7 @@ export default class MonitoredPatients extends Component {
 					<TabPane
 						tab={
 							<span>
-								<Icon type="pic-right" /> Monitor View
+								<MonitorViewIcon /> Monitor View
 							</span>
 						}
 						key="2"
@@ -622,7 +584,7 @@ export default class MonitoredPatients extends Component {
 								/>
 							</Col>
 						</Row>
-						<Row type="flex">
+						<Row gutter={16}>
 							{this.state.dataSource &&
 								this.state.dataSource.length > 0 &&
 								this.state.dataSource.slice(this.state.minValue, this.state.maxValue).map((val) => {
@@ -635,31 +597,31 @@ export default class MonitoredPatients extends Component {
 									let normal = criticality === 'normal' ? 'border' : '';
 									let borderClasses = classNames(critical, high, normal);
 									return (
-										<Col className="my-3 mr-3" span={5}>
+										<Col className="gutter-row" span={6}>
 											<Card className={borderClasses}>
 												<List.Item className="user-badge  badge-bg">
-													<List.Item.Meta
-														avatar={
-															<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
-														}
-														title={
-															<Link
-																to={`/monitoredPatients/${val.firstName} ${val.lastName}`}
-															>
-																{val.firstName} {val.lastName}
-															</Link>
-														}
-														description={val.mrn}
-													/>
-													{criticality !== 'normal' && (
-														<div className="bg highlight">
-															{this.capitalize(val.criticality)}
-														</div>
-													)}
+													<Link
+														className="patient-details"
+														to={`/monitoredPatients/${val.firstName} ${val.lastName}`}
+													>
+														<List.Item.Meta
+															avatar={
+																<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
+															}
+															title={`${val.firstName} ${val.lastName}`}
+															description={val.mrn}
+														/>
+
+														{criticality !== 'normal' && (
+															<div className="bg highlight">
+																{this.capitalize(val.criticality)}
+															</div>
+														)}
+													</Link>
 												</List.Item>
 												<div className="list-wrapper">
 													<Title className="list-title" level={4}>
-														measurements
+														Measurements
 													</Title>
 													<Divider />
 													{this.generateMA(val.measurements)}

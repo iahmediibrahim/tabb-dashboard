@@ -8,6 +8,15 @@ $red: #FA6557;
         margin-bottom: 5px;
         display: inline-block;
 
+
+        i {
+            display: none;
+        }
+
+        span+i {
+            display: inline-block;
+        }
+
         .anticon svg {
             width: 24px;
             height: 24px;
@@ -41,6 +50,7 @@ $red: #FA6557;
 
     .ant-card-body {
         padding: 0;
+        height: 825px;
     }
 
     .list-wrapper {
@@ -91,18 +101,29 @@ $red: #FA6557;
         justify-content: flex-end;
         display: flex;
 
+        .ant-tabs-nav>div .ant-tabs-tab:first-child {
+            margin-right: 22px;
+        }
+
         .ant-tabs-tab {
             border: 1px solid #2781FF33;
             background-color: #2187FF1A;
             border-radius: 5px;
             padding: 8px 16px;
             margin-bottom: 1px;
+
             color: #2187FF;
             transition: all .2s ease-in-out;
+            width: 145px;
+            text-align: center;
 
             span {
                 display: inline-flex;
                 align-items: center;
+
+                i svg path {
+                    fill: #2187FF;
+                }
             }
 
             &:hover,
@@ -110,6 +131,13 @@ $red: #FA6557;
                 background-color: #2187FF;
                 border-color: #2187FF;
                 color: #fff;
+
+                span {
+
+                    i svg path {
+                        fill: #fff;
+                    }
+                }
             }
 
 
@@ -132,6 +160,16 @@ $red: #FA6557;
 
     .user-badge {
 
+        a.patient-details {
+            display: flex;
+            align-items: center;
+            width: 100%;
+
+            &:hover {
+                text-decoration: none;
+            }
+
+        }
 
         margin-bottom: 10px;
 
@@ -152,7 +190,7 @@ $red: #FA6557;
         .ant-list-item-meta-title {
             color: #1A243B;
             font-weight: bold;
-            font-size: 18px;
+            font-size: 16px;
         }
 
         .ant-list-item-meta-description {
@@ -175,6 +213,7 @@ $red: #FA6557;
         .user-badge {
             &.badge-bg {
                 background-color: #FEE0DD;
+                height: 95px;
 
                 &.anticon {
                     padding: 10px;
@@ -205,6 +244,7 @@ $red: #FA6557;
         .user-badge {
             &.badge-bg {
                 background-color: #FFF0DB;
+                height: 95px;
 
                 &.anticon {
                     padding: 10px;
@@ -236,7 +276,9 @@ $red: #FA6557;
 
         .user-badge {
             &.badge-bg {
+                border-bottom: 1px solid #ABB3C94D;
                 background-color: #fff;
+                height: 95px;
 
                 &.anticon {
                     padding: 10px;
@@ -421,32 +463,22 @@ $red: #FA6557;
 
             .criticalHigh,
             .criticalLow {
-
                 &::after {
-
                     bottom: -18px;
                     right: -20px;
-
                 }
             }
 
             .high,
             .low {
-
-
                 &::after {
-
                     bottom: -18px;
                     right: -20px;
-
                 }
             }
 
             .normal {
-
-
                 &::after {
-
                     bottom: -18px;
                     right: -20px;
                 }

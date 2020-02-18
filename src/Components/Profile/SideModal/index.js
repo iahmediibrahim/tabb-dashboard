@@ -9,7 +9,7 @@ import {
 	AllergiesMedicationIcon,
 	RecentVisitsIcon,
 	ContactIcon,
-	HospitalVisitsIcon,
+	HospitalVisitsIcon
 } from './../../shared/Icons';
 
 const { TabPane } = Tabs;
@@ -35,17 +35,17 @@ class Profile extends Component {
 						reason: 'Heavy chest pain',
 						describedMeds: 'Glimipride',
 						Physician: 'Dr. Salem Salah',
-						moreDetails: 'Lorem',
-					},
-				],
-			},
-		],
+						moreDetails: 'Lorem'
+					}
+				]
+			}
+		]
 	};
 
 	showHide = () => {
 		this.setState((prevState) => ({
 			translateX: prevState.translateX === '0' ? '800' : '0',
-			collapsed: !this.state.collapsed,
+			collapsed: !this.state.collapsed
 		}));
 	};
 
@@ -120,8 +120,16 @@ class Profile extends Component {
 							<div className="recentVisits-Tabs">
 								<Tabs defaultActiveKey="2">
 									<TabPane
+										className="tab-opened-content"
 										tab={
-											<div className="tab-title">
+											<div
+												className="tab-title"
+												onClick={() =>
+													this.setState({
+														translateX: '0',
+														collapsed: false,
+													})}
+											>
 												<h5>
 													<HospitalVisitsIcon />
 													King Fahd Hospital
@@ -156,13 +164,6 @@ class Profile extends Component {
 														More Details: Lorem Ipsum is simply dummy text of the printing
 														and typesetting industry. Lorem Ipsum has been the industry’s
 														standard dummy text ever since the 1500s, when an unknown
-														printer took a galley of type and scrambled it to make a type
-														specimen book. It has survived not only five centuries, but also
-														the leap into electronic typesetting, remaining essentially
-														unchanged. It was popularised in the 1960s with the release of
-														Letraset sheets containing Lorem Ipsum passages, and more
-														recently with desktop publishing software like Aldus PageMaker
-														including versions of Lorem Ipsum.
 													</span>
 												</h6>
 											</div>
@@ -170,8 +171,16 @@ class Profile extends Component {
 									</TabPane>
 
 									<TabPane
+										className="tab-opened-content"
 										tab={
-											<div className="tab-title">
+											<div
+												className="tab-title"
+												onClick={() =>
+													this.setState({
+														translateX: '0',
+														collapsed: false,
+													})}
+											>
 												<h5>
 													<HospitalVisitsIcon />
 													King Fahd Hospital
@@ -206,13 +215,6 @@ class Profile extends Component {
 														More Details: Lorem Ipsum is simply dummy text of the printing
 														and typesetting industry. Lorem Ipsum has been the industry’s
 														standard dummy text ever since the 1500s, when an unknown
-														printer took a galley of type and scrambled it to make a type
-														specimen book. It has survived not only five centuries, but also
-														the leap into electronic typesetting, remaining essentially
-														unchanged. It was popularised in the 1960s with the release of
-														Letraset sheets containing Lorem Ipsum passages, and more
-														recently with desktop publishing software like Aldus PageMaker
-														including versions of Lorem Ipsum.
 													</span>
 												</h6>
 											</div>
@@ -220,8 +222,16 @@ class Profile extends Component {
 									</TabPane>
 
 									<TabPane
+										className="tab-opened-content"
 										tab={
-											<div className="tab-title">
+											<div
+												className="tab-title"
+												onClick={() =>
+													this.setState({
+														translateX: '0',
+														collapsed: false,
+													})}
+											>
 												<h5>
 													<HospitalVisitsIcon />
 													King Fahd Hospital
@@ -256,13 +266,6 @@ class Profile extends Component {
 														More Details: Lorem Ipsum is simply dummy text of the printing
 														and typesetting industry. Lorem Ipsum has been the industry’s
 														standard dummy text ever since the 1500s, when an unknown
-														printer took a galley of type and scrambled it to make a type
-														specimen book. It has survived not only five centuries, but also
-														the leap into electronic typesetting, remaining essentially
-														unchanged. It was popularised in the 1960s with the release of
-														Letraset sheets containing Lorem Ipsum passages, and more
-														recently with desktop publishing software like Aldus PageMaker
-														including versions of Lorem Ipsum.
 													</span>
 												</h6>
 											</div>
@@ -270,8 +273,16 @@ class Profile extends Component {
 									</TabPane>
 
 									<TabPane
+										className="tab-opened-content"
 										tab={
-											<div className="tab-title">
+											<div
+												className="tab-title"
+												onClick={() =>
+													this.setState({
+														translateX: '0',
+														collapsed: false,
+													})}
+											>
 												<h5>
 													<HospitalVisitsIcon />
 													King Fahd Hospital
@@ -306,13 +317,6 @@ class Profile extends Component {
 														More Details: Lorem Ipsum is simply dummy text of the printing
 														and typesetting industry. Lorem Ipsum has been the industry’s
 														standard dummy text ever since the 1500s, when an unknown
-														printer took a galley of type and scrambled it to make a type
-														specimen book. It has survived not only five centuries, but also
-														the leap into electronic typesetting, remaining essentially
-														unchanged. It was popularised in the 1960s with the release of
-														Letraset sheets containing Lorem Ipsum passages, and more
-														recently with desktop publishing software like Aldus PageMaker
-														including versions of Lorem Ipsum.
 													</span>
 												</h6>
 											</div>
@@ -320,8 +324,16 @@ class Profile extends Component {
 									</TabPane>
 
 									<TabPane
+										className="tab-opened-content"
 										tab={
-											<div className="tab-title">
+											<div
+												className="tab-title"
+												onClick={() =>
+													this.setState({
+														translateX: '0',
+														collapsed: false,
+													})}
+											>
 												<h5>
 													<HospitalVisitsIcon />
 													King Fahd Hospital
@@ -356,13 +368,6 @@ class Profile extends Component {
 														More Details: Lorem Ipsum is simply dummy text of the printing
 														and typesetting industry. Lorem Ipsum has been the industry’s
 														standard dummy text ever since the 1500s, when an unknown
-														printer took a galley of type and scrambled it to make a type
-														specimen book. It has survived not only five centuries, but also
-														the leap into electronic typesetting, remaining essentially
-														unchanged. It was popularised in the 1960s with the release of
-														Letraset sheets containing Lorem Ipsum passages, and more
-														recently with desktop publishing software like Aldus PageMaker
-														including versions of Lorem Ipsum.
 													</span>
 												</h6>
 											</div>
@@ -378,35 +383,26 @@ class Profile extends Component {
 								</span>
 								<h4>Contact</h4>
 							</div>
-							<div className="container">
-								<Row>
-									<Col md={4}>
-										<h5>
-											Mobile :
-											<span> +9665049980</span>
-										</h5>
-									</Col>
-									<Col md={8}>
-										<h5>
-											Location:
-											<span>
-												<a> Al Sahafah,Riyadh 13321, Saudi Arabia</a>{' '}
-											</span>
-										</h5>
-									</Col>
-									<Col md={4}>
-										<h5>
-											Caregiver Name:
-											<span> Ahmed Ali</span>
-										</h5>
-									</Col>
-									<Col md={8}>
-										<h5>
-											Caregiver Mobile
-											<span>: +9665049981</span>
-										</h5>
-									</Col>
-								</Row>
+							<div className="contact-container ">
+								<h5>
+									Mobile :
+									<span> +9665049980</span>
+								</h5>
+
+								<h5>
+									Location:
+									<span>
+										<a> Al Sahafah,Riyadh 13321, Saudi Arabia</a>{' '}
+									</span>
+								</h5>
+								<h5>
+									Caregiver Name:
+									<span> Ahmed Ali</span>
+								</h5>
+								<h5>
+									Caregiver Mobile
+									<span>: +9665049981</span>
+								</h5>
 							</div>
 						</div>
 					</div>

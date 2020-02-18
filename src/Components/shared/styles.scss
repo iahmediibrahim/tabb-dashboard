@@ -1,3 +1,48 @@
+.ant-table table {
+
+    border-spacing: 0px 4px;
+    font-weight: 600;
+
+    .anticon {
+        font-size: 16px !important;
+    }
+
+
+    .ant-table-thead th {
+        background: transparent;
+        font-weight: 900;
+        color: #8992AD;
+        border-right: 6px solid #f4f7fa;
+
+        padding: 8px !important;
+
+        .ant-table-column-sorter-inner {
+            color: #8992AD;
+
+        }
+
+
+
+        .anticon-search,
+        .anticon-filter {
+            font-size: 18px;
+            color: #abb3c9 !important;
+        }
+    }
+
+    .ant-table-tbody td {
+        background: #fff;
+    }
+}
+
+.ant-table-thead>tr>th.ant-table-column-has-actions.ant-table-column-has-sorters:hover .ant-table-filter-icon,
+.ant-table-thead>tr>th.ant-table-column-has-actions.ant-table-column-has-filters:hover .anticon-filter:hover,
+.ant-table-thead>tr>th.ant-table-column-has-actions.ant-table-column-has-filters:hover .ant-table-filter-icon:hover,
+.ant-table-thead>tr>th.ant-table-column-has-actions.ant-table-column-has-sorters:hover,
+.ant-table-thead>tr>th .ant-table-header-column .ant-table-column-sorters:hover::before {
+    background: transparent !important;
+}
+
 .table-button {
     background-color: #fff;
     padding: 10px 25px 10px 25px;
@@ -11,6 +56,32 @@
         fill: #8992AD
     }
 }
+
+
+p.failAlert {
+
+    svg path {
+        fill: #FA6557
+    }
+
+    color: #FA6557;
+    display: flex;
+}
+
+p.high_low_Alert {
+
+    svg path {
+        fill: #FFB54C;
+
+    }
+
+    display: flex;
+    color: #FFB54C;
+}
+
+
+
+
 
 .alertType {
     display: inline-flex;
