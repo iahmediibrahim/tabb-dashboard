@@ -307,6 +307,7 @@ export default class NewPatient extends Component {
 					getPatient={this.getPatient}
 					loading={this.state.loading}
 					data={JSON.parse(JSON.stringify(patientData))}
+					rowClassName={(record, index) => (index % 2 === 0 ? 'table-row-light' : 'table-row-dark')}
 				/>
 			</div>
 		);

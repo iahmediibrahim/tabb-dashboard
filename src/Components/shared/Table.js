@@ -15,7 +15,7 @@ import {
 	HeartDynamicIcon,
 	WeightIcon,
 	TempIcon,
-	AlertIcon,
+	AlertIcon
 } from './../shared/Icons';
 
 import './styles.scss';
@@ -24,13 +24,13 @@ export default class TableLayout extends Component {
 		loading: true,
 		data: [],
 		searchText: '',
-		searchedColumn: '',
+		searchedColumn: ''
 	};
 	static getDerivedStateFromProps(nextProps, prevState) {
 		if (nextProps.data.length > 0) {
 			return {
 				loading: nextProps.loading,
-				data: nextProps.data,
+				data: nextProps.data
 			};
 		}
 		return null;
@@ -80,14 +80,14 @@ export default class TableLayout extends Component {
 				/>
 			) : (
 				text
-			),
+			)
 	});
 
 	handleSearch = (selectedKeys, confirm, dataIndex) => {
 		confirm();
 		this.setState({
 			searchText: selectedKeys[0],
-			searchedColumn: dataIndex,
+			searchedColumn: dataIndex
 		});
 	};
 
@@ -103,8 +103,8 @@ export default class TableLayout extends Component {
 		},
 		getCheckboxProps: (record) => ({
 			disabled: record.name === 'Disabled User', // Column configuration not to be checked
-			name: record.name,
-		}),
+			name: record.name
+		})
 	};
 	filterGender(text) {
 		const item = text.toString().toUpperCase();
@@ -173,6 +173,7 @@ export default class TableLayout extends Component {
 				</div>
 			);
 		}
+		return { ...this.props.text };
 	}
 
 	returnStatus(value) {
@@ -274,6 +275,52 @@ export default class TableLayout extends Component {
 			);
 		}
 	}
+
+	displayAlerts(text) {
+		const item = text.toString().toLowerCase();
+
+		// console.log(this.displayAlertsType(text));
+		if (item === 'fail') {
+			return (
+				<p className="failAlert mb-0">
+					<AlertIcon />
+					{this.capitalize(item)}
+				</p>
+			);
+		}
+		if (item === 'critical-low') {
+			return (
+				<p className="criticalLowText mb-0">
+					<AlertIcon />
+					{item.split('-')}
+				</p>
+			);
+		}
+		if (item === 'high') {
+			return (
+				<p className="highText mb-0">
+					<AlertIcon />
+					{item.split('-')}
+				</p>
+			);
+		}
+		if (item === 'normal') {
+			return (
+				<p className="normalText mb-0">
+					<AlertIcon />
+					{item.split('-')}
+				</p>
+			);
+		}
+		if (item === 'low') {
+			return (
+				<p className="lowText mb-0">
+					<AlertIcon />
+					{item.split('-')}
+				</p>
+			);
+		}
+	}
 	specificColumns() {
 		return [
 			this.props.mrn && {
@@ -281,21 +328,21 @@ export default class TableLayout extends Component {
 				dataIndex: 'mrn',
 				sorter: (a, b) => a.mrn - b.mrn,
 				sortDirections: [ 'descend', 'ascend' ],
-				...this.getColumnSearchProps('mrn'),
+				...this.getColumnSearchProps('mrn')
 			},
 			this.props.firstName && {
 				title: 'First Name',
 				dataIndex: 'firstName',
 				sorter: (a, b) => a.firstName.length - b.firstName.length,
 				sortDirections: [ 'descend', 'ascend' ],
-				...this.getColumnSearchProps('firstName'),
+				...this.getColumnSearchProps('firstName')
 			},
 			this.props.lastName && {
 				title: 'Last Name',
 				dataIndex: 'lastName',
 				sorter: (a, b) => a.lastName.length - b.lastName.length,
 				sortDirections: [ 'descend', 'ascend' ],
-				...this.getColumnSearchProps('lastName'),
+				...this.getColumnSearchProps('lastName')
 			},
 			this.props.criticality && {
 				title: 'Criticality',
@@ -303,7 +350,7 @@ export default class TableLayout extends Component {
 				sorter: (a, b) => a.criticality.length - b.criticality.length,
 				sortDirections: [ 'descend', 'ascend' ],
 				...this.getColumnSearchProps('Criticality'),
-				render: (text) => this.displayCriticality(text),
+				render: (text) => this.displayCriticality(text)
 			},
 			this.props.measurements && {
 				title: 'Measurements',
@@ -311,7 +358,7 @@ export default class TableLayout extends Component {
 				sorter: (a, b) => a.measurements.length - b.measurements.length,
 				sortDirections: [ 'descend', 'ascend' ],
 				...this.getColumnSearchProps('measurements'),
-				render: (text) => this.displayMeasurements(text),
+				render: (text) => this.displayMeasurements(text)
 			},
 			this.props.diagnosis && {
 				title: 'Diagnosis',
@@ -320,7 +367,7 @@ export default class TableLayout extends Component {
 				sorter: (a, b) => a.diagnosis.length - b.diagnosis.length,
 				sortDirections: [ 'descend', 'ascend' ],
 				...this.getColumnSearchProps('diagnosis'),
-				render: (text) => this.displayArrayItems(text),
+				render: (text) => this.displayArrayItems(text)
 			},
 
 			this.props.gender && {
@@ -330,29 +377,29 @@ export default class TableLayout extends Component {
 				filters: [
 					{
 						text: 'Female',
-						value: 'FEMALE',
+						value: 'FEMALE'
 					},
 					{
 						text: 'Male',
-						value: 'MALE',
-					},
+						value: 'MALE'
+					}
 				],
 				onFilter: (value, record) => record.gender.indexOf(value) === 0,
-				render: (text) => this.filterGender(text),
+				render: (text) => this.filterGender(text)
 			},
 			this.props.age && {
 				title: 'age',
 				dataIndex: 'age',
 				sorter: (a, b) => a.age - b.age,
 				sortDirections: [ 'descend', 'ascend' ],
-				...this.getColumnSearchProps('age'),
+				...this.getColumnSearchProps('age')
 			},
 			this.props.dateCreated && {
 				title: 'dateCreated',
 				dataIndex: 'dateCreated',
 				sorter: (a, b) => a.dateCreated.length - b.dateCreated.length,
 				sortDirections: [ 'descend', 'ascend' ],
-				...this.getColumnSearchProps('dateCreated'),
+				...this.getColumnSearchProps('dateCreated')
 			},
 			this.props.assignAction && {
 				title: 'Action',
@@ -364,7 +411,7 @@ export default class TableLayout extends Component {
 							<AssignIcon />
 						</Link>
 					</button>
-				),
+				)
 			},
 			this.props.referAction && {
 				title: 'Action',
@@ -374,7 +421,7 @@ export default class TableLayout extends Component {
 					<button className="table-button" onClick={this.props.assignClick}>
 						<ReferIcon />
 					</button>
-				),
+				)
 			},
 
 			this.props.abNormal && {
@@ -383,7 +430,7 @@ export default class TableLayout extends Component {
 				sorter: (a, b) => a.abNormal.length - b.abNormal.length,
 				sortDirections: [ 'descend', 'ascend' ],
 				...this.getColumnSearchProps('abNormal'),
-				render: (text) => this.displayAlertsType(text),
+				render: (text) => this.displayAlertsType(text)
 			},
 			this.props.alert && {
 				title: 'alert',
@@ -391,13 +438,14 @@ export default class TableLayout extends Component {
 				sorter: (a, b) => a.alert.length - b.alert.length,
 				sortDirections: [ 'descend', 'ascend' ],
 				...this.getColumnSearchProps('alert'),
+				render: (text) => this.displayAlerts(text)
 			},
 			this.props.lastRead && {
 				title: 'lastRead',
 				dataIndex: 'lastRead',
 				sorter: (a, b) => a.lastRead.length - b.lastRead.length,
 				sortDirections: [ 'descend', 'ascend' ],
-				...this.getColumnSearchProps('lastRead'),
+				...this.getColumnSearchProps('lastRead')
 			},
 
 			this.props.status && {
@@ -405,8 +453,8 @@ export default class TableLayout extends Component {
 				dataIndex: 'status',
 				sorter: (a, b) => a.status.length - b.status.length,
 				sortDirections: [ 'descend', 'ascend' ],
-				...this.getColumnSearchProps('status'),
-			},
+				...this.getColumnSearchProps('status')
+			}
 		];
 	}
 	render() {
@@ -423,7 +471,7 @@ export default class TableLayout extends Component {
 					((record) => ({
 						onClick: () => {
 							this.props.rowClick(record);
-						},
+						}
 					}))
 				}
 			/>

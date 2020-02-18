@@ -15,7 +15,13 @@ const AlertData = [
 		lastName: 'ahmed',
 		age: '23',
 		abNormal: 'heart-rate',
-		alert: 'fail',
+		alert: [
+			{
+				type: '',
+				value: '120bpm',
+				criticality: 'high'
+			}
+		],
 		lastRead: '22/11/2021',
 		status: 'unread'
 	},
@@ -26,9 +32,15 @@ const AlertData = [
 		lastName: 'ahmed',
 		age: '23',
 		abNormal: 'SpO2',
-		alert: '120',
 		lastRead: '22/11/2021',
-		status: 'unread'
+		status: 'unread',
+		alert: [
+			{
+				type: '',
+				value: '120%',
+				criticality: 'high'
+			}
+		]
 	},
 	{
 		key: '3',
@@ -37,9 +49,16 @@ const AlertData = [
 		lastName: 'ahmed',
 		age: '23',
 		abNormal: 'Bl.Pressure',
-		alert: '163/105',
+		alert: [
+			{
+				type: '',
+				value: '115mmHg',
+				criticality: 'critical-low'
+			}
+		],
 		lastRead: '22/11/2021',
-		status: 'unread'
+		status: 'unread',
+		criticality: 'low'
 	},
 	{
 		key: '4',
@@ -48,7 +67,13 @@ const AlertData = [
 		lastName: 'ahmed',
 		age: '23',
 		abNormal: 'BG(b.meal)',
-		alert: '163/105',
+		alert: [
+			{
+				type: '',
+				value: '163/105',
+				criticality: 'critical-high'
+			}
+		],
 		lastRead: '22/11/2021',
 		status: 'unread'
 	},
@@ -59,7 +84,13 @@ const AlertData = [
 		lastName: 'ahmed',
 		age: '23',
 		abNormal: 'motion',
-		alert: '115 ',
+		alert: [
+			{
+				type: 'fail',
+				value: '',
+				criticality: 'critical-high'
+			}
+		],
 		lastRead: '22/11/2021',
 		status: 'unread'
 	}
