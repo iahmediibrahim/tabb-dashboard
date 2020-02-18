@@ -1,0 +1,338 @@
+.ant-drawer.ant-drawer-open .ant-drawer-mask {
+    opacity: 0;
+    display: none;
+}
+
+.ant-drawer-content {
+    overflow: visible;
+}
+
+.ant-drawer {
+    width: 240px !important;
+}
+
+.open-content {
+    .ant-drawer-content-wrapper {
+        width: 256px !important;
+        top: 80px;
+    }
+}
+
+.close-content {
+    .ant-drawer-content-wrapper {
+        width: 900px !important;
+        top: 80px;
+    }
+}
+
+
+.ant-drawer-body {
+    padding: 0;
+}
+
+.collapseMenu {
+    left: -17px;
+    position: absolute;
+    padding: 60px 2px 80px 2px !important;
+    background: #fff;
+    box-shadow: 0 0 0 0 !important;
+    border: 0;
+    border-radius: 0;
+    color: #0070b9 !important;
+    font-weight: 900;
+}
+
+.collapseMenu:hover {
+    background-color: #fff !important;
+}
+
+.patient-profile {
+    width: 100% !important;
+
+    .profile-generalTitle {
+        padding: 20px;
+        background-color: #EEF4FB;
+        display: inline-flex;
+        width: 100%;
+
+        h4 {
+            color: #5C6D96;
+            font-family: 'Inter-semiBold';
+            font-weight: 300;
+            font-size: 15px;
+            margin-top: 3px;
+        }
+
+        span {
+            margin-right: 10px;
+        }
+    }
+
+    .details {
+        margin: 20px;
+        margin-bottom: 20px;
+
+        h5 {
+            color: #5C6D96;
+            font-size: 14px;
+            font-family: 'Inter-semiBold';
+            margin-bottom: 10px;
+
+            span {
+                color: #1A243B;
+                font-family: 'Inter-Regular';
+                margin-left: 6px;
+            }
+        }
+
+    }
+
+    .profile-header {
+        background-color: #fff;
+        display: flex;
+
+        .media {
+            background-color: #0070B9;
+            background-image: linear-gradient(to right, #0070B9, #6DD3F9);
+            width: 30%;
+            padding: 15px;
+
+            img {
+                width: 60px;
+                height: 60px;
+                border: 1px solid #ffffff;
+            }
+
+            h4 {
+                font-size: 14px;
+                font-family: 'Inter-Bold';
+                color: #ffffff;
+            }
+
+            p {
+                font-size: 14px;
+                font-family: 'Inter-Regular';
+                color: #ffffff;
+            }
+        }
+
+        .patient-db {
+            width: 70%;
+            display: inline-flex;
+            margin-top: 38px;
+            text-align: center;
+
+            .db-item {
+                width: 30%;
+
+                h5 {
+                    color: #8992AD;
+                    font-size: 14px;
+                    font-family: 'Inter-Bold';
+                    letter-spacing: 1px;
+                }
+
+                span {
+                    color: #1A243B;
+                    font-size: 14px;
+                    font-family: 'Inter-Regular';
+                }
+            }
+        }
+    }
+
+    .allergiesMedication {
+        h5 {
+            color: #5C6D96;
+            font-size: 12px;
+            font-family: 'Inter-Regular';
+            padding-left: 20px;
+            padding-top: 15px;
+
+            span {
+                color: #1A243B;
+                font-size: 12px;
+            }
+        }
+    }
+
+    .recentVisits {
+        margin-top: 15px;
+
+    }
+
+    .ant-tabs-ink-bar {
+        display: none !important;
+    }
+
+    .recentVisits-Tabs {
+        margin: 20px;
+    }
+
+    .ant-tabs-tab {
+        margin: 0 15px 0 0 !important;
+        padding: 0 !important;
+        padding-bottom: 1px !important;
+    }
+
+
+    .tab-title {
+        padding: 10px 15px 10px 15px;
+        border: 1px solid #ABB3C9;
+
+    }
+
+    .ant-tabs-tab-active .tab-title {
+        background-color: #EEF4FB;
+        color: #5C6D96;
+    }
+
+    .tab-title {
+
+        h5,
+        p {
+            color: #5C6D96;
+            font-size: 13px;
+            font-family: 'Inter-Regular';
+        }
+
+        p {
+            padding-bottom: 0 !important;
+            margin-bottom: 0 !important;
+        }
+    }
+
+    .tab-opened-body {
+        border: 1px solid #ABB3C9;
+
+        .tab-opened-header {
+            background-color: #EEF4FB;
+            display: inline-flex;
+            width: 100%;
+            padding: 20px;
+
+            span {
+                margin-right: 10px;
+            }
+
+            h4 {
+                color: #5C6D96;
+                font-size: 14px;
+                font-family: 'Inter-Regular';
+                margin-top: 3px;
+            }
+        }
+
+        .tab-opened-content {
+            padding-left: 20px;
+            padding-right: 20px;
+
+            h6 {
+                color: #8992AD;
+                font-size: 12px;
+                font-family: 'Inter-Bold';
+                width: 30%;
+                display: inline-block;
+                margin-top: 20px;
+
+                span {
+                    color: #1A243B;
+                    font-size: 12px;
+                    font-family: 'Inter-Regular';
+                    margin-left: 5px;
+                }
+            }
+
+            h6:nth-last-child(1) {
+                width: 100% !important;
+                margin-top: 15px;
+
+                span {
+                    line-height: 2;
+                }
+            }
+        }
+    }
+
+    .patient-contacts {
+
+        h5 {
+            color: #8992AD;
+            font-size: 14px;
+            font-family: 'Inter-Bold';
+        }
+
+        span {
+            color: #1A243B;
+            font-size: 14px;
+            font-family: 'Inter-Regular';
+
+            a {
+                color: #2187FF;
+                font-size: 15px;
+            }
+        }
+
+        .container {
+            margin-top: 20px;
+        }
+    }
+
+}
+
+.collapseMenu {
+    left: -17px;
+    position: absolute;
+    padding: 60px 2px 80px 2px !important;
+    background: #fff;
+    box-shadow: 0 0 0 0 !important;
+    border: 0;
+    border-radius: 0;
+    color: #0070b9 !important;
+    font-weight: 900;
+}
+
+.collapseMenu:hover {
+    background-color: #fff !important;
+}
+
+.collapseMenu:focus {
+    background-color: #fff !important;
+    border: 0 !important;
+    box-shadow: 0 0 0 0 !important;
+}
+
+.patient-profile.closed {
+
+    .profile-header {
+        display: contents;
+
+        .media {
+            width: 100%;
+        }
+
+        .patient-db {
+            width: 100%;
+            display: contents;
+            text-align: left;
+
+            .db-item {
+                width: 100%;
+                margin-left: 20px;
+                margin-top: 12px;
+            }
+        }
+    }
+
+    .tab-opened-body {
+        display: none;
+    }
+
+    .ant-tabs-tab {
+        display: contents;
+    }
+
+    .tab-title {
+        display: flex;
+    }
+}

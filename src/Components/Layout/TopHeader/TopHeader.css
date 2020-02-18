@@ -1,0 +1,52 @@
+.top_Header {
+    height: 60px;
+    background-color: #fff;
+    text-transform: capitalize;
+}
+
+.top_Header .main_title {
+    color: #1A243B;
+    font-size: 18px;
+    font-family: 'Inter-Bold';
+    display: inline-block;
+    padding-top: 18px;
+}
+
+.dropdown-menu.show {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    transform: translate3d(-55px, 40px, 0px) !important;
+    will-change: transform;
+}
+
+.login_profile {
+    display: flex;
+    float: right;
+    /* margin-right: 150px; */
+    padding-top: 10px;
+}
+
+.user-details {
+    margin-right: 50px;
+
+}
+
+.login_profile img {
+    border: 1px solid rgba(39, 129, 255, 0.2);
+}
+
+.user-details span {
+    font-family: 'Inter-SemiBold';
+    font-size: 12px;
+    margin-left: 10px;
+    text-transform: capitalize;
+}
+
+.dropdown-toggle::after {
+    background-image: url(../../../assets/img/icons/arrow-down.svg);
+}
+
+.dropdown.nav-item a {
+    color: #95989A !important;
+}

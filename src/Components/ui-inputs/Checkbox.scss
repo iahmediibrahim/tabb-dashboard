@@ -1,0 +1,101 @@
+@font-face {
+    font-family: 'Inter-Regular';
+    src: url('./../../assets/fonts/Inter-Regular.woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Inter-Bold';
+    src: url('./../../assets/fonts/Inter-Bold.woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Inter-SemiBold';
+    src: url('./../../assets/fonts/Inter-SemiBold.woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.Checkbox .form-check {
+    width: 75%;
+    background: #fff !important;
+    padding: 10px;
+    border-right: 3px solid #0070b9 !important;
+}
+
+.checked-item {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    cursor: pointer;
+    font-size: 14px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    color: #1A243B;
+    font-family: 'Inter-Regular';
+    margin-top: 5px;
+
+}
+
+/* Hide the browser's default checkbox */
+.checked-item input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 18px;
+    width: 18px;
+    background-color: #eee;
+}
+
+/* On mouse-over, add a grey background color */
+.checked-item:hover input~.checkmark {
+    background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.checked-item input:checked~.checkmark {
+    background-color: #0070B9;
+    margin-left: 15px;
+    margin-right: 5px;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkmark when checked */
+.checked-item input:checked~.checkmark:after {
+    display: block;
+}
+
+/* Style the checkmark/indicator */
+.checked-item .checkmark:after {
+    left: 6px;
+    top: 4px;
+    width: 4px;
+    height: 8px;
+    border: solid white;
+    border-width: 0 1px 1px 0;
+    transform: rotate(45deg);
+}
+
+span.icon {
+    float: right;
+}

@@ -1,0 +1,226 @@
+.formWrapper {
+    min-height: 100vh;
+    background: url(../../assets/img/layout/formWrapperbg.jpg) no-repeat center center;
+    background-size: cover;
+    position: relative;
+    padding-top: 133px;
+}
+
+.tabb-logo {
+    width: 95px;
+    height: 110px;
+}
+
+.tabb-logo img {
+    width: 100%;
+}
+
+.tabb-info h1 {
+    font-size: 18px;
+    color: #fff;
+    margin-top: 45px;
+    font-family: 'Inter-Bold';
+}
+
+.tabb-info p {
+    font-size: 15px;
+    color: #fff;
+    margin-top: 15px;
+    font-family: 'Inter-Regular';
+}
+
+.innerForm {
+    width: 100%;
+    margin-top: 1px;
+    box-shadow: 0px 12px 24px #00000029;
+    -webkit-box-shadow: 0px 12px 24px #00000029;
+    -moz-box-shadow: 0px 12px 24px #00000029;
+    -ms-box-shadow: 0px 12px 24px #00000029;
+    -o-box-shadow: 0px 12px 24px #00000029;
+    background-color: #ffffff;
+    opacity: 1;
+    padding: 50px;
+}
+
+.innerForm input:not([type='checkbox']) {
+    width: 100% !important;
+    border: 1px solid #ABB3C980;
+    appearance: unset;
+    -moz-appearance: unset;
+    -webkit-appearance: unset;
+    -o-appearance: unset;
+    -ms-appearance: unset;
+    outline: none;
+    -moz-outline: none;
+    -webkit-outline: none;
+    -o-outline: none;
+    -ms-outline: none;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    border-radius: 0 !important;
+    position: relative;
+    order: 2;
+    height: 45px;
+}
+
+.innerForm .form-control:focus {
+    color: #495057;
+    background-color: #fff;
+    outline: 0 !important;
+    box-shadow: 0 0 0 0 !important;
+    border: 1px solid #087FFD !important;
+}
+
+.input-group:focus .input-group-text {
+    border-left: 1px solid #0070B9 !important;
+}
+
+
+button:disabled {
+    background-color: #0070B9 !important;
+    opacity: 0.3 !important;
+}
+
+.innerForm button {
+    width: 100%;
+    text-align: center;
+    background-color: #0070B9;
+    background: #0070B9 0% 0% no-repeat;
+    opacity: 1;
+    padding: 15px;
+    color: #ffffff;
+    box-shadow: 0 !important;
+    border: 0 !important;
+    margin-top: 20px;
+    font-family: 'Inter-Bold';
+    font-size: 15px;
+}
+
+.form-check {
+    padding-left: 0 !important;
+    display: inline-block !important;
+    margin-top: 10px;
+}
+
+input[type=checkbox] {
+    display: none;
+}
+
+/* to hide the checkbox itself */
+input[type=checkbox]+label:before {
+    font-family: FontAwesome;
+    display: inline-block;
+}
+
+input[type=checkbox]+label:before {
+    content: "\f096";
+}
+
+/* unchecked icon */
+input[type=checkbox]+label:before {
+    letter-spacing: 10px;
+}
+
+/* space between checkbox and label */
+
+input[type=checkbox]:checked+label:before {
+    content: "\f046";
+}
+
+/* checked icon */
+input[type=checkbox]:checked+label:before {
+    letter-spacing: 5px;
+    color: #0070b9;
+}
+
+/* allow space for check mark */
+
+a.forgetPassword {
+    float: right;
+    margin-top: 10px;
+    text-decoration: none !important;
+}
+
+.innerForm .form-control::-webkit-input-placeholder {
+    /* Edge */
+    font-size: 12px;
+}
+
+.innerForm .form-control:-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    font-size: 12px;
+}
+
+.innerForm .form-control::placeholder {
+    font-size: 12px;
+}
+
+.input-group {
+    display: flex !important;
+}
+
+.text-danger {
+    font-size: 15px;
+    font-family: 'Inter-Regular';
+    color: #FF2F3E !important;
+}
+
+input.has-error {
+    border: 1px solid rgba(255, 47, 62, 0.5) !important;
+}
+
+input.has-error~span {
+    border-left: 1px solid #FF2F3E !important;
+    border-radius: 0 !important;
+}
+
+input.has-error~span .fa {
+    color: #FF2F3E !important;
+}
+
+
+input.success {
+    border: 1px solid rgba(53, 204, 98, 0.5) !important;
+}
+
+input.success~span {
+    border-left: 1px solid #35CC62 !important;
+    border-radius: 0 !important;
+}
+
+input.success~span .fa {
+    color: #35CC62 !important;
+}
+
+.text-success {
+    color: #31CE79 !important;
+    font-size: 15px;
+    font-family: 'Inter-Regular';
+}
+
+.input-group-text .fa {
+    color: #ABB3C9 !important;
+}
+
+.form-title {
+    color: #1A243B;
+    font-size: 25px;
+    font-family: 'Inter-Bold';
+
+}
+
+.input-group-text {
+    border-radius: 0 !important;
+    background-color: #EFF4FB !important;
+    border: 0 !important;
+    border-left: 1px solid #707070 !important;
+    padding: 0 !important;
+    width: 50px !important;
+    padding-left: 18px !important;
+}
+
+.form-group label {
+    font-family: 'Inter-Regular';
+    font-size: 15px;
+}

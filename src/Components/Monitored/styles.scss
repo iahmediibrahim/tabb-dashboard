@@ -1,0 +1,456 @@
+$green: #35CC62;
+$yellow: #FFB54C;
+$red: #FA6557;
+
+
+.monitoredPatients {
+    .measurements-icons {
+        margin-bottom: 5px;
+        display: inline-block;
+
+        .anticon svg {
+            width: 24px;
+            height: 24px;
+
+            path {
+                fill: #abb3c9;
+            }
+        }
+    }
+
+    .searchComponent {
+        position: absolute;
+        width: 50%;
+        top: 5px;
+    }
+
+    .measurements-icons>span {
+        margin-right: 8px;
+    }
+
+    .extraAction {
+        position: absolute;
+        top: 0;
+
+        .selected-patients {
+            display: inline;
+            padding-left: 1rem;
+            color: #2187FF;
+        }
+    }
+
+    .ant-card-body {
+        padding: 0;
+    }
+
+    .list-wrapper {
+
+        .list-title {
+            color: #5C6D96;
+            font-size: 16px;
+            margin-bottom: 0;
+            padding-left: 16px;
+
+        }
+
+        .ant-list-item {
+            padding: 10px 16px;
+
+            i svg path {
+                fill: red;
+            }
+
+            h4 {
+                color: #1A243B;
+                font-size: 16px;
+                font-weight: 600;
+
+            }
+
+            .ant-list-item-meta-description {
+                color: #8992AD;
+
+            }
+
+            .left-content {
+                margin-top: -26px;
+            }
+        }
+    }
+
+    .ant-tabs-bar {
+        border: 0;
+    }
+
+    .ant-tabs-ink-bar.ant-tabs-ink-bar-animated {
+        width: 100px !important;
+        left: 3px;
+    }
+
+    .ant-tabs-nav-scroll {
+        justify-content: flex-end;
+        display: flex;
+
+        .ant-tabs-tab {
+            border: 1px solid #2781FF33;
+            background-color: #2187FF1A;
+            border-radius: 5px;
+            padding: 8px 16px;
+            margin-bottom: 1px;
+            color: #2187FF;
+            transition: all .2s ease-in-out;
+
+            span {
+                display: inline-flex;
+                align-items: center;
+            }
+
+            &:hover,
+            &-active {
+                background-color: #2187FF;
+                border-color: #2187FF;
+                color: #fff;
+            }
+
+
+        }
+    }
+
+    .nav-tabs {
+        border-bottom: 0 !important;
+    }
+
+    .active span {
+        color: unset !important;
+    }
+
+
+    .ant-divider-horizontal {
+        margin: 10px 0;
+
+    }
+
+    .user-badge {
+
+
+        margin-bottom: 10px;
+
+        .ant-list-item-meta-avatar {
+            margin-left: 16px;
+            border: 1px solid #FFFFFF;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #fff;
+
+            .ant-avatar {
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+        .ant-list-item-meta-title {
+            color: #1A243B;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .ant-list-item-meta-description {
+            color: #5C6D96;
+        }
+    }
+
+    .border-red {
+        .bg {
+            color: #fff;
+            background-color: $red;
+
+            &.highlight {
+                padding: 5px 10px;
+                border-top-left-radius: 15px;
+                border-bottom-left-radius: 15px;
+            }
+        }
+
+        .user-badge {
+            &.badge-bg {
+                background-color: #FEE0DD;
+
+                &.anticon {
+                    padding: 10px;
+                    border-radius: 5px;
+
+                    svg path {
+                        fill: $red;
+                    }
+                }
+            }
+
+
+        }
+    }
+
+    .border-yellow {
+        .bg {
+            color: #fff;
+            background-color: $yellow;
+
+            &.highlight {
+                padding: 5px 10px;
+                border-top-left-radius: 15px;
+                border-bottom-left-radius: 15px;
+            }
+        }
+
+        .user-badge {
+            &.badge-bg {
+                background-color: #FFF0DB;
+
+                &.anticon {
+                    padding: 10px;
+                    border-radius: 5px;
+
+                    svg path {
+                        fill: $yellow;
+                    }
+                }
+            }
+
+
+        }
+    }
+
+    .border {
+        border: 1px solid $red;
+
+        .bg {
+            color: #fff;
+            background-color: $green;
+
+            &.highlight {
+                padding: 5px 10px;
+                border-top-left-radius: 15px;
+                border-bottom-left-radius: 15px;
+            }
+        }
+
+        .user-badge {
+            &.badge-bg {
+                background-color: #fff;
+
+                &.anticon {
+                    padding: 10px;
+                    border-radius: 5px;
+
+                    svg path {
+                        fill: $green;
+                    }
+                }
+            }
+
+
+        }
+    }
+
+    .list-wrapper {
+
+        .criticalHigh,
+        .criticalLow {
+            .left-content {
+                color: $red;
+            }
+
+            i {
+                padding: 10px;
+                background-color: #FEE0DD;
+                border-radius: 5px;
+
+                svg {
+                    width: 18px;
+                    height: 18px;
+
+                    path {
+                        fill: $red;
+                    }
+                }
+            }
+        }
+
+        .high,
+        .low {
+            .left-content {
+                color: $yellow;
+            }
+
+            i {
+                padding: 10px;
+                background-color: #FFF0DB;
+                border-radius: 5px;
+
+                svg {
+                    width: 18px;
+                    height: 18px;
+
+                    path {
+                        fill: $yellow;
+                    }
+                }
+            }
+        }
+
+        .normal {
+            .left-content {
+                color: $green;
+            }
+
+            i {
+                padding: 10px;
+                background-color: #EAFAEF;
+                border-radius: 5px;
+
+                svg {
+                    width: 18px;
+                    height: 18px;
+
+                    path {
+                        fill: $green;
+                    }
+                }
+            }
+        }
+    }
+
+    table {
+
+
+        .criticalHigh,
+        .criticalLow {
+
+            position: relative;
+
+            &Text {
+                color: #FA6557;
+                display: flex;
+
+                i {
+                    padding-right: 5px;
+
+                    svg path {
+                        fill: #FA6557;
+                    }
+                }
+            }
+
+            &::after {
+                content: ' ';
+                position: absolute;
+                width: 8px;
+                height: 8px;
+                background: #FA6557;
+                bottom: -16px;
+                border-radius: 5px;
+                right: -7px;
+
+            }
+        }
+
+        .high,
+        .low {
+
+            position: relative;
+
+            &Text {
+                color: #FFB54C;
+                display: flex;
+
+                i {
+                    padding-right: 5px;
+
+                    svg path {
+                        fill: #FFB54C;
+                    }
+                }
+            }
+
+            &::after {
+                content: ' ';
+                position: absolute;
+                width: 8px;
+                height: 8px;
+                background: #FFB54C;
+                bottom: -16px;
+                border-radius: 5px;
+                right: -23px;
+
+            }
+        }
+
+        .normal {
+
+            &Text {
+                color: #35CC62;
+
+                display: flex;
+
+                i {
+                    padding-right: 5px;
+
+                    svg path {
+                        fill: #35CC62;
+                    }
+                }
+            }
+
+            position: relative;
+
+            &::after {
+                content: ' ';
+                position: absolute;
+                width: 8px;
+                height: 8px;
+                background: #35CC62;
+                bottom: -16px;
+                border-radius: 5px;
+                right: -18px;
+            }
+        }
+
+        .temp,
+        .weight,
+        .bp {
+
+            .criticalHigh,
+            .criticalLow {
+
+                &::after {
+
+                    bottom: -18px;
+                    right: -20px;
+
+                }
+            }
+
+            .high,
+            .low {
+
+
+                &::after {
+
+                    bottom: -18px;
+                    right: -20px;
+
+                }
+            }
+
+            .normal {
+
+
+                &::after {
+
+                    bottom: -18px;
+                    right: -20px;
+                }
+            }
+        }
+    }
+}

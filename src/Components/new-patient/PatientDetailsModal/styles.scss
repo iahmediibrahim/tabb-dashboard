@@ -1,0 +1,144 @@
+.patient-details-modal {
+    padding-left: 20px;
+    padding-right: 20px;
+
+    .patient-modal-header {
+        padding-top: 15px;
+        padding-bottom: 15px;
+        border-bottom: 1px solid #ABB3C9;
+
+        h4 {
+            color: #8992AD;
+            font-size: 14px;
+            text-transform: uppercase;
+            font-family: 'Inter-Bold';
+            display: inline-block
+        }
+
+        span {
+            margin-left: 10px;
+        }
+
+        i {
+            margin-left: 15px;
+        }
+    }
+
+    .patient-modal-content {
+        h5 {
+            color: #8992AD;
+            font-size: 13px;
+            text-transform: uppercase;
+            font-family: 'Inter-Bold';
+            margin-top: 20px;
+
+            i {
+                text-align: right;
+                margin-right: 5%;
+                float: right;
+            }
+
+        }
+
+
+        span {
+            color: #1A243B;
+            font-family: 'Inter-Regular';
+            margin-left: 10px;
+
+        }
+
+        span {
+            a {
+                color: #2187FF;
+                font-family: 'Inter-Regular';
+            }
+
+        }
+    }
+
+    .patient-diagnoses {
+        h4 {
+            color: #0070B9;
+            font-size: 14px;
+            font-family: 'Inter-Bold';
+            margin-top: 20px;
+            margin-bottom: 15px;
+        }
+
+        .diagnoses-type {
+            h3 {
+                color: #8992AD;
+                font-size: 14px;
+                font-family: 'Inter-Regular';
+                display: inline-block;
+                margin-left: 7px;
+            }
+
+            h6 {
+                color: #1A243B;
+                font-size: 13px;
+                font-family: 'Inter-Regular';
+            }
+
+        }
+    }
+
+    .patient-modal-footer {
+        padding-top: 15px;
+        padding-bottom: 15px;
+
+        button {
+
+
+            border-radius: 0;
+            border: 0;
+            color: #fff;
+            padding: 15px;
+            box-shadow: 0 0 0 0;
+            margin-right: 15px;
+
+            a {
+                display: inline-flex;
+
+                color: currentColor;
+                text-decoration: none;
+            }
+
+            i {
+                margin-left: 10px;
+            }
+        }
+
+        button:first-child {
+            background-color: #2781FF;
+
+            svg path {
+                fill: #fff;
+            }
+        }
+
+        button:last-child {
+            background-color: transparent;
+            color: #5C6D96;
+
+            svg path {
+                fill: #5C6D96;
+            }
+        }
+
+
+    }
+}
+
+.Alerts {
+    table {
+        &tr.not-read {
+            border-left: 5px solid #000;
+        }
+    }
+
+    .ant-modal-body {
+        padding: 0 !important;
+    }
+}

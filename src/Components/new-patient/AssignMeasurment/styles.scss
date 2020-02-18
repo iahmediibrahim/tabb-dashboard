@@ -1,0 +1,131 @@
+.tab_card {
+    margin-bottom: 40px;
+
+
+    .card_heading {
+        background-color: #0070B9;
+        padding: 20px 0px 20px 25px;
+        color: #FFFFFF;
+        font-size: 16px;
+        font-family: 'Inter-Bold';
+        margin-bottom: 0;
+    }
+
+    .card_fields {
+        background-color: #FFFFFF;
+        padding: 40px;
+    }
+
+    .card_fields>div>div {
+        border: 1px solid #ABB3C9;
+        padding-left: 0;
+        padding-right: 0;
+        border-right: 0;
+    }
+
+    .card_fields>div>div:last-child {
+        border-right: 1px solid #ABB3C9;
+    }
+
+}
+
+.field_item {
+    .item_Header {
+        border-bottom: 1px solid #ABB3C9;
+        padding: 10px 10px 10px 10px;
+
+        h4 {
+            color: #5C6D96;
+            font-family: 'Inter-Bold';
+            font-size: 14px;
+            display: inline-block;
+            text-transform: capitalize;
+        }
+
+        img {
+            margin-right: 15px;
+        }
+    }
+
+    .item_body {
+        margin-top: 10px;
+        margin-bottom: 10px;
+
+        span {
+            padding-right: 5px;
+        }
+
+        p {
+            padding-left: 10px;
+            display: inline-block;
+            margin-bottom: 5px;
+        }
+    }
+
+}
+
+.choose_measurments {
+    h5 {
+        color: #1A243B;
+        font-size: 16px;
+        font-family: 'Inter-Bold';
+        text-transform: capitalize;
+    }
+}
+
+.measu_details {
+    .form-group {
+        display: inline-flex;
+        width: 100%;
+
+        label {
+            margin-top: 15px;
+        }
+
+        input,
+        select {
+            border: 0 !important;
+            border-bottom: 1px solid #5C6D96 !important;
+            border-radius: 0 !important;
+            margin-left: 10px;
+            background-color: transparent;
+            height: calc(1.5em + .75rem + 2px);
+            padding: .375rem .75rem;
+        }
+
+        input {
+            width: 70px !important;
+            margin-top: -3px;
+        }
+
+        select {
+            width: 130px !important;
+            font-size: 14px;
+        }
+
+        p {
+            margin-top: 15px;
+            margin-left: 25px;
+        }
+
+        span {
+            font-family: 'Inter-Bold';
+            margin-left: 25px;
+            font-size: 14px;
+        }
+
+        .form-control:focus {
+            box-shadow: 0 0 0 0 !important;
+        }
+
+    }
+
+    h6 {
+        color: #5C6D96;
+        font-family: 'Inter-Bold';
+        margin-top: 25px !important;
+        margin-bottom: 15px;
+        font-size: 14px;
+    }
+
+}

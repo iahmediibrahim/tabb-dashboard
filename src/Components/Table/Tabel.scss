@@ -1,0 +1,306 @@
+@font-face {
+  font-family: 'Inter-Bold';
+  src: url('./../../assets/fonts/Inter-Bold.woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Inter-SemiBold';
+  src: url('./../../assets/fonts/Inter-SemiBold.woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Inter-Regular';
+  src: url('./../../assets/fonts/Inter-Regular.woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/*Pagination*/
+.Table__itemCount {
+  /* margin-top: 10px; */
+  font-size: 14px;
+}
+
+.Table__pagination {
+  display: flex;
+  justify-content: flex-end;
+  padding: 20px 10px;
+}
+
+.Table__pageButton {
+  font-size: 15px;
+  outline: none;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.Table__pageButton:disabled {
+  cursor: not-allowed;
+  color: gray;
+}
+
+.Table__pageButton--active {
+  color: #45b3e3;
+  font-weight: bold;
+}
+
+/*Table Customization*/
+
+.ReactTable {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  border: 0 !important;
+  margin-top: 30px;
+}
+
+.Table__pagination {
+  display: flex;
+  justify-content: flex-start !important;
+  padding: 20px 10px;
+}
+
+.ReactTable .rt-thead .rt-tr {
+  text-align: left !important;
+}
+
+.ReactTable .rt-thead.-header {
+  margin-bottom: 30px;
+  box-shadow: 0 0 0 0 !important;
+}
+
+.ReactTable .rt-thead.-headerGroups {
+  display: none;
+}
+
+.ReactTable .rt-tbody {
+  margin-top: 15px;
+}
+
+.ReactTable .rt-thead .rt-th {
+  color: #8992AD;
+  text-transform: uppercase !important;
+  border-right: 0 !important;
+  font-size: 12px;
+  font-weight: bold;
+  padding-bottom: 15px;
+  font-family: 'Inter-Bold';
+
+}
+
+.ReactTable .rt-thead.-filters input,
+.ReactTable .rt-thead.-filters select {
+  border: 0 !important;
+  border-bottom: 1px solid #ABB3C9 !important;
+  border-radius: 0 !important;
+  background-color: #fff;
+  width: 85% !important;
+
+}
+
+
+.ReactTable .rt-thead.-filters {
+  background-color: #fff;
+}
+
+.ReactTable .rt-thead.-filters:last-child {
+  border: 0 !important
+}
+
+.ReactTable .rt-thead.-filters .rt-th:last-child,
+.ReactTable .rt-thead.-filters .rt-th:nth-last-child(2) {
+  background-color: #f4f7fa !important;
+  text-align: center;
+}
+
+.ReactTable .rt-tbody .rt-tr-group {
+  margin-bottom: 10px;
+  border-bottom: 0 !important;
+}
+
+.ReactTable .rt-tbody .rt-td {
+  background-color: #fff;
+  border-right: 0 !important;
+  padding: 20px 0 20px 0 !important;
+  text-transform: lowercase !important;
+  font-size: 14px;
+  font-family: 'Inter-SemiBold';
+}
+
+.ReactTable .rt-tbody .rt-td::first-letter {
+  text-transform: uppercase !important
+}
+
+.ReactTable .rt-tbody .rt-td:last-child {
+  text-align: center;
+  padding: 0 !important;
+  background: transparent !important;
+}
+
+.ReactTable .rt-tbody .rt-td:nth-last-child(2) {
+  text-align: center;
+
+  padding: 0 !important;
+  background: transparent !important;
+}
+
+.ReactTable .rt-resizer {
+  display: none;
+}
+
+.rt-resizable-header-content .fa:first-child {
+  margin-left: 15px;
+}
+
+.ReactTable .rt-td button {
+  width: 75%;
+  height: 100%;
+  background-color: #fff;
+  border: 1px solid rgba(39, 129, 255, 0.2) !important;
+}
+
+.rt-td:focus,
+button:focus {
+  outline: 0 !important;
+  border: 0 !important;
+  box-shadow: 0 0 0 0 !important;
+}
+
+
+// .ReactTable .rt-thead.-filters .rt-th:first-child,
+// .ReactTable .rt-thead .rt-th:first-child {
+//   flex: 60 0 auto !important;
+//   width: 80px !important;
+//   margin-right: 25px;
+// }
+
+// .ReactTable .rt-thead.-filters .rt-th:nth-child(2),
+// .ReactTable .rt-thead .rt-th:nth-child(2) {
+//   flex: 100 0 auto !important;
+//   width: 100px !important;
+// }
+
+// .ReactTable .rt-thead.-filters .rt-th:nth-child(3),
+// .ReactTable .rt-thead .rt-th:nth-child(3) {
+//   flex: 100 0 auto !important;
+//   width: 100px !important;
+// }
+
+// .ReactTable .rt-thead.-filters .rt-th:nth-child(4),
+// .ReactTable .rt-thead .rt-th:nth-child(4) {
+//   flex: 70 0 auto !important;
+//   width: 70px !important;
+// }
+
+// .ReactTable .rt-thead.-filters .rt-th:nth-child(5),
+// .ReactTable .rt-thead .rt-th:nth-child(5) {
+//   flex: 100 0 auto !important;
+//   width: 100px !important;
+// }
+
+// .ReactTable .rt-thead.-filters .rt-th:nth-child(7),
+// .ReactTable .rt-thead .rt-th:nth-child(7) {
+//   flex: 80 0 auto !important;
+//   width: 80px !important;
+// }
+
+// .ReactTable .rt-thead.-filters .rt-th:nth-child(8),
+// .ReactTable .rt-thead .rt-th:nth-child(8) {
+//   flex: 100 0 auto !important;
+//   width: 100px !important;
+// }
+
+// .ReactTable .rt-thead.-filters .rt-th:nth-child(9),
+// .ReactTable .rt-thead .rt-th:nth-child(9) {
+//   flex: 80 0 auto !important;
+//   width: 80px !important;
+// }
+.rt-thead .-header .rt-tr .rt-th .rt-resizable-header-content:nth-last-child(2) {
+  text-align: center !important;
+  width: 200%;
+}
+
+::-webkit-input-placeholder {
+  /* Edge */
+  font-family: 'Inter-Regular';
+  font-size: 12px;
+  color: #ABB3C9 !important
+}
+
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  font-family: 'Inter-Regular';
+  font-size: 12px;
+  color: #ABB3C9 !important
+}
+
+::placeholder {
+  font-family: 'Inter-Regular';
+  font-size: 12px;
+  color: #ABB3C9 !important;
+}
+
+select {
+  border: 0;
+  -webkit-appearance: none;
+  background-image: url('./../../assets/img/icons/arrow-down.svg') !important;
+  background-repeat: no-repeat !important;
+  background-position: right !important;
+  font-family: 'Inter-Bold' !important;
+  color: #8992AD !important;
+
+}
+
+button.Table__pageButton {
+  background-color: #fff !important;
+  padding: 6px 12px 6px 12px;
+  margin-left: 8px;
+  color: #8992AD !important;
+  border: 1px solid rgba(39, 129, 255, 0.2);
+  font-weight: normal !important
+}
+
+button.Table__pageButton--active {
+  background-color: #0070B9 !important;
+  color: #fff !important;
+  font-weight: normal !important
+}
+
+.Table__pageButton:disabled {
+  cursor: not-allowed;
+  color: #8992AD !important;
+}
+
+.ReactTable .rt-thead .rt-th.-sort-asc,
+.ReactTable .rt-thead .rt-td.-sort-asc {
+  box-shadow: inset 0 0 0 0 !important
+}
+
+.ReactTable .rt-thead .rt-th.-sort-desc,
+.ReactTable .rt-thead .rt-td.-sort-desc {
+  box-shadow: inset 0 0 0 0 !important
+}
+
+.action_Header .rt-resizable-header-content {
+  width: 200% !important;
+  text-align: center;
+}
+
+.rt-th:first-child {
+  padding-left: 45px !important;
+}
+
+.rt-td:first-child {
+  padding-left: 45px !important;
+
+}
+
+.rt-tr .rt-td:first-child {
+  padding-left: 45px !important;
+}

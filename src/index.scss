@@ -1,0 +1,158 @@
+@import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+@import '../node_modules/font-awesome/css/font-awesome.min.css';
+
+@font-face {
+    font-family: 'Inter-Regular';
+    src: url('./assets/fonts/Inter-Regular.woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Inter-Bold';
+    src: url('./assets/fonts/Inter-Bold.woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Inter-SemiBold';
+    src: url('./assets/fonts/Inter-SemiBold.woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    height: 100%;
+    overflow-x: hidden;
+    font-family: 'Inter-Regular';
+
+}
+
+$green: #35CC62;
+$yellow: #FFB54C;
+$red: #FA6557;
+
+
+.container-fluid {
+    padding-left: 30px !important;
+    padding-right: 30px !important;
+}
+
+.ant-table table {
+    .anticon {
+        font-size: 16px !important;
+    }
+
+    .ant-table-tbody,
+    .ant-table-thead th {
+        background: #fff;
+
+    }
+}
+
+.text-green {
+    color: $green;
+}
+
+
+.border-yellow {
+    border: 1px solid $yellow;
+}
+
+.bg-yellow {
+    background-color: $yellow;
+}
+
+.text-yellow {
+    color: $yellow
+}
+
+.border-red {
+    border: 1px solid $red;
+}
+
+.bg-red {
+    color: #fff;
+    background-color: $red;
+
+    &.highlight {
+        padding: 5px 10px;
+        border-top-left-radius: 15px;
+        border-bottom-left-radius: 15px;
+    }
+}
+
+
+.text-red {
+    color: $red !important;
+}
+
+.badge-green {
+    background-color: #fff;
+
+    &.anticon {
+        padding: 10px;
+        border-radius: 5px;
+
+        svg path {
+            fill: $green;
+        }
+    }
+}
+
+.badge-yellow {
+    background-color: #FFF0DB;
+
+    &.anticon {
+        padding: 10px;
+        border-radius: 5px;
+
+        svg path {
+            fill: $yellow;
+        }
+    }
+}
+
+.badge-red {
+    background-color: #FEE0DD;
+
+    &.anticon {
+        padding: 10px;
+        border-radius: 5px;
+
+        svg path {
+            fill: $red;
+        }
+    }
+}
+
+.checkbox-menu {
+    padding: 1rem;
+
+    .duration {
+        margin-bottom: 1rem;
+    }
+
+    .time {
+        .ant-input-number {
+            margin-right: 10px;
+        }
+    }
+}
+
+span.dropdownText {
+    display: inline-flex;
+    align-items: center;
+
+    i {
+        padding-left: 6px;
+
+    }
+}
