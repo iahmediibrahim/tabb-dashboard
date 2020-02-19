@@ -11,7 +11,7 @@ import './App.scss';
 
 class App extends Component {
 	state = {
-		sidebarOpen: false
+		sidebarOpen: false,
 	};
 	getInitialState = () => {
 		return { sidebarOpen: false };

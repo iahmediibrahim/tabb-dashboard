@@ -11,7 +11,7 @@ export const InnerForm = ({ values, errors, touched, handleSubmit, handleChange,
 			<Field
 				type="email"
 				className={classNames('form-control', {
-					'has-error': touched.email && errors.email
+					'has-error': touched.email && errors.email,
 				})}
 				name="email"
 				placeholder="Ex : Fatma@gmail.com"
@@ -23,7 +23,7 @@ export const InnerForm = ({ values, errors, touched, handleSubmit, handleChange,
 			<Field
 				type="password"
 				className={classNames('form-control', {
-					'has-error': touched.password && errors.password
+					'has-error': touched.password && errors.password,
 				})}
 				name="password"
 				placeholder="******"
@@ -44,6 +44,6 @@ export const InnerForm = ({ values, errors, touched, handleSubmit, handleChange,
 		<button type="submit" disabled={isSubmitting}>
 			Login
 		</button>
-		<Link to="/Dashboard">dashboard</Link>
+		<Link to="/new-patient">dashboard</Link>
 	</form>
 );

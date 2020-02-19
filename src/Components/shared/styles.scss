@@ -26,6 +26,8 @@
         .anticon-search,
         .anticon-filter {
             font-size: 18px;
+            right: 30px;
+
             color: #abb3c9 !important;
         }
     }
@@ -33,6 +35,14 @@
     .ant-table-tbody td {
         background: #fff;
     }
+}
+
+.click-action {
+    cursor: pointer;
+}
+
+.ant-table-header-column div {
+    display: flex;
 }
 
 .ant-table-thead>tr>th.ant-table-column-has-actions.ant-table-column-has-sorters:hover .ant-table-filter-icon,
@@ -45,7 +55,7 @@
 
 .table-button {
     background-color: #fff;
-    padding: 10px 25px 10px 25px;
+    padding: 5px 15px 10px 15px;
     display: inline-block;
     box-shadow: 0 0 0 0;
     border: 1px solid #2781ff38;
@@ -85,10 +95,14 @@ p.high_low_Alert {
 
 .alertType {
     display: inline-flex;
+    align-items: center;
+
+    span {
+        padding-right: 8px;
+    }
 
     p {
-        margin-top: 2px;
-        margin-left: 7px;
+        margin: 0;
     }
 
     svg path {
@@ -113,4 +127,128 @@ p.failAlert {
     }
 
     color: #FA6557;
+}
+
+table {
+
+
+    .criticalHigh,
+    .criticalLow {
+
+        position: relative;
+
+        &Text {
+            color: #FA6557;
+            display: flex;
+
+            i {
+                padding-right: 5px;
+
+                svg path {
+                    fill: #FA6557;
+                }
+            }
+        }
+
+        &::after {
+            content: ' ';
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: #FA6557;
+            bottom: -16px;
+            border-radius: 5px;
+            right: -7px;
+
+        }
+    }
+
+    .high,
+    .low {
+
+        position: relative;
+
+        &Text {
+            color: #FFB54C;
+            display: flex;
+
+            i {
+                padding-right: 5px;
+
+                svg path {
+                    fill: #FFB54C;
+                }
+            }
+        }
+
+        &::after {
+            content: ' ';
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: #FFB54C;
+            bottom: -16px;
+            border-radius: 5px;
+            right: -23px;
+
+        }
+    }
+
+    .normal {
+
+        &Text {
+            color: #35CC62;
+
+            display: flex;
+
+            i {
+                padding-right: 5px;
+
+                svg path {
+                    fill: #35CC62;
+                }
+            }
+        }
+
+        position: relative;
+
+        &::after {
+            content: ' ';
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: #35CC62;
+            bottom: -16px;
+            border-radius: 5px;
+            right: -18px;
+        }
+    }
+
+    .temp,
+    .weight,
+    .bp {
+
+        .criticalHigh,
+        .criticalLow {
+            &::after {
+                bottom: -18px;
+                right: -20px;
+            }
+        }
+
+        .high,
+        .low {
+            &::after {
+                bottom: -18px;
+                right: -20px;
+            }
+        }
+
+        .normal {
+            &::after {
+                bottom: -18px;
+                right: -20px;
+            }
+        }
+    }
 }

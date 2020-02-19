@@ -16,7 +16,7 @@ const patientData = [
 		diagnosis: [ 'cardiac', 'hemoDynamic', 'temp' ],
 		gender: 'female',
 		age: '23',
-		dataCreated: '21/10/2014',
+		dateCreated: '21/10/2014',
 		mobile: '01185749638',
 		CaregiverName: 'AHMED ALI',
 		CaregiverPhone: '+966504769721',
@@ -32,7 +32,7 @@ const patientData = [
 		diagnosis: [ 'cardiac', 'hemoDynamic', 'weight' ],
 		gender: 'female',
 		age: '23',
-		dataCreated: '21/10/2014',
+		dateCreated: '21/10/2014',
 		mobile: '01585749638',
 		CaregiverName: 'AHMED ALI',
 		CaregiverPhone: '+966504769721',
@@ -48,7 +48,7 @@ const patientData = [
 		diagnosis: [ 'cardiac', 'hemoDynamic', 'weight' ],
 		gender: 'female',
 		age: '23',
-		dataCreated: '21/10/2014',
+		dateCreated: '21/10/2014',
 		mobile: '01085749638',
 		CaregiverName: 'AHMED ALI',
 		CaregiverPhone: '+966504769721',
@@ -64,7 +64,7 @@ const patientData = [
 		diagnosis: [ 'cardiac', 'hemoDynamic', 'weight' ],
 		gender: 'male',
 		age: '23',
-		dataCreated: '21/10/2014',
+		dateCreated: '21/10/2014',
 		mobile: '01005749638',
 		CaregiverName: 'AHMED ALI',
 		CaregiverPhone: '+966504769721',
@@ -80,7 +80,7 @@ const patientData = [
 		diagnosis: [ 'cardiac', 'hemoDynamic', 'Temp' ],
 		gender: 'male',
 		age: '23',
-		dataCreated: '21/10/2014',
+		dateCreated: '21/10/2014',
 		mobile: '01115749638',
 		CaregiverName: 'AHMED ALI',
 		CaregiverPhone: '+966504769721',
@@ -97,7 +97,7 @@ const patientData = [
 		diagnosis: [ 'Temp', 'glucose', 'weight' ],
 		gender: 'male',
 		age: '23',
-		dataCreated: '21/10/2014',
+		dateCreated: '21/10/2014',
 		mobile: '01005749638',
 		CaregiverName: 'AHMED ALI',
 		CaregiverPhone: '+966504769721',
@@ -114,7 +114,7 @@ const patientData = [
 		diagnosis: [ 'cardiac', 'hemoDynamic', 'Temp' ],
 		gender: 'male',
 		age: '23',
-		dataCreated: '21/10/2014',
+		dateCreated: '21/10/2014',
 		mobile: '01005749638',
 		CaregiverName: 'AHMED ALI',
 		CaregiverPhone: '+966504769721',
@@ -131,7 +131,7 @@ const patientData = [
 		diagnosis: [ 'cardiac', 'glucose', 'weight' ],
 		gender: 'male',
 		age: '23',
-		dataCreated: '21/10/2014',
+		dateCreated: '21/10/2014',
 		mobile: '01005749638',
 		CaregiverName: 'AHMED ALI',
 		CaregiverPhone: '+966504769721',
@@ -148,7 +148,7 @@ const patientData = [
 		diagnosis: [ 'cardiac', 'hemoDynamic', 'weight' ],
 		gender: 'male',
 		age: '23',
-		dataCreated: '21/10/2014',
+		dateCreated: '21/10/2014',
 		mobile: '01005749638',
 		CaregiverName: 'AHMED ALI',
 		CaregiverPhone: '+966504769721',
@@ -164,7 +164,7 @@ const patientData = [
 		diagnosis: [ 'cardiac', 'hemoDynamic', 'weight' ],
 		gender: 'male',
 		age: '23',
-		dataCreated: '21/10/2014',
+		dateCreated: '21/10/2014',
 		mobile: '01005749638',
 		CaregiverName: 'AHMED ALI',
 		CaregiverPhone: '+966504769721',
@@ -180,7 +180,7 @@ const patientData = [
 		diagnosis: [ 'cardiac', 'hemoDynamic', 'Temp' ],
 		gender: 'male',
 		age: '23',
-		dataCreated: '21/10/2014',
+		dateCreated: '21/10/2014',
 		mobile: '01005749638',
 		CaregiverName: 'AHMED ALI',
 		CaregiverPhone: '+966504769721',
@@ -196,7 +196,7 @@ const patientData = [
 		diagnosis: [ 'cardiac', 'hemoDynamic', 'Temp' ],
 		gender: 'male',
 		age: '23',
-		dataCreated: '21/10/2014',
+		dateCreated: '21/10/2014',
 		mobile: '01005749638',
 		CaregiverName: 'AHMED ALI',
 		CaregiverPhone: '+966504769721',
@@ -212,7 +212,7 @@ const patientData = [
 		diagnosis: [ 'hemoDynamic', 'Temp', 'weight' ],
 		gender: 'male',
 		age: '23',
-		dataCreated: '21/10/2014',
+		dateCreated: '21/10/2014',
 		mobile: '01005749638',
 		CaregiverName: 'AHMED ALI',
 		CaregiverPhone: '+966504769721',
@@ -266,11 +266,19 @@ export default class NewPatient extends Component {
 			visible: false,
 		});
 	};
+	handleCancelRefer = () => {
+		console.log('handlecancel');
+		this.setState({
+			referModal: false,
+		});
+	};
 	render() {
 		const columns = {
 			mrn: true,
-			firstName: true,
-			lastName: true,
+			firstNameAction: true,
+			lastNameAction: true,
+			firstName: false,
+			lastName: false,
 			diagnosis: true,
 			gender: true,
 			age: true,
@@ -278,7 +286,7 @@ export default class NewPatient extends Component {
 			assignAction: true,
 			referAction: true,
 			selectable: false,
-			clickable: true,
+			clickable: false,
 			abNormal: false,
 			alert: false,
 			lastRead: false,
@@ -288,7 +296,7 @@ export default class NewPatient extends Component {
 		};
 		return (
 			<div className="Alerts">
-				<ReferModal show={this.state.referModal} />
+				<ReferModal visible={this.state.referModal} handleCancel={this.handleCancelRefer} />
 
 				<PatientDetailsModal
 					handleCancel={this.handleCancel}
@@ -303,7 +311,6 @@ export default class NewPatient extends Component {
 					getPatient={this.getPatient}
 					loading={this.state.loading}
 					data={JSON.parse(JSON.stringify(patientData))}
-					rowClassName={(record, index) => (index % 2 === 0 ? 'table-row-light' : 'table-row-dark')}
 				/>
 			</div>
 		);

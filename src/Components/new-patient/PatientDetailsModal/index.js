@@ -73,7 +73,7 @@ export class PatientDetailsModal extends Component {
 							</Col>
 							<Col md={4} sm={6} xs={6}>
 								<div>
-									<h4>MIN</h4>
+									<h4>NIN</h4>
 									<QuestionMarkIcon />
 									<span> {min}</span>
 								</div>
@@ -118,7 +118,7 @@ export class PatientDetailsModal extends Component {
 								</h5>
 
 								<h5>
-									Patient’s Addres:
+									Patient’s Address:
 									<span>
 										<a>{PatientAddress}</a>
 									</span>

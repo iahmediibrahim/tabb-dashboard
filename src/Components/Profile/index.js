@@ -24,20 +24,25 @@ const { Option } = Select;
 
 const { TabPane } = Tabs;
 const options = {
-	scaleShowGridLines: true,
-	scaleGridLineColor: 'rgba(0,0,0,.05)',
-	scaleGridLineWidth: 1,
-	scaleShowHorizontalLines: true,
-	scaleShowVerticalLines: true,
-	bezierCurve: true,
 	bezierCurveTension: 0.4,
-	pointDot: true,
-	pointDotRadius: 4,
-	pointDotStrokeWidth: 1,
-	pointHitDetectionRadius: 20,
-	datasetStroke: true,
-	datasetStrokeWidth: 2,
-	datasetFill: true,
+	scales: {
+		xAxes: [
+			{
+				gridLines: {
+					display: false,
+					drawBorder: true,
+				},
+			},
+		],
+		yAxes: [
+			{
+				gridLines: {
+					display: true,
+					drawBorder: true,
+				},
+			},
+		],
+	},
 	legendTemplate:
 		'<ul className="<%=name.toLowerCase()%>-legend"><% for (var i=0; i<datasets.length; i++){%><li><span style="background-color:<%=datasets[i].strokeColor%>"></span><%if(datasets[i].label){%><%=datasets[i].label%><%}%></li><%}%></ul>',
 };
@@ -46,22 +51,14 @@ const line = {
 	datasets: [
 		{
 			label: 'My First dataset',
-			fillColor: 'rgba(220,220,220,0.2)',
-			strokeColor: 'rgba(220,220,220,1)',
-			pointColor: 'rgba(220,220,220,1)',
-			pointStrokeColor: '#fff',
-			pointHighlightFill: '#fff',
-			pointHighlightStroke: 'rgba(220,220,220,1)',
+			borderWidth: 2,
 			data: [ 65, 59, 80, 81, 56, 55, 40 ],
 		},
 		{
 			label: 'My Second dataset',
-			fillColor: 'rgba(151,187,205,0.2)',
-			strokeColor: 'rgba(151,187,205,1)',
-			pointColor: 'rgba(151,187,205,1)',
-			pointStrokeColor: '#fff',
-			pointHighlightFill: '#fff',
-			pointHighlightStroke: 'rgba(151,187,205,1)',
+			borderColor: '#8992AD',
+			pointBackgroundColor: '#8992AD',
+			borderWidth: 2,
 			data: [ 28, 48, 40, 19, 86, 27, 90 ],
 		},
 	],
@@ -146,8 +143,16 @@ const AlertData = [
 		firstName: 'Maha',
 		lastName: 'ahmed',
 		age: '23',
-		abNormal: 'female',
-		alert: 'female',
+		abNormal: 'heart-rate',
+		criticality: 'high',
+
+		alert: [
+			{
+				type: '',
+				value: '120bpm',
+				criticality: 'high',
+			},
+		],
 		lastRead: '22/11/2021',
 		status: 'unread',
 	},
@@ -157,10 +162,18 @@ const AlertData = [
 		firstName: 'alaa',
 		lastName: 'ahmed',
 		age: '23',
-		abNormal: 'female',
-		alert: 'female',
+		abNormal: 'SpO2',
 		lastRead: '22/11/2021',
 		status: 'unread',
+		criticality: 'high',
+
+		alert: [
+			{
+				type: '',
+				value: '120%',
+				criticality: 'high',
+			},
+		],
 	},
 	{
 		key: '3',
@@ -168,8 +181,16 @@ const AlertData = [
 		firstName: 'soad',
 		lastName: 'ahmed',
 		age: '23',
-		abNormal: 'female',
-		alert: 'female',
+		abNormal: 'Bl.Pressure',
+		criticality: 'critical-low',
+
+		alert: [
+			{
+				type: '',
+				value: '115mmHg',
+				criticality: 'critical-low',
+			},
+		],
 		lastRead: '22/11/2021',
 		status: 'unread',
 	},
@@ -179,13 +200,39 @@ const AlertData = [
 		firstName: 'amgad',
 		lastName: 'ahmed',
 		age: '23',
-		abNormal: 'female',
-		alert: 'female',
+		abNormal: 'BG(b.meal)',
+		criticality: 'critical-high',
+
+		alert: [
+			{
+				type: '',
+				value: '163/105',
+				criticality: 'critical-high',
+			},
+		],
+		lastRead: '22/11/2021',
+		status: 'unread',
+	},
+	{
+		key: '5',
+		mrn: '#123456',
+		firstName: 'amgad',
+		lastName: 'ahmed',
+		age: '23',
+		abNormal: 'motion',
+		criticality: 'critical-high',
+
+		alert: [
+			{
+				type: 'fail',
+				value: '',
+				criticality: 'critical-high',
+			},
+		],
 		lastRead: '22/11/2021',
 		status: 'unread',
 	},
 ];
-
 let checkboxDataCopy = {};
 
 export class PatientProfile extends Component {
@@ -437,13 +484,15 @@ export class PatientProfile extends Component {
 	};
 
 	render() {
-		const defaultTableColumns = {
-			mrn: true,
-			firstName: true,
-			lastName: true,
+		const alertTableColumns = {
+			mrn: false,
+			firstNameAction: false,
+			lastNameAction: false,
+			firstName: false,
+			lastName: false,
 			diagnosis: false,
 			gender: false,
-			age: true,
+			age: false,
 			dateCreated: false,
 			assignAction: false,
 			referAction: false,
@@ -453,7 +502,7 @@ export class PatientProfile extends Component {
 			alert: true,
 			lastRead: true,
 			status: true,
-			criticality: false,
+			criticality: true,
 			measurements: false,
 		};
 
@@ -898,7 +947,7 @@ export class PatientProfile extends Component {
 								<h3 className="card_title">Recent Alerts</h3>
 								<div className="card_fields p-3">
 									<DefaultTable
-										{...defaultTableColumns}
+										{...alertTableColumns}
 										loading={this.state.loading}
 										data={AlertData}
 									/>

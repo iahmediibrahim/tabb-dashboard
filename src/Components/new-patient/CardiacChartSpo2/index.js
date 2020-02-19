@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { Icon } from 'antd';
+import { Row, Col } from 'react-bootstrap';
 import CardiacChart from './Chart';
 import ActionCell from './action';
+import './styles.scss';
 
 class ChekboxsTable extends Component {
 	constructor(props) {
@@ -107,47 +109,43 @@ class ChekboxsTable extends Component {
 	render() {
 		return (
 			<React.Fragment>
-				<div className="checkbox-table-wrapper">
-					{/* table header */}
-					<div className="table-header bg-primary py-md-1 px-md-5 px-4">
-						<div className="d-flex justify-content-between align-items-center">
-							<span className="text-white font-Lsmall weight-600">Actions</span>
-							<div className="btns-wrapper">
-								<div className="d-flex">{this.renderHeaderButtons()}</div>
-							</div>
+				<div className="cardiac-chart">
+					<div className="tab_card">
+						<div className="card_heading">
+							<h3>
+								Cardiac-
+								<span>Spo2</span>
+							</h3>
+							<span>{this.renderHeaderButtons()}</span>
+						</div>
+
+						<div className="card_fields">
+							<Row>
+								<Col md={3} className="cardiac-left-side">
+									<div>
+										<h4>a. Measured every 2 hours</h4>
+									</div>
+								</Col>
+								<Col md={9} className="cardiac-right-side">
+									<h4>b. The predefined readings:</h4>
+									<table className="table">
+										<thead>
+											<tr>
+												<th>Critical (below)</th>
+												<th>Low (below)</th>
+												<th>High (Above)</th>
+												<th>Critical (High)</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>{this.renderActionCells()}</tr>
+										</tbody>
+									</table>
+									<CardiacChart chart_data={this.state.saved_actions} />
+								</Col>
+							</Row>
 						</div>
 					</div>
-
-					{/* table */}
-					<table className="table">
-						<thead>
-							<tr>
-								<th />
-								<th scope="col" className="weight-500 font-Lsmall text-center">
-									C.Low
-								</th>
-								<th scope="col" className="weight-500 font-Lsmall text-center">
-									Low
-								</th>
-								<th scope="col" className="weight-500 font-Lsmall text-center">
-									High
-								</th>
-								<th scope="col" className="weight-500 font-Lsmall text-center">
-									C.High
-								</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<th scope="row" className="weight-500 font-Lsmall text-center">
-									Notify Patient
-								</th>
-								{this.renderActionCells()}
-							</tr>
-						</tbody>
-
-						<CardiacChart chart_data={this.state.saved_actions} />
-					</table>
 				</div>
 			</React.Fragment>
 		);

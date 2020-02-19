@@ -1,106 +1,152 @@
-import React from 'react';
-import './styles.scss';
-import { Table, Divider, Tag } from 'antd';
+import React, { Component } from 'react';
+import { Icon } from 'antd';
 import { Row, Col } from 'react-bootstrap';
-import { CardiacIcon } from './../../shared/Icons';
-import { Link } from 'react-router-dom';
-const columns = [
-	{
-		title: 'Critical (below)',
-		dataIndex: 'criticalBelow'
-	},
-	{
-		title: 'Low (Below)',
-		dataIndex: 'lowBelow'
-	},
+import CardiacChart from './Chart';
+import ActionCell from './Action';
+import './styles.scss';
 
-	{
-		title: 'High (Above)',
-		dataIndex: 'highAbove'
-	},
-
-	{
-		title: 'Critical (Above)',
-		dataIndex: 'criticalAbove'
+class CardiacTableChart extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			edit: false,
+			actions: [],
+			saved_actions: []
+		};
 	}
-];
+	componentDidMount() {
+		const initial_actions = [
+			{
+				id: 1,
+				in_value: 80
+			},
+			{
+				id: 2,
+				in_value: 85
+			},
+			{
+				id: 3,
+				in_value: 90
+			},
+			{
+				id: 4,
+				in_value: 95
+			}
+		];
 
-const chartValues = [
-	{
-		key: '1',
-		criticalBelow: '100 bpm',
-		lowBelow: '21/2/2021',
-		highAbove: 'Critical High',
-		criticalAbove: 'dd'
-	}
-];
-
-class CardiacChart extends React.Component {
-	state = {
-		startFrom: 50,
-		data: [
-			{ value: 30, color: '#fa6557' },
-			{ value: 35, color: '#ffb54c' },
-			{ value: 40, color: '#35cc62' },
-			{ value: 45, color: '#ffb54c' },
-			{ value: 48, color: '#fa6557' }
-		]
-	};
-
-	render() {
-		var sum = 0;
-		for (var i = 0; i < this.state.data.length; i++) {
-			sum = sum + this.state.data[i].value;
-		}
-		var shapes = this.state.data.map((shape, i) => {
-			var wid = shape.value / sum * 100;
-			var radius = i == 0 ? 50 : 0;
-			console.log(i);
-			return (
-				<div style={{ backgroundColor: shape.color, width: wid + '%' }} key={i}>
-					<section>{shape.value + this.state.startFrom}</section>
-				</div>
-			);
+		this.setState({
+			actions: JSON.parse(JSON.stringify(initial_actions)),
+			saved_actions: JSON.parse(JSON.stringify(initial_actions))
 		});
+		console.log(this.state.initial_actions);
+	}
+	updateActionData = (ActionID, name, actionData) => {
+		var array = [ ...this.state.actions ];
+		array = array.map((data) => {
+			if (data.id == ActionID) {
+				data[name] = actionData[name];
+			}
+			return data;
+		});
+		this.setState({ actions: array });
+	};
+	renderHeaderButtons = () => {
+		const { edit, actions, saved_actions } = this.state;
+		if (edit) {
+			return (
+				<React.Fragment>
+					<button
+						className="btn btn-transparent text-white weight-600 font-Lsmall mx-1"
+						onClick={() => {
+							this.setState({ edit: false, saved_actions: JSON.parse(JSON.stringify(actions)) });
+						}}
+					>
+						<Icon type="save" /> Save
+					</button>
+					<button
+						className="btn btn-transparent text-white weight-600 font-Lsmall mx-1"
+						onClick={() => {
+							this.setState({ edit: false, actions: JSON.parse(JSON.stringify(saved_actions)) });
+						}}
+					>
+						<Icon type="stop" /> Cancel
+					</button>
+				</React.Fragment>
+			);
+		} else {
+			return (
+				<React.Fragment>
+					<button
+						className="btn btn-transparent text-white weight-600 font-Lsmall"
+						onClick={() => {
+							this.setState({ edit: true });
+						}}
+					>
+						<Icon type="edit" /> Edit
+					</button>
+				</React.Fragment>
+			);
+		}
+	};
+	renderActionCells = () => {
 		return (
-			<div className="cardiac-chart">
-				<div className="tab_card">
-					<h3 className="card_heading inside-tab">
-						<span>
-							<CardiacIcon /> Cardiac -
-							<span> Heart Rate</span>
-						</span>
+			<React.Fragment>
+				{this.state.actions.map((value, key) => (
+					<React.Fragment key={key}>
+						<td>
+							<ActionCell
+								disabled={!this.state.edit}
+								data={value}
+								index={key}
+								updateActionData={this.updateActionData}
+							/>
+						</td>
+					</React.Fragment>
+				))}
+			</React.Fragment>
+		);
+	};
+	render() {
+		return (
+			<React.Fragment>
+				<div className="cardiac-chart">
+					<div className="tab_card">
+						<div className="card_heading">
+							<h3>Cardiac </h3>
+							<span>{this.renderHeaderButtons()}</span>
+						</div>
 
-						<span>
-							<Link className="edit-action" to="/assignMeasurment">
-								<CardiacIcon /> Take Action
-							</Link>
-						</span>
-					</h3>
+						<div className="card_fields">
+							<Row>
+								<Col md={3} className="cardiac-left-side">
+									<div>
+										<h4>a. Measured every 2 hours</h4>
+									</div>
+								</Col>
+								<Col md={9} className="cardiac-right-side">
+									<h4>b. The predefined readings:</h4>
+									<table className="table">
+										<thead>
+											<tr>
+												<th>Critical (below)</th>
+												<th>Low (below)</th>
+												<th>High (Above)</th>
+												<th>Critical (High)</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>{this.renderActionCells()}</tr>
+										</tbody>
+									</table>
+									<CardiacChart chart_data={this.state.saved_actions} />
+								</Col>
+							</Row>
+						</div>
+					</div>
 				</div>
-				<div className="card_fields">
-					<Row>
-						<Col md={3}>
-							<div className="cardiac-left-side">
-								<h4>a. Measured every 2 hours</h4>
-							</div>
-						</Col>
-						<Col md={9}>
-							<div className="chart">
-								<h4>b. The predefined readings:</h4>
-								<Table columns={columns} dataSource={chartValues} bordered pagination={false} />
-								<div className="contain">{shapes}</div>
-								<div className="fixed">
-									<span className="left">{this.state.startFrom}%</span>
-									<span className="right">100%</span>
-								</div>
-							</div>
-						</Col>
-					</Row>
-				</div>
-			</div>
+			</React.Fragment>
 		);
 	}
 }
 
-export default CardiacChart;
+export default CardiacTableChart;

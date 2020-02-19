@@ -9,10 +9,8 @@ import PatientProfile from './../Profile';
 const createRoutes = () => (
 	<Switch>
 		<Route path="/new-patient" component={NewPatient} />
-
 		<Route exact path="/monitoredPatients" component={Monitored} />
 		<Route path="/monitoredPatients/:userName" component={PatientProfile} />
-
 		<Route path="/ALerts" component={ALerts} />
 		<Route path="/assignMeasurment" component={AssignMeasurment} />
 	</Switch>

@@ -19,11 +19,11 @@ const AlertData = [
 			{
 				type: '',
 				value: '120bpm',
-				criticality: 'high'
-			}
+				criticality: 'high',
+			},
 		],
 		lastRead: '22/11/2021',
-		status: 'unread'
+		status: 'unread',
 	},
 	{
 		key: '2',
@@ -38,9 +38,9 @@ const AlertData = [
 			{
 				type: '',
 				value: '120%',
-				criticality: 'high'
-			}
-		]
+				criticality: 'high',
+			},
+		],
 	},
 	{
 		key: '3',
@@ -53,12 +53,12 @@ const AlertData = [
 			{
 				type: '',
 				value: '115mmHg',
-				criticality: 'critical-low'
-			}
+				criticality: 'critical-low',
+			},
 		],
 		lastRead: '22/11/2021',
 		status: 'unread',
-		criticality: 'low'
+		criticality: 'low',
 	},
 	{
 		key: '4',
@@ -71,11 +71,11 @@ const AlertData = [
 			{
 				type: '',
 				value: '163/105',
-				criticality: 'critical-high'
-			}
+				criticality: 'critical-high',
+			},
 		],
 		lastRead: '22/11/2021',
-		status: 'unread'
+		status: 'unread',
 	},
 	{
 		key: '5',
@@ -88,19 +88,19 @@ const AlertData = [
 			{
 				type: 'fail',
 				value: '',
-				criticality: 'critical-high'
-			}
+				criticality: 'critical-high',
+			},
 		],
 		lastRead: '22/11/2021',
-		status: 'unread'
-	}
+		status: 'unread',
+	},
 ];
 
 export default class Alerts extends Component {
 	state = {
 		data: [],
 		visible: false,
-		item: {}
+		item: {},
 	};
 	componentDidMount() {
 		this.getData();
@@ -112,7 +112,7 @@ export default class Alerts extends Component {
 
 			this.setState({
 				viewPatient: false,
-				data: monitoredPatients
+				data: monitoredPatients,
 			});
 		});
 	};
@@ -122,19 +122,21 @@ export default class Alerts extends Component {
 	rowClick = (item) => {
 		this.setState({
 			visible: true,
-			item
+			item,
 		});
 		console.log('rowclick', item);
 	};
 	handleCancel = () => {
 		console.log('handlecancel');
 		this.setState({
-			visible: false
+			visible: false,
 		});
 	};
 	render() {
 		const columns = {
 			mrn: true,
+			firstNameAction: false,
+			lastNameAction: false,
 			firstName: true,
 			lastName: true,
 			diagnosis: false,
@@ -150,7 +152,7 @@ export default class Alerts extends Component {
 			lastRead: true,
 			status: true,
 			criticality: false,
-			measurements: false
+			measurements: false,
 		};
 		return (
 			<div className="Alerts">

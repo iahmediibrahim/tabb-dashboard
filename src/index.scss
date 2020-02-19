@@ -56,6 +56,8 @@ input,
     color: $green;
 }
 
+.ant-pagination-item,
+.ant-pagination-item-link,
 button {
     border-radius: 0 !important;
 }
@@ -114,6 +116,39 @@ button {
 
         svg path {
             fill: $yellow;
+        }
+    }
+}
+
+.card_title {
+    background-color: #0070B9;
+    padding: 15px 0px 15px 25px;
+    color: #FFFFFF;
+    font-size: 16px;
+    font-family: 'Inter-Bold';
+    margin-bottom: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &.inside-tab {
+        background-color: #8992AD;
+
+        span {
+            display: flex;
+            align-items: center;
+
+            i {
+                margin-right: 12px;
+            }
+
+            span {
+                margin-left: 5px;
+            }
+        }
+
+        i svg path {
+            fill: #fff;
         }
     }
 }

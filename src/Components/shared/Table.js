@@ -236,6 +236,7 @@ export default class TableLayout extends Component {
 		return text.charAt(0).toUpperCase() + text.slice(1);
 	}
 	displayCriticality(text) {
+		console.log('patient', text);
 		const item = text.toString().toLowerCase();
 		if (item === 'critical-high') {
 			return (
@@ -311,6 +312,30 @@ export default class TableLayout extends Component {
 				sortDirections: [ 'descend', 'ascend' ],
 				...this.getColumnSearchProps('mrn'),
 			},
+			this.props.firstNameAction && {
+				title: 'First Name',
+				dataIndex: '',
+				sorter: (a, b) => a.firstName.length - b.firstName.length,
+				sortDirections: [ 'descend', 'ascend' ],
+				...this.getColumnSearchProps('firstName'),
+				render: (item) => (
+					<div className="click-action" onClick={() => this.props.assignClick(item)}>
+						{item.firstName}
+					</div>
+				),
+			},
+			this.props.lastNameAction && {
+				title: 'Last Name',
+				dataIndex: '',
+				sorter: (a, b) => a.lastName.length - b.lastName.length,
+				sortDirections: [ 'descend', 'ascend' ],
+				...this.getColumnSearchProps('firstName'),
+				render: (item) => (
+					<div className="click-action" onClick={() => this.props.assignClick(item)}>
+						{item.lastName}
+					</div>
+				),
+			},
 			this.props.firstName && {
 				title: 'First Name',
 				dataIndex: 'firstName',
@@ -361,17 +386,14 @@ export default class TableLayout extends Component {
 			this.props.measurements && {
 				title: 'Measurements',
 				dataIndex: 'measurements',
-				sorter: (a, b) => a.measurements.length - b.measurements.length,
-				sortDirections: [ 'descend', 'ascend' ],
+
 				render: (text) => this.displayMeasurements(text),
 			},
 			this.props.diagnosis && {
 				title: 'Diagnosis',
 				dataIndex: 'diagnosis',
 				className: 'diagnosis_icon',
-				sorter: (a, b) => a.diagnosis.length - b.diagnosis.length,
-				sortDirections: [ 'descend', 'ascend' ],
-				...this.getColumnSearchProps('diagnosis'),
+
 				render: (text) => this.displayArrayItems(text),
 			},
 
@@ -402,8 +424,7 @@ export default class TableLayout extends Component {
 			this.props.dateCreated && {
 				title: 'Date of service',
 				dataIndex: 'dateCreated',
-				sorter: (a, b) => a.dateCreated.length - b.dateCreated.length,
-				sortDirections: [ 'descend', 'ascend' ],
+
 				...this.getColumnSearchProps('dateCreated'),
 			},
 			this.props.assignAction && {
@@ -411,11 +432,11 @@ export default class TableLayout extends Component {
 				dataIndex: '',
 				key: 'x',
 				render: (item) => (
-					// <Link to="/assignMeasurment">
-					<button className="table-button" onClick={() => this.props.assignClick(item)}>
-						<AssignIcon />
-					</button>
-					// </Link>
+					<Link to="/assignMeasurment">
+						<button className="table-button">
+							<AssignIcon />
+						</button>
+					</Link>
 				),
 			},
 			this.props.referAction && {
@@ -440,16 +461,13 @@ export default class TableLayout extends Component {
 			this.props.alert && {
 				title: 'alert',
 				dataIndex: 'alert',
-				sorter: (a, b) => a.alert.length - b.alert.length,
-				sortDirections: [ 'descend', 'ascend' ],
-				...this.getColumnSearchProps('alert'),
+
 				render: (text) => this.displayAlerts(text),
 			},
 			this.props.lastRead && {
 				title: 'lastRead',
 				dataIndex: 'lastRead',
-				sorter: (a, b) => a.lastRead.length - b.lastRead.length,
-				sortDirections: [ 'descend', 'ascend' ],
+
 				...this.getColumnSearchProps('lastRead'),
 			},
 
@@ -471,14 +489,14 @@ export default class TableLayout extends Component {
 				dataSource={this.state.data}
 				rowSelection={this.props.selectable && this.rowSelection}
 				size="middle"
-				// onRow={
-				// 	this.props.clickable &&
-				// 	((record) => ({
-				// 		onClick: () => {
-				// 			this.props.rowClick(record);
-				// 		},
-				// 	}))
-				// }
+				onRow={
+					this.props.clickable &&
+					((record) => ({
+						onClick: () => {
+							this.props.rowClick(record);
+						},
+					}))
+				}
 			/>
 		);
 	}

@@ -1,0 +1,141 @@
+.blood-pressure {
+    margin: 50px;
+    position: relative;
+    display: inline-block;
+}
+
+.blood-pressure h3 {
+    color: #1a243b;
+    font-size: 14px;
+}
+
+.blood-pressure h3:first-of-type {
+    position: absolute;
+    left: -30px;
+    top: -47px;
+}
+
+.blood-pressure h3:last-of-type {
+    position: absolute;
+    right: 0;
+    bottom: -63px;
+}
+
+.blood-pressure .axes {
+    height: 241px;
+    width: 522px;
+    border: 1px solid transparent;
+    position: relative;
+    border-color: transparent transparent #8f90a9 #8f90a9;
+}
+
+.blood-pressure .axes .x-axe {
+    position: absolute;
+    bottom: -25px;
+    left: 25px;
+}
+
+.blood-pressure .axes .x-axe span {
+    color: #5c6d96;
+    font-size: 12px;
+    margin-right: 61px;
+}
+
+.blood-pressure .axes .x-axe span:last-of-type {
+    margin-right: 0;
+}
+
+.blood-pressure .axes .y-axe {
+    position: absolute;
+    display: grid;
+    left: -30px;
+    top: 0;
+}
+
+.blood-pressure .axes .y-axe span {
+    color: #5c6d96;
+    font-size: 12px;
+    margin-bottom: 18px;
+}
+
+.blood-pressure .axes .y-axe span:last-of-type {
+    margin-right: 0;
+}
+
+.blood-pressure .axes .low {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: #fefbe0;
+    border-top: 1px solid #ffb54c;
+    border-right: 1px solid #ffb54c;
+    /* width: 187px; */
+    /* height: 27px; */
+    z-index: 9999;
+}
+
+.blood-pressure .axes .normal {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: #e6faed;
+    border-top: 1px solid #35cc62;
+    border-right: 1px solid #35cc62;
+    z-index: 999;
+    /* width: 267px; */
+    /* height: 97px; */
+}
+
+.blood-pressure .axes .pre-high {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: #fefbe0;
+    border-top: 1px solid #ffb54c;
+    border-right: 1px solid #ffb54c;
+    z-index: 99;
+    /* width: 348px; */
+    /* height: 131px; */
+}
+
+.blood-pressure .axes .high {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(250, 101, 87, 0.1);
+    border-top: 1px solid #fa6557;
+    border-right: 1px solid #fa6557;
+    z-index: 9;
+    /* width: 511px; */
+    /* height: 232px; */
+}
+
+.blood-pressure .axes .val {
+    overflow: hidden;
+}
+
+.blood-pressure .axes .low span {
+    color: #ffb54c;
+}
+
+.blood-pressure .axes .normal span {
+    color: #35cc62;
+    margin-top: 18px !important;
+}
+
+.blood-pressure .axes .pre-high span {
+    color: #ffb54c;
+    margin-top: 8px !important;
+}
+
+.blood-pressure .axes .high span {
+    color: #fa6557;
+    margin-top: 18px !important;
+}
+
+.blood-pressure .axes .val span {
+    font-size: 12px;
+    font-weight: bold;
+    margin: 5px 20px;
+    display: block;
+}

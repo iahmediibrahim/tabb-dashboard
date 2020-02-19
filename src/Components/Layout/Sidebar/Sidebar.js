@@ -19,13 +19,6 @@ class SideNav extends Component {
 
 				<ul className="ul-list">
 					<li className="list-item">
-						<NavLink to="/Dashboard">
-							<DashboardIcon />
-							<span>Dashoboard</span>
-						</NavLink>
-					</li>
-
-					<li className="list-item">
 						<NavLink to="/new-patient" activeclassname="active">
 							<PatientIcon />
 							<span>New Patient</span>

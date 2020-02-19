@@ -12,7 +12,7 @@
         }
 
         .cardiac-left-side {
-            border-right: 1px solid #ABB3C9;
+            // border-right: 1px solid #ABB3C9;
             height: 100%;
         }
     }
@@ -21,24 +21,39 @@
         margin-bottom: 0;
 
         .card_heading {
+
             background-color: #0070B9;
             padding: 20px 0px 20px 25px;
-            color: #FFFFFF;
-            font-size: 16px;
-            font-family: 'Inter-Bold';
             margin-bottom: 0;
+
+            h3 {
+                color: #FFFFFF;
+                font-size: 16px;
+                font-family: 'Inter-Bold';
+                display: inline-block;
+            }
+
+            button {
+                float: right;
+                box-shadow: 0 0 0 0;
+                border: 0;
+                display: inline-flex;
+                font-size: 15px;
+                font-family: 'Inter-Bold';
+
+                svg {
+                    margin-right: 8px;
+                    margin-top: 3px;
+                    font-size: 14px;
+                }
+            }
+
+            button:focus {
+                box-shadow: 0 0 0 0;
+                border: 0;
+            }
         }
 
-        .card_fields>div>div {
-            border: 1px solid #ABB3C9;
-            padding-left: 0;
-            padding-right: 0;
-            border-right: 0;
-        }
-
-        .card_fields>div>div:last-child {
-            border-right: 1px solid #ABB3C9;
-        }
     }
 
     .chart {
@@ -120,5 +135,21 @@
             float: right;
         }
     }
+
+    .table {
+        border: 1px solid #e8e8e8 !important;
+        text-align: center;
+        margin-top: 20px;
+
+        th {
+            border-bottom: 1px solid #e8e8e8 !important;
+            border-top: 0 !important;
+            color: #1A243B;
+            font-size: 14px;
+            font-family: 'Inter-Regular';
+            font-weight: normal;
+        }
+    }
+
 
 }

@@ -431,6 +431,9 @@ export default class MonitoredPatients extends Component {
 			});
 		});
 	};
+	rowClick = (item) => {
+		this.props.history.push(`/monitoredPatients/${item.firstName}-${item.lastName}`);
+	};
 	handleChange = (value) => {
 		if (value <= 1) {
 			this.setState({
@@ -510,9 +513,12 @@ export default class MonitoredPatients extends Component {
 			}
 		});
 	}
+
 	render() {
 		const columns = {
 			mrn: true,
+			firstNameAction: false,
+			lastNameAction: false,
 			firstName: true,
 			lastName: true,
 			diagnosis: false,
@@ -522,7 +528,7 @@ export default class MonitoredPatients extends Component {
 			assignAction: false,
 			referAction: false,
 			selectable: true,
-			clickable: false,
+			clickable: true,
 			abNormal: false,
 			alert: false,
 			lastRead: false,
@@ -561,6 +567,7 @@ export default class MonitoredPatients extends Component {
 							getPatient={this.getPatient}
 							loading={this.state.loading}
 							data={monitoredPatientsData}
+							rowClick={this.rowClick}
 						/>
 					</TabPane>
 					<TabPane
@@ -602,7 +609,7 @@ export default class MonitoredPatients extends Component {
 												<List.Item className="user-badge  badge-bg">
 													<Link
 														className="patient-details"
-														to={`/monitoredPatients/${val.firstName} ${val.lastName}`}
+														to={`/monitoredPatients/${val.firstName}-${val.lastName}`}
 													>
 														<List.Item.Meta
 															avatar={

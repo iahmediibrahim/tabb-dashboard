@@ -46,6 +46,8 @@
      .ant-tabs-top-content .ant-tabs-tabpane-active {
          padding: 1rem;
          background-color: #fff;
+         border: 1px solid #2187FF;
+
 
      }
 
@@ -130,39 +132,8 @@
      }
  }
 
- .card_title {
-     background-color: #0070B9;
-     padding: 15px 0px 15px 25px;
-     color: #FFFFFF;
-     font-size: 16px;
-     font-family: 'Inter-Bold';
-     margin-bottom: 0;
-     display: flex;
-     justify-content: space-between;
-     align-items: center;
 
-     &.inside-tab {
-         background-color: #8992AD;
-
-         span {
-             display: flex;
-             align-items: center;
-
-             i {
-                 margin-right: 12px;
-             }
-
-             span {
-                 margin-left: 5px;
-             }
-         }
-
-         i svg path {
-             fill: #fff;
-         }
-     }
- }
-
+ .assigned-criteria,
  .preview-readings,
  .recentAlerts {
 
@@ -172,6 +143,7 @@
              th {
                  color: #5C6D96;
                  background-color: #E5F0F8 !important;
+                 border: 0;
              }
          }
      }

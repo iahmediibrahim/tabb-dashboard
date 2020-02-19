@@ -52,6 +52,7 @@ class ModalFormAction extends Component {
 						title="Take Action"
 						onOk={this.handleOk}
 						onCancel={this.handleCancel}
+						width={820}
 						footer={[
 							<Button key="submit" type="primary" loading={loading} onClick={this.handleOk}>
 								Submit

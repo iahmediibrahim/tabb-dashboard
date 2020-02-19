@@ -15,7 +15,8 @@ export class ChooseMeasurment extends Component {
 							<Form.Control type="number" placeholder="2" />
 							<Form.Control as="select">
 								<option>weeks</option>
-								<option>...</option>
+								<option>months</option>
+								<option>years</option>
 							</Form.Control>
 							<p>
 								start date: <span> 30 Feb 2019 </span>
