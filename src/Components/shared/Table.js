@@ -312,30 +312,6 @@ export default class TableLayout extends Component {
 				sortDirections: [ 'descend', 'ascend' ],
 				...this.getColumnSearchProps('mrn'),
 			},
-			this.props.firstNameAction && {
-				title: 'First Name',
-				dataIndex: '',
-				sorter: (a, b) => a.firstName.length - b.firstName.length,
-				sortDirections: [ 'descend', 'ascend' ],
-				...this.getColumnSearchProps('firstName'),
-				render: (item) => (
-					<div className="click-action" onClick={() => this.props.assignClick(item)}>
-						{item.firstName}
-					</div>
-				),
-			},
-			this.props.lastNameAction && {
-				title: 'Last Name',
-				dataIndex: '',
-				sorter: (a, b) => a.lastName.length - b.lastName.length,
-				sortDirections: [ 'descend', 'ascend' ],
-				...this.getColumnSearchProps('firstName'),
-				render: (item) => (
-					<div className="click-action" onClick={() => this.props.assignClick(item)}>
-						{item.lastName}
-					</div>
-				),
-			},
 			this.props.firstName && {
 				title: 'First Name',
 				dataIndex: 'firstName',

@@ -244,6 +244,7 @@ export default class NewPatient extends Component {
 	getPatient = (item) => {
 		console.log(item);
 	};
+
 	assignClick = (item) => {
 		console.log('ietmitem', item);
 		this.setState({
@@ -252,7 +253,10 @@ export default class NewPatient extends Component {
 		});
 		console.log('rowclick', item);
 	};
-	referClick = () => {
+	referClick = (e) => {
+		e.preventDefault();
+		e.stopPropagation();
+
 		this.setState(
 			{
 				referModal: true,
@@ -275,10 +279,8 @@ export default class NewPatient extends Component {
 	render() {
 		const columns = {
 			mrn: true,
-			firstNameAction: true,
-			lastNameAction: true,
-			firstName: false,
-			lastName: false,
+			firstName: true,
+			lastName: true,
 			diagnosis: true,
 			gender: true,
 			age: true,
@@ -286,7 +288,7 @@ export default class NewPatient extends Component {
 			assignAction: true,
 			referAction: true,
 			selectable: false,
-			clickable: false,
+			clickable: true,
 			abNormal: false,
 			alert: false,
 			lastRead: false,
@@ -307,7 +309,7 @@ export default class NewPatient extends Component {
 				<Table
 					referClick={this.referClick}
 					{...columns}
-					assignClick={this.assignClick}
+					rowClick={this.assignClick}
 					getPatient={this.getPatient}
 					loading={this.state.loading}
 					data={JSON.parse(JSON.stringify(patientData))}

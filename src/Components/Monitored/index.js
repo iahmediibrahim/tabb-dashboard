@@ -517,8 +517,6 @@ export default class MonitoredPatients extends Component {
 	render() {
 		const columns = {
 			mrn: true,
-			firstNameAction: false,
-			lastNameAction: false,
 			firstName: true,
 			lastName: true,
 			diagnosis: false,
