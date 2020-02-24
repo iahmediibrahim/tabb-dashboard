@@ -480,6 +480,39 @@ const ListView = () => (
 		/>
 	</svg>
 );
+const Active = () => (
+	<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+		{' '}
+		<path
+			fill="#2187ff"
+			class="a"
+			d="M12,2A10,10,0,1,0,22,12,10,10,0,0,0,12,2ZM10,17,5,12l1.41-1.41L10,14.17l7.59-7.59L19,8Z"
+			transform="translate(-2 -2)"
+		/>
+	</svg>
+);
+const NotAssigned = () => (
+	<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+		{' '}
+		<path
+			fill="#8e3188"
+			class="a"
+			d="M12,2A10,10,0,1,0,22,12,10,10,0,0,0,12,2Zm1,15H11V15h2Zm0-4H11V7h2Z"
+			transform="translate(-2 -2)"
+		/>
+	</svg>
+);
+const Disabled = () => (
+	<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+		{' '}
+		<path
+			fill="#8992ad"
+			class="a"
+			d="M12,2A10,10,0,1,0,22,12,9.991,9.991,0,0,0,12,2Zm5,13.59L15.59,17,12,13.41,8.41,17,7,15.59,10.59,12,7,8.41,8.41,7,12,10.59,15.59,7,17,8.41,13.41,12Z"
+			transform="translate(-2 -2)"
+		/>
+	</svg>
+);
 export const MenuIcon = (props) => <Icon component={Menu} {...props} />;
 export const NotificationIcon = (props) => <Icon component={Notification} {...props} />;
 export const AlertIcon = (props) => <Icon component={Alert} {...props} />;
@@ -515,3 +548,6 @@ export const CancelIcon = (props) => <Icon component={Cancel} {...props} />;
 export const SaveIcon = (props) => <Icon component={Save} {...props} />;
 export const MonitorViewIcon = (props) => <Icon component={MonitorView} {...props} />;
 export const ListViewIcon = (props) => <Icon component={ListView} {...props} />;
+export const NotAssignedIcon = (props) => <Icon component={NotAssigned} {...props} />;
+export const ActiveIcon = (props) => <Icon component={Active} {...props} />;
+export const DisabledIcon = (props) => <Icon component={Disabled} {...props} />;

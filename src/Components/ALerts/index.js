@@ -135,7 +135,6 @@ export default class Alerts extends Component {
 	render() {
 		const columns = {
 			mrn: true,
-
 			firstName: true,
 			lastName: true,
 			diagnosis: false,
@@ -152,6 +151,14 @@ export default class Alerts extends Component {
 			status: true,
 			criticality: false,
 			measurements: false,
+			deviceStatus: false,
+			PatientsDeviceStatus: false,
+			physician: false,
+			patient: false,
+			serial: false,
+			model: false,
+			type: false,
+			mrnDevices: false,
 		};
 		return (
 			<div className="Alerts">

@@ -295,6 +295,14 @@ export default class NewPatient extends Component {
 			status: false,
 			criticality: false,
 			measurements: false,
+			deviceStatus: false,
+			PatientsDeviceStatus: false,
+			physician: false,
+			patient: false,
+			serial: false,
+			model: false,
+			type: false,
+			mrnDevices: false,
 		};
 		return (
 			<div className="Alerts">

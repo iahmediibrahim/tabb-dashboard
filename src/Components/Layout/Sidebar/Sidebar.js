@@ -37,6 +37,24 @@ class SideNav extends Component {
 							<span>Alerts</span>
 						</NavLink>
 					</li>
+					<li className="list-item">
+						<NavLink to="/patients" activeclassname="active">
+							<AlertIcon />
+							<span>Patients</span>
+						</NavLink>
+					</li>
+					<li className="list-item">
+						<NavLink to="/devices" activeclassname="active">
+							<AlertIcon />
+							<span>Devices</span>
+						</NavLink>
+					</li>
+					<li className="list-item">
+						<NavLink to="/AssignDevice" activeclassname="active">
+							<AlertIcon />
+							<span>Assign Devices</span>
+						</NavLink>
+					</li>
 				</ul>
 			</div>
 		);

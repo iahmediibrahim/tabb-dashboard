@@ -3,6 +3,7 @@ import { Icon } from 'antd';
 import { Row, Col } from 'react-bootstrap';
 import CardiacChart from './Chart';
 import ActionCell from './Action';
+import { CardiacIcon } from './../../shared/Icons';
 import './styles.scss';
 
 class CardiacTableChart extends Component {
@@ -112,7 +113,12 @@ class CardiacTableChart extends Component {
 				<div className="cardiac-chart">
 					<div className="tab_card">
 						<div className="card_heading">
-							<h3>Cardiac </h3>
+							<div className="card_heading_left_side">
+								<span>
+									<CardiacIcon />
+								</span>
+								<h3> Cardiac - Heart Rate</h3>
+							</div>
 							<span>{this.renderHeaderButtons()}</span>
 						</div>
 

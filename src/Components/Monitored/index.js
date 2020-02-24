@@ -408,12 +408,11 @@ const monitoredPatientsData = [
 export default class MonitoredPatients extends Component {
 	state = {
 		loading: false,
-		data: [],
 		dataSource: monitoredPatientsData,
 		nameSearch: '',
 		minValue: 0,
 		maxValue: 9,
-		selectedPatients: [],
+		selectedPatients: monitoredPatientsData,
 		viewPatient: false,
 		activeTab: '1',
 	};
@@ -448,15 +447,16 @@ export default class MonitoredPatients extends Component {
 		}
 	};
 	getPatient = (item) => {
+		console.log(item);
 		item.length === 0
 			? this.setState({
 					viewPatient: false,
+					selectedPatients: item,
 				})
 			: this.setState({
 					viewPatient: true,
 					selectedPatients: item,
 				});
-		console.log(item);
 	};
 	changeTab = (activeKey) => {
 		this.setState({
@@ -515,6 +515,7 @@ export default class MonitoredPatients extends Component {
 	}
 
 	render() {
+		const { selectedPatients, viewPatient, dataSource, minValue, maxValue, activeTab, loading } = this.state;
 		const columns = {
 			mrn: true,
 			firstName: true,
@@ -533,10 +534,18 @@ export default class MonitoredPatients extends Component {
 			status: false,
 			criticality: true,
 			measurements: true,
+			deviceStatus: false,
+			PatientsDeviceStatus: false,
+			physician: false,
+			patient: false,
+			serial: false,
+			model: false,
+			type: false,
+			mrnDevices: false,
 		};
 		return (
 			<div className="monitoredPatients">
-				<Tabs onChange={this.changeTab} activeKey={this.state.activeTab}>
+				<Tabs onChange={this.changeTab} activeKey={activeTab}>
 					<TabPane
 						tab={
 							<span>
@@ -545,14 +554,14 @@ export default class MonitoredPatients extends Component {
 						}
 						key="1"
 					>
-						{this.state.viewPatient && (
+						{viewPatient && (
 							<div className="extraAction">
 								<Button type="primary" size={'large'} onClick={() => this.changeTab('2')}>
 									View Patients
 								</Button>
 								<span className="selected-patients">
 									<strong>You selected </strong>
-									{this.state.selectedPatients.map((p, index) => (
+									{selectedPatients.map((p, index) => (
 										<span>
 											{(index ? ', ' : '') + p.firstName} {p.lastName}
 										</span>
@@ -563,7 +572,7 @@ export default class MonitoredPatients extends Component {
 						<Table
 							{...columns}
 							getPatient={this.getPatient}
-							loading={this.state.loading}
+							loading={loading}
 							data={monitoredPatientsData}
 							rowClick={this.rowClick}
 						/>
@@ -582,17 +591,17 @@ export default class MonitoredPatients extends Component {
 									allowClear
 									onSearch={(nameSearch) =>
 										this.setState({
-											dataSource: monitoredPatientsData.filter((person) =>
-												person.firstName.includes(nameSearch),
+											selectedPatients: monitoredPatientsData.filter((person) =>
+												person.firstName.toLowerCase().includes(nameSearch.toLowerCase()),
 											),
 										})}
 								/>
 							</Col>
 						</Row>
 						<Row gutter={16}>
-							{this.state.dataSource &&
-								this.state.dataSource.length > 0 &&
-								this.state.dataSource.slice(this.state.minValue, this.state.maxValue).map((val) => {
+							{selectedPatients &&
+								selectedPatients.length > 0 &&
+								selectedPatients.slice(minValue, maxValue).map((val) => {
 									let criticality = val.criticality.toString().toLowerCase();
 									let critical =
 										criticality === 'critical-high' || criticality === 'critical-low'
@@ -647,7 +656,7 @@ export default class MonitoredPatients extends Component {
 							defaultCurrent={1}
 							defaultPageSize={6}
 							onChange={this.handleChange}
-							total={this.state.data.length}
+							total={dataSource.length}
 						/>
 					</TabPane>
 				</Tabs>

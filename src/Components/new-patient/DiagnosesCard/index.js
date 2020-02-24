@@ -6,12 +6,19 @@ export class DiagnosesCard extends Component {
 	render() {
 		return (
 			<div className="tab_card">
-				<h3 className="card_heading">Diagnosis</h3>
+				<div className="card_heading">
+					<div className="card_heading_left_side">
+						<h3> Diagnosis </h3>
+					</div>
+				</div>
 				<div className="card_fields">
 					<Row>
-						<Col xl={4} lg={4} md={4} sm={4} xs={4}>
+						<Col xl={4} lg={4} md={4} sm={4} xs={4} className="card_field_type">
 							<div className="field_item">
 								<div className="item_Header">
+									<span>
+										<CardiacIcon />
+									</span>
 									<h4>Cardiac</h4>
 								</div>
 
@@ -25,10 +32,13 @@ export class DiagnosesCard extends Component {
 								</div>
 							</div>
 						</Col>
-						<Col xl={4} lg={4} md={4} sm={4} xs={4}>
+						<Col xl={4} lg={4} md={4} sm={4} xs={4} className="card_field_type">
 							<div className="field_item">
 								<div className="item_Header">
-									<HemoDynamicIcon /> <h4>Hemodynamic</h4>
+									<span>
+										<HemoDynamicIcon />
+									</span>
+									<h4>Hemodynamic</h4>
 								</div>
 
 								<div className="item_body">
@@ -41,10 +51,12 @@ export class DiagnosesCard extends Component {
 								</div>
 							</div>
 						</Col>
-						<Col xl={4} lg={4} md={4} sm={4} xs={4}>
+						<Col xl={4} lg={4} md={4} sm={4} xs={4} className="card_field_type">
 							<div className="field_item">
 								<div className="item_Header">
-									<BloodDropIcon />
+									<span>
+										<BloodDropIcon />
+									</span>
 									<h4>Blood Glucose</h4>
 								</div>
 

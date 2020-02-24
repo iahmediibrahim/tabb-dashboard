@@ -189,3 +189,68 @@ span.dropdownText {
 
     }
 }
+
+.measurements-icons {
+    margin-bottom: 5px;
+    display: inline-block;
+
+    &.dummy-icons {
+
+        .criticalHigh,
+        .criticalLow,
+        .low,
+        .high,
+        .normal {
+            &::after {
+                background: #abb3c9;
+            }
+        }
+
+    }
+
+    i {
+        display: none;
+    }
+
+    span+i {
+        display: inline-block;
+    }
+
+    .anticon svg {
+        width: 24px;
+        height: 24px;
+
+        path {
+            fill: #abb3c9;
+        }
+    }
+}
+
+.not-assigned {
+
+    span,
+    p {
+        color: #8e3188;
+    }
+}
+
+.active-status {
+
+    span,
+    p {
+        color: #2187ff;
+    }
+}
+
+.disabled-status {
+
+    span,
+    p {
+        color: #8992ad;
+    }
+}
+
+.ant-popover-inner {
+    border-radius: 10px;
+    box-shadow: 0px 3px 12px #8992AD99;
+}

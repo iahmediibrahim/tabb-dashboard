@@ -101,6 +101,16 @@
      }
  }
 
+ .assignedDevicesList .ant-list-items {
+     grid-gap: 20px;
+     display: grid;
+     grid-template-columns: 1fr 1fr;
+
+     .ant-list-item {
+         border: 0;
+     }
+ }
+
  .ant-tabs-nav .ant-tabs-tab-active {
      &.ant-tabs-tab {
          border-color: #2187FF;

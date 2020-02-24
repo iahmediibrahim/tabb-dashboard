@@ -1,0 +1,13 @@
+.patients-device-status {
+
+    &.not-assigned,
+    &.active-status,
+    &.disabled-status {
+        text-align: center;
+        display: block;
+
+        i {
+            padding-right: 0;
+        }
+    }
+}

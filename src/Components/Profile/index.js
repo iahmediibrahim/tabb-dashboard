@@ -1,17 +1,20 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Container, Row, Col } from 'react-bootstrap';
-import { Tabs, Icon, Table, Dropdown, Menu, InputNumber, Select, Checkbox, Button } from 'antd';
+import { Tabs, List, Icon, Table, Dropdown, Menu, InputNumber, Select, Checkbox, Button } from 'antd';
 import {
 	CardiacIcon,
 	HemoDynamicIcon,
-	BloodGlucoseIcon,
+	BloodDropIcon,
 	HeartDynamicIcon,
 	MegaPhoneIcon,
 	EditIcon,
 	CancelIcon,
 	SaveIcon,
+	DisabledIcon,
+	ActiveIcon,
 } from './../shared/Icons';
+
 import { Line } from 'react-chartjs-2';
 import DefaultTable from './../shared/Table';
 import SideModal from './SideModal';
@@ -233,6 +236,18 @@ const AlertData = [
 		status: 'unread',
 	},
 ];
+const assignedDevicesList = [
+	{
+		title: 'For SpO2 & Heart Rate',
+		description: 'Nonin Pulse Oximeter 3230',
+		state: 'active',
+	},
+	{
+		title: 'For Blood Pressure',
+		description: 'Care Touch Blood Pressure Monitor Cuff',
+		state: 'disabled',
+	},
+];
 let checkboxDataCopy = {};
 
 export class PatientProfile extends Component {
@@ -294,14 +309,9 @@ export class PatientProfile extends Component {
 			return item;
 		});
 		checkboxTableDataCopy[item] = newState;
-		this.setState(
-			{
-				checkboxTableData: checkboxTableDataCopy,
-			},
-			() => {
-				// console.log(this.state.checkboxTableData);
-			},
-		);
+		this.setState({
+			checkboxTableData: checkboxTableDataCopy,
+		});
 	}
 	dynamicCheckboxTable() {
 		const materialKeys = Object.keys(this.state.checkboxTableData);
@@ -484,6 +494,7 @@ export class PatientProfile extends Component {
 	};
 
 	render() {
+		const path = this.props.location.pathname.slice(1).split('/')[0];
 		const alertTableColumns = {
 			mrn: false,
 			firstNameAction: false,
@@ -504,6 +515,14 @@ export class PatientProfile extends Component {
 			status: true,
 			criticality: true,
 			measurements: false,
+			deviceStatus: false,
+			PatientsDeviceStatus: false,
+			physician: false,
+			patient: false,
+			serial: false,
+			model: false,
+			type: false,
+			mrnDevices: false,
 		};
 
 		return (
@@ -511,14 +530,21 @@ export class PatientProfile extends Component {
 				<Row>
 					<Col xl={10} lg={10} md={10} sm={12} xs={12}>
 						{/* start card */}
+
 						<div className="tab_card">
-							<h3 className="card_title">Diagnosis</h3>
+							<div className="card_heading">
+								<div className="card_heading_left_side">
+									<h3> Diagnosis </h3>
+								</div>
+							</div>
 							<div className="card_fields">
 								<Row>
-									<Col xl={4} lg={4} md={4} sm={4} xs={4}>
+									<Col xl={4} lg={4} md={4} sm={4} xs={4} className="card_field_type">
 										<div className="field_item">
 											<div className="item_Header">
-												<CardiacIcon className="cardiac-icon" />
+												<span>
+													<CardiacIcon />
+												</span>
 												<h4>Cardiac</h4>
 											</div>
 
@@ -532,10 +558,13 @@ export class PatientProfile extends Component {
 											</div>
 										</div>
 									</Col>
-									<Col xl={4} lg={4} md={4} sm={4} xs={4}>
+									<Col xl={4} lg={4} md={4} sm={4} xs={4} className="card_field_type">
 										<div className="field_item">
 											<div className="item_Header">
-												<HemoDynamicIcon /> <h4>Hemodynamic</h4>
+												<span>
+													<HemoDynamicIcon />
+												</span>
+												<h4>Hemodynamic</h4>
 											</div>
 
 											<div className="item_body">
@@ -548,10 +577,12 @@ export class PatientProfile extends Component {
 											</div>
 										</div>
 									</Col>
-									<Col xl={4} lg={4} md={4} sm={4} xs={4}>
+									<Col xl={4} lg={4} md={4} sm={4} xs={4} className="card_field_type">
 										<div className="field_item">
 											<div className="item_Header">
-												<BloodGlucoseIcon />
+												<span>
+													<BloodDropIcon />
+												</span>
 												<h4>Blood Glucose</h4>
 											</div>
 
@@ -568,8 +599,32 @@ export class PatientProfile extends Component {
 								</Row>
 							</div>
 						</div>
+
 						{/* end card */}
 					</Col>
+					{path === 'patients' && (
+						<Col xl={10} lg={10} md={10} sm={12} xs={12}>
+							<div className="tab_card">
+								<h3 className="card_title">Assigned Devices</h3>
+								<div className="card_fields">
+									<List
+										className="assignedDevicesList"
+										itemLayout="horizontal"
+										dataSource={assignedDevicesList}
+										renderItem={(item) => (
+											<List.Item>
+												<List.Item.Meta title={item.title} description={item.description} />
+												<div className="content">
+													{item.state === 'active' ? <ActiveIcon /> : <DisabledIcon />}
+												</div>
+											</List.Item>
+										)}
+									/>
+								</div>
+							</div>
+						</Col>
+					)}
+
 					<Col xl={10} lg={10} md={10} sm={12} xs={12}>
 						{/* start card */}
 						<div className="tab_card patient-content-diagnosis">
@@ -1028,84 +1083,3 @@ export class PatientProfile extends Component {
 	}
 }
 export default PatientProfile;
-
-console.clear();
-
-// class Table extends React.Component {
-//   constructor(props) {
-//     super(props);
-//     this.state = {
-//       checkboxTableData: props.data
-//     };
-//   }
-
-//   handleChange(index, dataType, value) {
-//     const newState = this.state.checkboxTableData.map((item, i) => {
-//       if (i == index) {
-//         return {...item, [dataType]: value};
-//       }
-//       return item;
-//     });
-
-//     this.setState({
-//        checkboxTableData: newState
-//     });
-//   }
-
-//   render() {
-//     console.clear();
-//     console.log(JSON.stringify(this.state.checkboxTableData));
-//     return (
-//         <table className="table table-bordered">
-//             <thead>
-//                 <tr>
-//                     <th>Qty</th>
-//                     <th>Description</th>
-//                     <th>Price (£)</th>
-//                 </tr>
-//             </thead>
-//             <tbody>
-//                 {this.state.checkboxTableData.map((row, index) => {
-//                     return (
-//                         <tr>
-//                             <td>
-//                               <input onChange={(e) => this.handleChange(index, 'qty', e.target.value)}
-//                                      type='number'
-//                                      className='form-control'
-//                                      step='1' min="1"
-//                                      value={this.state.checkboxTableData[index].qty}/>
-//                             </td>
-//                             <td>
-//                               <input onChange={(e) => this.handleChange(index, 'desc', e.target.value)}
-//                                      type='text'
-//                                      className='form-control'
-//                                      value={this.state.checkboxTableData[index].desc}/>
-//                             </td>
-//                             <td>
-//                               <input onChange={(e) => this.handleChange(index, 'price', e.target.value)}
-//                                      type='text'
-//                                      className='form-control'
-//                                      placeholder='6.00'
-//                                      value={this.state.checkboxTableData[index].price}/>
-//                             </td>
-//                         </tr>
-//                     );
-//                 })}
-//             </tbody>
-//         </table>
-//     );
-//   }
-// }
-
-// const checkboxTableData = [
-//   { qty: '', desc: '', price: '' },
-//   { qty: '', desc: '', price: '' },
-//   { qty: '', desc: '', price: '' },
-//   { qty: '', desc: '', price: '' },
-//   { qty: '', desc: '', price: '' },
-//   { qty: '', desc: '', price: '' },
-//   { qty: '', desc: '', price: '' },
-//   { qty: '', desc: '', price: '' }
-// ]
-
-// ReactDOM.render(<Table data={checkboxTableData} />, document.getElementById('app'));

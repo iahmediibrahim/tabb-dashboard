@@ -18,6 +18,19 @@
     left: 0px;
     transform: translate3d(-55px, 40px, 0px) !important;
     will-change: transform;
+    left: -60px !important;
+}
+
+.dropdown-menu.show a:focus {
+    box-shadow: 0 0 0 0 !important;
+    border: 0 !important;
+    background-color: transparent !important;
+}
+
+.dropdown-menu.show a:hover {
+    box-shadow: 0 0 0 0 !important;
+    border: 0 !important;
+    background-color: transparent !important;
 }
 
 .login_profile {

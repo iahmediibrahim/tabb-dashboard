@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Table, Input, Button, Icon } from 'antd';
+import { Table, Input, Button, Icon, Popover } from 'antd';
 import 'antd/dist/antd.css';
 import Highlighter from 'react-highlight-words';
 import { Link } from 'react-router-dom';
@@ -8,7 +8,9 @@ import {
 	ReferIcon,
 	CardiacIcon,
 	BloodDropIcon,
-	HeartAlertIcon,
+	DisabledIcon,
+	ActiveIcon,
+	NotAssignedIcon,
 	BloodGlucoseIcon,
 	HemoDynamicIcon,
 	MotionIcon,
@@ -116,16 +118,13 @@ export default class TableLayout extends Component {
 
 	displayArrayItems(text) {
 		const items = new Array(text);
-		console.log(typeof items, items);
 		let entry = items[0].map((i) => {
 			const iconName = i.toLowerCase();
 			return <img key={iconName} src={`./img/icons/${iconName}.svg`} alt={iconName} />;
 		});
-		console.log(entry);
 		return <span>{entry}</span>;
 	}
 	displayAlertsType(text) {
-		console.log(typeof text, text);
 		if (text === 'heart-rate') {
 			return (
 				<div className="alertType">
@@ -210,25 +209,41 @@ export default class TableLayout extends Component {
 	}
 	displayMeasurements(text) {
 		const items = new Array(text);
-		return (
-			<span className="measurements-icons">
-				<span className="heartRate">
-					{this.generateIcon(items, 'bpm')} {this.generateIcon(items, 'spo2')} <CardiacIcon />
+		if (items[0] !== null && items[0].length !== null && items[0].length > 0) {
+			return (
+				<span className="measurements-icons">
+					<span className="heartRate">
+						{this.generateIcon(items, 'bpm')} {this.generateIcon(items, 'spo2')} <CardiacIcon />
+					</span>
+					<span className="bloodG">
+						{this.generateIcon(items, 'bgb')} {this.generateIcon(items, 'bga')} <BloodDropIcon />
+					</span>
+					<span className="bp">
+						{this.generateIcon(items, 'bp')} <HeartDynamicIcon />
+					</span>
+					<span className="temp">
+						{this.generateIcon(items, 'temp')} <TempIcon />
+					</span>
+					<span className="weight">
+						{this.generateIcon(items, 'weight')} <WeightIcon />
+					</span>
 				</span>
-				<span className="bloodG">
-					{this.generateIcon(items, 'bgb')} {this.generateIcon(items, 'bga')} <BloodDropIcon />
+			);
+		} else {
+			return (
+				<span className="measurements-icons dummy-icons">
+					<span className="heartRate">
+						<span className="criticalLow" /> <span className="high" /> <CardiacIcon />
+					</span>
+					<span className="bloodG">
+						<span className="criticalLow" /> <span className="high" /> <BloodDropIcon />
+					</span>
+					<span className="bp">
+						<span className="low" /> <HeartDynamicIcon />
+					</span>
 				</span>
-				<span className="bp">
-					{this.generateIcon(items, 'bp')} <HeartDynamicIcon />
-				</span>
-				<span className="temp">
-					{this.generateIcon(items, 'temp')} <TempIcon />
-				</span>
-				<span className="weight">
-					{this.generateIcon(items, 'weight')} <WeightIcon />
-				</span>
-			</span>
-		);
+			);
+		}
 	}
 	capitalize(s) {
 		const text = s.split('-').join(' ');
@@ -236,7 +251,6 @@ export default class TableLayout extends Component {
 		return text.charAt(0).toUpperCase() + text.slice(1);
 	}
 	displayCriticality(text) {
-		console.log('patient', text);
 		const item = text.toString().toLowerCase();
 		if (item === 'critical-high') {
 			return (
@@ -274,7 +288,74 @@ export default class TableLayout extends Component {
 			);
 		}
 	}
-
+	displayPatientDeviceStatus(text) {
+		const item = text.toString().toLowerCase();
+		if (item === 'not-assigned') {
+			return (
+				<Popover
+					content={
+						<div className="not-assigned">
+							<p>{this.capitalize(item)}</p>
+							<Link>click to assign</Link>
+						</div>
+					}
+				>
+					<p className="not-assigned patients-device-status mb-0">
+						<NotAssignedIcon />
+					</p>
+				</Popover>
+			);
+		}
+		if (item === 'active') {
+			return (
+				<Popover
+					content={
+						<div className="active-status">
+							<p>{this.capitalize(item)}</p>
+						</div>
+					}
+				>
+					<p className="active-status patients-device-status mb-0">
+						<ActiveIcon />
+					</p>
+				</Popover>
+			);
+		}
+		if (item === 'disabled') {
+			return (
+				<Popover
+					content={
+						<div className="disabled-status">
+							<p>{this.capitalize(item)}</p>
+						</div>
+					}
+				>
+					<p className="disabled-status patients-device-status mb-0">
+						<DisabledIcon />
+					</p>
+				</Popover>
+			);
+		}
+	}
+	displayDeviceStatus(text) {
+		const item = text.toString().toLowerCase();
+		if (item === 'active') {
+			return (
+				<p className="active-status device-status  mb-0">
+					<ActiveIcon />
+					<span>{this.capitalize(item)}</span>
+				</p>
+			);
+		}
+		if (item === 'disabled') {
+			return (
+				<p className="disabled-status  device-status  mb-0">
+					<DisabledIcon />
+					<span>{this.capitalize(item)}</span>
+				</p>
+			);
+		}
+	}
 	displayAlerts(text) {
 		const items = new Array(text);
 		return items[0].map((i, index) => {
@@ -303,15 +384,23 @@ export default class TableLayout extends Component {
 		});
 	}
 	specificColumns() {
+		let mrn = {
+			title: 'MRN',
+			dataIndex: 'mrn',
+			className: 'column-alert',
+			sorter: (a, b) => a.mrn - b.mrn,
+			sortDirections: [ 'descend', 'ascend' ],
+			...this.getColumnSearchProps('mrn'),
+		};
 		return [
-			this.props.mrn && {
-				title: 'MRN',
-				dataIndex: 'mrn',
-				className: 'column-alert',
-				sorter: (a, b) => a.mrn - b.mrn,
+			this.props.serial && {
+				title: 'serial',
+				dataIndex: 'serial',
+				sorter: (a, b) => a.serial - b.serial,
 				sortDirections: [ 'descend', 'ascend' ],
-				...this.getColumnSearchProps('mrn'),
+				...this.getColumnSearchProps('serial'),
 			},
+			this.props.mrn && mrn,
 			this.props.firstName && {
 				title: 'First Name',
 				dataIndex: 'firstName',
@@ -354,22 +443,56 @@ export default class TableLayout extends Component {
 					},
 				],
 				onFilter: (value, record) => {
-					console.log(value);
 					return record.criticality.indexOf(value) === 0;
 				},
 				render: (text) => this.displayCriticality(text),
 			},
+
+			this.props.PatientsDeviceStatus && {
+				title: 'Devices',
+				dataIndex: 'deviceStatus',
+				sorter: (a, b) => a.deviceStatus.length - b.deviceStatus.length,
+				sortDirections: [ 'descend', 'ascend' ],
+				...this.getColumnSearchProps('deviceStatus'),
+				render: (text) => this.displayPatientDeviceStatus(text),
+			},
+			this.props.physician && {
+				title: 'Physician',
+				dataIndex: 'physician',
+				sorter: (a, b) => a.physician.length - b.physician.length,
+				sortDirections: [ 'descend', 'ascend' ],
+				...this.getColumnSearchProps('physician'),
+			},
+			this.props.model && {
+				title: 'model',
+				dataIndex: 'model',
+				sorter: (a, b) => a.model.length - b.model.length,
+				sortDirections: [ 'descend', 'ascend' ],
+				...this.getColumnSearchProps('model'),
+			},
+			this.props.type && {
+				title: 'type',
+				dataIndex: 'type',
+				sorter: (a, b) => a.type.length - b.type.length,
+				sortDirections: [ 'descend', 'ascend' ],
+				...this.getColumnSearchProps('type'),
+			},
+			this.props.patient && {
+				title: 'Patient',
+				dataIndex: 'patient',
+				sorter: (a, b) => a.patient.length - b.patient.length,
+				sortDirections: [ 'descend', 'ascend' ],
+				...this.getColumnSearchProps('patient'),
+			},
 			this.props.measurements && {
 				title: 'Measurements',
 				dataIndex: 'measurements',
-
 				render: (text) => this.displayMeasurements(text),
 			},
 			this.props.diagnosis && {
 				title: 'Diagnosis',
 				dataIndex: 'diagnosis',
 				className: 'diagnosis_icon',
-
 				render: (text) => this.displayArrayItems(text),
 			},
 
@@ -446,7 +569,15 @@ export default class TableLayout extends Component {
 
 				...this.getColumnSearchProps('lastRead'),
 			},
-
+			this.props.mrnDevices && mrn,
+			this.props.deviceStatus && {
+				title: 'Status',
+				dataIndex: 'deviceStatus',
+				sorter: (a, b) => a.deviceStatus.length - b.deviceStatus.length,
+				sortDirections: [ 'descend', 'ascend' ],
+				...this.getColumnSearchProps('deviceStatus'),
+				render: (text) => this.displayDeviceStatus(text),
+			},
 			this.props.status && {
 				title: 'status',
 				dataIndex: 'status',

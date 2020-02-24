@@ -3,9 +3,6 @@ import { Container, Row, Col, Form } from 'react-bootstrap';
 import DiagnosesCard from './../DiagnosesCard';
 import ChooseMeasurment from './../ChooseMeasurment';
 import CardiacTableChart from './../CardiacChart';
-import BloodPressure from './../HemoDynamic';
-import ChekboxsTable from './../CardiacChartSpo2/index';
-// import Checkbox from './../../ui-inputs/Checkbox';
 import Profile from '../../Profile/SideModal';
 import { Tabs, Icon, Table, Dropdown, Menu, InputNumber, Select, Checkbox, Button } from 'antd';
 import {
@@ -265,14 +262,6 @@ export class AssignMeasurment extends Component {
 					<Col xl={10} lg={10} md={10} sm={12} xs={12}>
 						<DiagnosesCard />
 						<ChooseMeasurment />
-
-						{/* review-reading" */}
-						<div className="review-reading">
-							<ChekboxsTable />
-							<CardiacTableChart />
-							<BloodPressure />
-						</div>
-						{/* end-reading" */}
 					</Col>
 					<Col xl={10} lg={10} md={10} sm={12} xs={12}>
 						<div className="recentAlerts">
