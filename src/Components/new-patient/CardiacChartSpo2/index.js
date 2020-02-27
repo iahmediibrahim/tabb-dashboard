@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Icon } from 'antd';
+import { EditIcon, CancelIcon, SaveIcon } from './../../shared/Icons';
 import { Row, Col } from 'react-bootstrap';
 import CardiacChart from './Chart';
 import ActionCell from './action';
@@ -12,32 +12,32 @@ class ChekboxsTable extends Component {
 		this.state = {
 			edit: false,
 			actions: [],
-			saved_actions: []
+			saved_actions: [],
 		};
 	}
 	componentDidMount() {
 		const initial_actions = [
 			{
 				id: 1,
-				in_value: 80
+				in_value: 80,
 			},
 			{
 				id: 2,
-				in_value: 85
+				in_value: 85,
 			},
 			{
 				id: 3,
-				in_value: 90
+				in_value: 90,
 			},
 			{
 				id: 4,
-				in_value: 95
-			}
+				in_value: 95,
+			},
 		];
 
 		this.setState({
 			actions: JSON.parse(JSON.stringify(initial_actions)),
-			saved_actions: JSON.parse(JSON.stringify(initial_actions))
+			saved_actions: JSON.parse(JSON.stringify(initial_actions)),
 		});
 		console.log(this.state.initial_actions);
 	}
@@ -57,20 +57,20 @@ class ChekboxsTable extends Component {
 			return (
 				<React.Fragment>
 					<button
-						className="btn btn-transparent text-white weight-600 font-Lsmall mx-1"
+						className="btn btn-transparent py-0 pl-0 pr-3 text-white weight-600 font-Lsmall mx-1"
 						onClick={() => {
 							this.setState({ edit: false, saved_actions: JSON.parse(JSON.stringify(actions)) });
 						}}
 					>
-						<Icon type="save" /> Save
+						<SaveIcon /> Save
 					</button>
 					<button
-						className="btn btn-transparent text-white weight-600 font-Lsmall mx-1"
+						className="btn btn-transparent py-0 pl-0 pr-3 text-white weight-600 font-Lsmall mx-1"
 						onClick={() => {
 							this.setState({ edit: false, actions: JSON.parse(JSON.stringify(saved_actions)) });
 						}}
 					>
-						<Icon type="stop" /> Cancel
+						<CancelIcon /> Cancel
 					</button>
 				</React.Fragment>
 			);
@@ -78,12 +78,12 @@ class ChekboxsTable extends Component {
 			return (
 				<React.Fragment>
 					<button
-						className="btn btn-transparent text-white weight-600 font-Lsmall"
+						className="btn btn-transparent py-0 pl-0 pr-3 text-white weight-600 font-Lsmall"
 						onClick={() => {
 							this.setState({ edit: true });
 						}}
 					>
-						<Icon type="edit" /> Edit
+						<EditIcon /> Edit
 					</button>
 				</React.Fragment>
 			);
@@ -114,9 +114,7 @@ class ChekboxsTable extends Component {
 					<div className="tab_card">
 						<div className="card_heading">
 							<div className="card_heading_left_side">
-								<span>
-									<CardiacIcon />
-								</span>
+								<CardiacIcon />
 								<h3> Cardiac- Spo2</h3>
 							</div>
 							<span>{this.renderHeaderButtons()}</span>

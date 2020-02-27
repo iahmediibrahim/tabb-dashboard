@@ -1,11 +1,12 @@
 .patient-details-modal {
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: 0px;
+    padding-right: 0px;
 
     .patient-modal-header {
         padding-top: 15px;
         padding-bottom: 15px;
         border-bottom: 1px solid #ABB3C9;
+        padding-left: 15px;
 
         h4 {
             color: #8992AD;
@@ -22,9 +23,13 @@
         i {
             margin-left: 15px;
         }
+
+
     }
 
     .patient-modal-content {
+        padding-left: 15px;
+
         h5 {
             color: #8992AD;
             font-size: 13px;
@@ -141,4 +146,14 @@
     .ant-modal-body {
         padding: 0 !important;
     }
+}
+
+.ant-modal-body {
+    padding: 0 !important;
+}
+
+.ant-popover-title {
+    font-family: 'Inter-Bold';
+    color: #0070B9;
+    font-size: 14px;
 }

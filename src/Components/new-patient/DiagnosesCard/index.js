@@ -6,11 +6,7 @@ export class DiagnosesCard extends Component {
 	render() {
 		return (
 			<div className="tab_card">
-				<div className="card_heading">
-					<div className="card_heading_left_side">
-						<h3> Diagnosis </h3>
-					</div>
-				</div>
+				<h3 className="card_title">Diagnosis</h3>
 				<div className="card_fields">
 					<Row>
 						<Col xl={4} lg={4} md={4} sm={4} xs={4} className="card_field_type">

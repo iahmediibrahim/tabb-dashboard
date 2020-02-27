@@ -2,7 +2,14 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link, withRouter, NavLink } from 'react-router-dom';
 import './Sidebar.scss';
 import logo from './../../../logo.svg';
-import { MenuIcon, DashboardIcon, PatientIcon, MonitoredPatientIcon, AlertIcon } from './../../shared/Icons';
+import {
+	MenuIcon,
+	DashboardIcon,
+	PatientIcon,
+	MonitoredPatientIcon,
+	AlertIcon,
+	DevicesIcon,
+} from './../../shared/Icons';
 
 class SideNav extends Component {
 	render() {
@@ -39,7 +46,7 @@ class SideNav extends Component {
 					</li>
 					<li className="list-item">
 						<NavLink to="/patients" activeclassname="active">
-							<AlertIcon />
+							<PatientIcon />
 							<span>Patients</span>
 						</NavLink>
 					</li>
@@ -47,12 +54,6 @@ class SideNav extends Component {
 						<NavLink to="/devices" activeclassname="active">
 							<AlertIcon />
 							<span>Devices</span>
-						</NavLink>
-					</li>
-					<li className="list-item">
-						<NavLink to="/AssignDevice" activeclassname="active">
-							<AlertIcon />
-							<span>Assign Devices</span>
 						</NavLink>
 					</li>
 				</ul>

@@ -102,11 +102,38 @@
  }
 
  .assignedDevicesList .ant-list-items {
-     grid-gap: 20px;
      display: grid;
      grid-template-columns: 1fr 1fr;
 
      .ant-list-item {
+         .ant-list-item-meta-content {
+             border: 1px solid #ABB3C9;
+             padding: 10px 20px;
+             margin-right: -1px;
+         }
+
+         .ant-list-item-meta-title {
+             color: #1A243B;
+             font-size: 16px;
+         }
+
+         .ant-list-item-meta-description {
+             color: #5C6D96;
+             font-weight: bold;
+
+             p {
+                 display: flex;
+                 margin: 0;
+
+                 i {
+                     padding-left: 20px;
+
+                 }
+             }
+         }
+
+         padding: 0;
+         margin-top: -1px;
          border: 0;
      }
  }

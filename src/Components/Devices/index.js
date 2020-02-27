@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Table from '../shared/Table';
 import { Button } from 'antd';
-
+import NewDeviceModal from './NewDeviceModal';
 import './styles.scss';
 
 const DevicesData = [
@@ -51,6 +51,16 @@ export default class Patients extends Component {
 	rowClick = (item) => {
 		this.props.history.push(`/monitoredPatients/${item.firstName}-${item.lastName}`);
 	};
+	handleClick = () => {
+		this.setState({
+			visible: true,
+		});
+	};
+	handleCancel = () => {
+		this.setState({
+			visible: false,
+		});
+	};
 	render() {
 		const columns = {
 			mrn: false,
@@ -63,7 +73,7 @@ export default class Patients extends Component {
 			assignAction: false,
 			referAction: false,
 			selectable: false,
-			clickable: true,
+			clickable: false,
 			abNormal: false,
 			alert: false,
 			lastRead: false,
@@ -83,8 +93,12 @@ export default class Patients extends Component {
 			<div>
 				<div className="devices-header">
 					<h4>Assigned Devices</h4>
-					<Button type="primary">New Device</Button>
+					<Button onClick={this.handleClick} type="primary">
+						New Device
+					</Button>
 				</div>
+				<NewDeviceModal visible={this.state.visible} handleCancel={this.handleCancel} />
+
 				<Table
 					{...columns}
 					loading={this.state.loading}

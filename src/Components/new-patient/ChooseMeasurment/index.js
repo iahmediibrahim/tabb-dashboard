@@ -12,11 +12,8 @@ export class ChooseMeasurment extends Component {
 		HeartRateChecked: true,
 		Spo2Checked: true,
 		BloodPressure: true,
-		TempChecked: false
+		TempChecked: false,
 	};
-	onChange(checkedValues) {
-		console.log('checked = ', checkedValues);
-	}
 
 	render() {
 		const HeartRateLable = `${this.state.HeartRateChecked ? 'Heart Rate' : 'Heart Rate'}`;
@@ -58,7 +55,7 @@ export class ChooseMeasurment extends Component {
 										checked={this.state.HeartRateChecked}
 										onChange={(e) => {
 											this.setState({
-												HeartRateChecked: e.target.checked
+												HeartRateChecked: e.target.checked,
 											});
 										}}
 									>
@@ -75,7 +72,7 @@ export class ChooseMeasurment extends Component {
 										checked={this.state.Spo2Checked}
 										onChange={(e) => {
 											this.setState({
-												Spo2Checked: e.target.checked
+												Spo2Checked: e.target.checked,
 											});
 										}}
 									>
@@ -94,7 +91,7 @@ export class ChooseMeasurment extends Component {
 										checked={this.state.BloodPressure}
 										onChange={(e) => {
 											this.setState({
-												BloodPressure: e.target.checked
+												BloodPressure: e.target.checked,
 											});
 										}}
 									>
@@ -117,7 +114,7 @@ export class ChooseMeasurment extends Component {
 										checked={this.state.TempChecked}
 										onChange={(e) => {
 											this.setState({
-												TempChecked: e.target.checked
+												TempChecked: e.target.checked,
 											});
 										}}
 									>

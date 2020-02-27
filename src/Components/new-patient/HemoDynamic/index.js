@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Icon } from 'antd';
+import { EditIcon, CancelIcon, SaveIcon } from './../../shared/Icons';
 import { Row, Col } from 'react-bootstrap';
 import CardiacChart from './Chart';
 import ActionCell from './Action';
@@ -14,7 +14,7 @@ class BloodPressure extends Component {
 			systolic_actions: [],
 			systolic_saved_actions: [],
 			diastolic_actions: [],
-			diastolic_initial_actions: []
+			diastolic_initial_actions: [],
 		};
 	}
 	componentDidMount() {
@@ -22,40 +22,40 @@ class BloodPressure extends Component {
 		const systolic_initial_actions = [
 			{
 				id: 1,
-				in_value: 120
+				in_value: 120,
 			},
 			{
 				id: 2,
-				in_value: 140
+				in_value: 140,
 			},
 			{
 				id: 3,
-				in_value: 160
+				in_value: 160,
 			},
 			{
 				id: 4,
-				in_value: 200
-			}
+				in_value: 200,
+			},
 		];
 
 		// Diastolic intial values
 		const diastolic_initial_actions = [
 			{
 				id: 5,
-				in_value: 75
+				in_value: 75,
 			},
 			{
 				id: 6,
-				in_value: 80
+				in_value: 80,
 			},
 			{
 				id: 7,
-				in_value: 90
+				in_value: 90,
 			},
 			{
 				id: 8,
-				in_value: 100
-			}
+				in_value: 100,
+			},
 		];
 
 		this.setState({
@@ -64,7 +64,7 @@ class BloodPressure extends Component {
 			systolic_saved_actions: JSON.parse(JSON.stringify(systolic_initial_actions)),
 			//
 			diastolic_actions: JSON.parse(JSON.stringify(diastolic_initial_actions)),
-			diastolic_saved_actions: JSON.parse(JSON.stringify(diastolic_initial_actions))
+			diastolic_saved_actions: JSON.parse(JSON.stringify(diastolic_initial_actions)),
 		});
 		console.log(this.state.systolic_initial_actions);
 	}
@@ -87,7 +87,7 @@ class BloodPressure extends Component {
 		console.log('update', systolic, diastolic);
 		this.setState({
 			systolic_actions: systolic,
-			diastolic_actions: diastolic
+			diastolic_actions: diastolic,
 		});
 	};
 	renderHeaderButtons = () => {
@@ -96,35 +96,35 @@ class BloodPressure extends Component {
 			systolic_actions,
 			systolic_saved_actions,
 			diastolic_actions,
-			diastolic_saved_actions
+			diastolic_saved_actions,
 		} = this.state;
 		if (edit) {
 			return (
 				<React.Fragment>
 					<button
-						className="btn btn-transparent text-white weight-600 font-Lsmall mx-1"
+						className="btn btn-transparent py-0 pl-0 pr-3 text-white weight-600 font-Lsmall mx-1"
 						onClick={() => {
 							this.setState({
 								edit: false,
 								systolic_saved_actions: JSON.parse(JSON.stringify(systolic_actions)),
-								diastolic_saved_actions: JSON.parse(JSON.stringify(diastolic_actions))
+								diastolic_saved_actions: JSON.parse(JSON.stringify(diastolic_actions)),
 							});
 						}}
 					>
-						<Icon type="save" /> Save
+						<SaveIcon /> Save
 					</button>
 					<button
-						className="btn btn-transparent text-white weight-600 font-Lsmall mx-1"
+						className="btn btn-transparent py-0 pl-0 pr-3 text-white weight-600 font-Lsmall mx-1"
 						onClick={() => {
 							this.setState({
 								edit: false,
 								systolic_actions: JSON.parse(JSON.stringify(systolic_saved_actions)),
 
-								diastolic_actions: JSON.parse(JSON.stringify(diastolic_saved_actions))
+								diastolic_actions: JSON.parse(JSON.stringify(diastolic_saved_actions)),
 							});
 						}}
 					>
-						<Icon type="stop" /> Cancel
+						<CancelIcon /> Cancel
 					</button>
 				</React.Fragment>
 			);
@@ -132,12 +132,12 @@ class BloodPressure extends Component {
 			return (
 				<React.Fragment>
 					<button
-						className="btn btn-transparent text-white weight-600 font-Lsmall"
+						className="btn btn-transparent py-0 pl-0 pr-3 text-white weight-600 font-Lsmall"
 						onClick={() => {
 							this.setState({ edit: true });
 						}}
 					>
-						<Icon type="edit" /> Edit
+						<EditIcon /> Edit
 					</button>
 				</React.Fragment>
 			);
@@ -190,9 +190,7 @@ class BloodPressure extends Component {
 					<div className="tab_card">
 						<div className="card_heading">
 							<div className="card_heading_left_side">
-								<span>
-									<HemoDynamicIcon />
-								</span>
+								<HemoDynamicIcon />
 								<h3> Hemodynamic - Blood Pressure </h3>
 							</div>
 							<span>{this.renderHeaderButtons()}</span>

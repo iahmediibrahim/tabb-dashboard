@@ -1,19 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Container, Row, Col } from 'react-bootstrap';
-import { Tabs, List, Icon, Table, Dropdown, Menu, InputNumber, Select, Checkbox, Button } from 'antd';
-import {
-	CardiacIcon,
-	HemoDynamicIcon,
-	BloodDropIcon,
-	HeartDynamicIcon,
-	MegaPhoneIcon,
-	EditIcon,
-	CancelIcon,
-	SaveIcon,
-	DisabledIcon,
-	ActiveIcon,
-} from './../shared/Icons';
+import { Tabs, List, Icon, Table } from 'antd';
+import { CardiacIcon, HeartDynamicIcon, MegaPhoneIcon, EditIcon, DisabledIcon, ActiveIcon } from './../shared/Icons';
+import DiagnosesCard from './../new-patient/DiagnosesCard';
 
 import { Line } from 'react-chartjs-2';
 import DefaultTable from './../shared/Table';
@@ -22,8 +12,8 @@ import SideModal from './SideModal';
 import './styles.scss';
 import dataService from './../services/data.service';
 import './styles.scss';
+import EditableCheckboxTable from '../shared/EditableCheckboxTable';
 const HANDLE = 'patients';
-const { Option } = Select;
 
 const { TabPane } = Tabs;
 const options = {
@@ -248,240 +238,16 @@ const assignedDevicesList = [
 		state: 'disabled',
 	},
 ];
-let checkboxDataCopy = {};
 
 export class PatientProfile extends Component {
 	state = {
 		data: [],
-		editCheckboxTable: false,
-		checkboxTableData: {
-			'notify-patient': [
-				{ checked: true, notify: 'Everytime', times: 2, every: 'hours' },
-				{ checked: false, notify: 'Everytime', times: 2, every: 'hours' },
-				{ checked: true, notify: 'Everytime', times: 2, every: 'hours' },
-				{ checked: false, notify: 'Everytime', times: 2, every: 'hours' },
-				{ checked: false, notify: 'Everytime', times: 2, every: 'hours' },
-			],
-			'notify-caregiver': [
-				{ checked: true, notify: 'Everytime', times: 2, every: 'hours' },
-				{ checked: false, notify: 'Everytime', times: 2, every: 'hours' },
-				{ checked: true, notify: 'Everytime', times: 2, every: 'hours' },
-				{ checked: false, notify: 'Everytime', times: 2, every: 'hours' },
-				{ checked: false, notify: 'Everytime', times: 2, every: 'hours' },
-			],
-			'notify-physician': [
-				{ checked: true, notify: 'Everytime', times: 2, every: 'hours' },
-				{ checked: false, notify: 'Everytime', times: 2, every: 'hours' },
-				{ checked: true, notify: 'Everytime', times: 2, every: 'hours' },
-				{ checked: false, notify: 'Everytime', times: 2, every: 'hours' },
-				{ checked: false, notify: 'Everytime', times: 2, every: 'hours' },
-			],
-			'open-support-ticket': [
-				{ checked: true, notify: 'Everytime', times: 2, every: 'hours' },
-				{ checked: false, notify: 'Everytime', times: 2, every: 'hours' },
-				{ checked: true, notify: 'Everytime', times: 2, every: 'hours' },
-				{ checked: false, notify: 'Everytime', times: 2, every: 'hours' },
-				{ checked: false, notify: 'Everytime', times: 2, every: 'hours' },
-			],
-			'change-sampling-rate': [
-				{ checked: true, notify: 'Everytime', times: 2, every: 'hours' },
-				{ checked: false, notify: 'Everytime', times: 2, every: 'hours' },
-				{ checked: true, notify: 'Everytime', times: 2, every: 'hours' },
-				{ checked: false, notify: 'Everytime', times: 2, every: 'hours' },
-				{ checked: false, notify: 'Everytime', times: 2, every: 'hours' },
-			],
-		},
 	};
 
 	componentDidMount() {
 		this.getData();
 	}
 
-	handleChange(item, index, dataType, value) {
-		let { checkboxTableData } = this.state;
-		let checkboxTableDataCopy = checkboxTableData;
-
-		const newState = this.state.checkboxTableData[item].map((item, i) => {
-			if (i === index) {
-				return { ...item, [dataType]: value };
-			}
-
-			return item;
-		});
-		checkboxTableDataCopy[item] = newState;
-		this.setState({
-			checkboxTableData: checkboxTableDataCopy,
-		});
-	}
-	dynamicCheckboxTable() {
-		const materialKeys = Object.keys(this.state.checkboxTableData);
-		const { checkboxTableData } = this.state;
-		var rows = materialKeys.map((item, i) => {
-			var entry = checkboxTableData[item].map((row, index) => {
-				return (
-					<td key={index} style={{ backgroundColor: row.checked ? '#C9E0F1' : '#E5F0F8' }}>
-						<Checkbox
-							onChange={(e) => this.handleChange(item, index, 'checked', e.target.checked)}
-							defaultChecked={row.checked}
-						/>
-						{row.checked && (
-							<Dropdown
-								trigger={[ 'click' ]}
-								overlay={
-									<Menu className="checkbox-menu">
-										<div className="duration">
-											<Select
-												defaultValue={row.notify}
-												placeholder="choose duration"
-												style={{ width: '215px' }}
-												onChange={(value) => this.handleChange(item, index, 'notify', value)}
-											>
-												<Option value="once">Once</Option>
-												<Option value="Everytime">Everytime</Option>
-												<Option value="everyPeriod">Every Period</Option>
-												<Option value="everyNoOfOccurrences">Every no. of occurrences</Option>
-											</Select>
-										</div>
-										{row.notify === 'everyPeriod' && (
-											<div className="time">
-												<InputNumber
-													defaultValue={row.times}
-													placeholder="choose number"
-													min={1}
-													max={100000}
-													onChange={(value) => this.handleChange(item, index, 'times', value)}
-												/>
-												<Select
-													defaultValue={row.every}
-													placeholder="choose time"
-													style={{ width: 120 }}
-													onChange={(value) => this.handleChange(item, index, 'every', value)}
-												>
-													<Option value="minutes">minutes</Option>
-													<Option value="hours">Hours</Option>
-													<Option value="days">Days</Option>
-												</Select>
-											</div>
-										)}
-										{row.notify === 'everyNoOfOccurrences' && (
-											<div className="time">
-												<span className="mr-2">Every</span>
-												<InputNumber
-													defaultValue={row.times}
-													placeholder="choose number"
-													min={1}
-													max={100000}
-													onChange={(value) => this.handleChange(item, index, 'times', value)}
-												/>
-												Times
-											</div>
-										)}
-									</Menu>
-								}
-							>
-								<a className="ml-2 ant-dropdown-link" href="#">
-									{(row.notify === 'once' || row.notify === 'Everytime') && (
-										<span className="dropdownText">
-											{row.notify}
-											<Icon type="setting" />
-										</span>
-									)}
-									{row.notify === 'everyPeriod' && (
-										<span className="mr-2 dropdownText">
-											Every {row.times} {row.every} <Icon type="setting" />
-										</span>
-									)}
-									{row.notify === 'everyNoOfOccurrences' && (
-										<span className="mr-2 dropdownText">
-											Every {row.times} Times <Icon type="setting" />
-										</span>
-									)}
-								</a>
-							</Dropdown>
-						)}
-					</td>
-				);
-			});
-			let itemLabel = item.split('-').join(' ');
-			return (
-				<tr key={i}>
-					<td>
-						<p className="text-dark m-0  font-weight-bold text-capitalize">{itemLabel}</p>
-					</td>
-					{entry}
-				</tr>
-			);
-		});
-		return (
-			<table className="table table-bordered">
-				<thead>
-					<tr>
-						<th />
-						<th>C.Low</th>
-						<th>Low</th>
-						<th>High</th>
-						<th>C.high</th>
-						<th>Missed</th>
-					</tr>
-				</thead>
-				<tbody>{rows}</tbody>
-			</table>
-		);
-	}
-	staticCheckboxTable() {
-		const materialKeys = Object.keys(this.state.checkboxTableData);
-		const { checkboxTableData } = this.state;
-		var rows = materialKeys.map((item, i) => {
-			var entry = checkboxTableData[item].map((row, index) => {
-				return (
-					<td key={index} style={{ backgroundColor: row.checked ? '#C9E0F1' : '#E5F0F8' }}>
-						{row.checked ? (row.notify === 'once' || row.notify === 'Everytime') && row.notify : ''}
-
-						{row.checked ? (
-							row.notify === 'everyPeriod' && (
-								<span className="mr-2">
-									Every {row.times} {row.every}
-								</span>
-							)
-						) : (
-							''
-						)}
-						{row.checked ? (
-							row.notify === 'everyNoOfOccurrences' && (
-								<span className="mr-2">Every {row.times} Times</span>
-							)
-						) : (
-							''
-						)}
-					</td>
-				);
-			});
-			let itemLabel = item.split('-').join(' ');
-			return (
-				<tr key={i}>
-					<td>
-						<p className="text-dark m-0 font-weight-bold text-capitalize">{itemLabel}</p>
-					</td>
-					{entry}
-				</tr>
-			);
-		});
-		return (
-			<table className="table table-bordered">
-				<thead>
-					<tr>
-						<th />
-						<th>C.Low</th>
-						<th>Low</th>
-						<th>High</th>
-						<th>C.high</th>
-						<th>Missed</th>
-					</tr>
-				</thead>
-				<tbody>{rows}</tbody>
-			</table>
-		);
-	}
 	getData = () => {
 		dataService.get(HANDLE).then((items) => {
 			const monitoredPatients = items.filter((item) => item.assigned === true);
@@ -529,81 +295,21 @@ export class PatientProfile extends Component {
 			<Container fluid={true}>
 				<Row>
 					<Col xl={10} lg={10} md={10} sm={12} xs={12}>
-						{/* start card */}
-
-						<div className="tab_card">
-							<div className="card_heading">
-								<div className="card_heading_left_side">
-									<h3> Diagnosis </h3>
-								</div>
-							</div>
-							<div className="card_fields">
-								<Row>
-									<Col xl={4} lg={4} md={4} sm={4} xs={4} className="card_field_type">
-										<div className="field_item">
-											<div className="item_Header">
-												<span>
-													<CardiacIcon />
-												</span>
-												<h4>Cardiac</h4>
-											</div>
-
-											<div className="item_body">
-												<p>
-													<span>AT12: </span> Coronary Artery Disease.
-												</p>
-												<p>
-													<span>AT12: </span> Coronary Artery Disease.
-												</p>
-											</div>
-										</div>
-									</Col>
-									<Col xl={4} lg={4} md={4} sm={4} xs={4} className="card_field_type">
-										<div className="field_item">
-											<div className="item_Header">
-												<span>
-													<HemoDynamicIcon />
-												</span>
-												<h4>Hemodynamic</h4>
-											</div>
-
-											<div className="item_body">
-												<p>
-													<span>AT12: </span> Coronary Artery Disease.
-												</p>
-												<p>
-													<span>AT12: </span> Coronary Artery Disease.
-												</p>
-											</div>
-										</div>
-									</Col>
-									<Col xl={4} lg={4} md={4} sm={4} xs={4} className="card_field_type">
-										<div className="field_item">
-											<div className="item_Header">
-												<span>
-													<BloodDropIcon />
-												</span>
-												<h4>Blood Glucose</h4>
-											</div>
-
-											<div className="item_body">
-												<p>
-													<span>AT12: </span> Coronary Artery Disease.
-												</p>
-												<p>
-													<span>AT12: </span> Coronary Artery Disease.
-												</p>
-											</div>
-										</div>
-									</Col>
-								</Row>
-							</div>
-						</div>
-
-						{/* end card */}
+						<DiagnosesCard />
 					</Col>
 					{path === 'patients' && (
 						<Col xl={10} lg={10} md={10} sm={12} xs={12}>
+							<div className="d-flex justify-content-between" style={{ marginTop: -20 }}>
+								<p>
+									Monitor Period: <strong>2 years</strong>
+								</p>
+								<p>
+									Start Date: <strong>23 Oct years</strong>
+								</p>
+								<p>
+									End Date: <strong>23 Mar 2020</strong>
+								</p>
+							</div>
 							<div className="tab_card">
 								<h3 className="card_title">Assigned Devices</h3>
 								<div className="card_fields">
@@ -613,10 +319,20 @@ export class PatientProfile extends Component {
 										dataSource={assignedDevicesList}
 										renderItem={(item) => (
 											<List.Item>
-												<List.Item.Meta title={item.title} description={item.description} />
-												<div className="content">
-													{item.state === 'active' ? <ActiveIcon /> : <DisabledIcon />}
-												</div>
+												<List.Item.Meta
+													title={item.title}
+													description={
+														item.state === 'active' ? (
+															<p>
+																{item.description} <ActiveIcon />
+															</p>
+														) : (
+															<p>
+																{item.description} <DisabledIcon />
+															</p>
+														)
+													}
+												/>
 											</List.Item>
 										)}
 									/>
@@ -1010,67 +726,7 @@ export class PatientProfile extends Component {
 							</div>
 						</div>
 						<div className="recentAlerts">
-							<div className="tab_card">
-								<h3 className="card_title">
-									<span>Actions</span>
-									{this.state.editCheckboxTable ? (
-										<span>
-											<Button
-												type="link"
-												className="edit-action d-inline"
-												onClick={() => {
-													this.setState((prevState) => ({
-														editCheckboxTable: !prevState.editCheckboxTable,
-													}));
-												}}
-											>
-												<SaveIcon /> Save
-											</Button>
-											<Button
-												type="link"
-												className="edit-action  d-inline"
-												onClick={() => {
-													console.log(checkboxDataCopy);
-													this.setState(
-														(prevState) => ({
-															checkboxTableData: checkboxDataCopy,
-															editCheckboxTable: !prevState.editCheckboxTable,
-														}),
-														() => {
-															console.log(this.state.checkboxTableData);
-														},
-													);
-												}}
-											>
-												<CancelIcon /> Cancel
-											</Button>
-										</span>
-									) : (
-										<span>
-											<Button
-												type="link"
-												className="edit-action"
-												onClick={() => {
-													checkboxDataCopy = Object.assign({}, this.state.checkboxTableData);
-													console.log(checkboxDataCopy);
-													this.setState((prevState) => ({
-														editCheckboxTable: !prevState.editCheckboxTable,
-													}));
-												}}
-											>
-												<EditIcon /> Edit
-											</Button>
-										</span>
-									)}
-								</h3>
-								<div className="card_fields p-3">
-									{this.state.editCheckboxTable ? (
-										this.dynamicCheckboxTable()
-									) : (
-										this.staticCheckboxTable()
-									)}
-								</div>
-							</div>
+							<EditableCheckboxTable />
 						</div>
 					</Col>
 

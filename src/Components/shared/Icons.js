@@ -354,6 +354,7 @@ const Cancel = () => (
 			class="a"
 			d="M11,2a9,9,0,1,0,9,9A9,9,0,0,0,11,2ZM3.8,11A7.2,7.2,0,0,1,11,3.8a7.112,7.112,0,0,1,4.41,1.521L5.321,15.41A7.112,7.112,0,0,1,3.8,11ZM11,18.2a7.112,7.112,0,0,1-4.41-1.521L16.679,6.59A7.112,7.112,0,0,1,18.2,11,7.2,7.2,0,0,1,11,18.2Z"
 			transform="translate(-2 -2)"
+			fill="#fff"
 		/>
 	</svg>
 );
@@ -365,6 +366,7 @@ const Save = () => (
 			class="a"
 			d="M15.444,3H4.778A1.777,1.777,0,0,0,3,4.778V17.222A1.777,1.777,0,0,0,4.778,19H17.222A1.783,1.783,0,0,0,19,17.222V6.556ZM11,17.222a2.667,2.667,0,1,1,2.667-2.667A2.663,2.663,0,0,1,11,17.222Zm2.667-8.889H4.778V4.778h8.889Z"
 			transform="translate(-3 -3)"
+			fill="#fff"
 		/>
 	</svg>
 );
@@ -482,7 +484,6 @@ const ListView = () => (
 );
 const Active = () => (
 	<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
-		{' '}
 		<path
 			fill="#2187ff"
 			class="a"
@@ -493,7 +494,6 @@ const Active = () => (
 );
 const NotAssigned = () => (
 	<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
-		{' '}
 		<path
 			fill="#8e3188"
 			class="a"
@@ -504,7 +504,6 @@ const NotAssigned = () => (
 );
 const Disabled = () => (
 	<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
-		{' '}
 		<path
 			fill="#8992ad"
 			class="a"
@@ -513,6 +512,18 @@ const Disabled = () => (
 		/>
 	</svg>
 );
+
+const Devices = () => (
+	<svg xmlns="http://www.w3.org/2000/svg" width="22" height="18" viewBox="0 0 22 18">
+		<path
+			id="ic_dvr_24px"
+			d="M21,3H3A2.006,2.006,0,0,0,1,5V17a2.006,2.006,0,0,0,2,2H8v2h8V19h5a2,2,0,0,0,1.99-2L23,5A2.006,2.006,0,0,0,21,3Zm0,14H3V5H21ZM19,8H8v2H19Zm0,4H8v2H19ZM7,8H5v2H7Zm0,4H5v2H7Z"
+			transform="translate(-1 -3)"
+			fill="#fff"
+		/>
+	</svg>
+);
+
 export const MenuIcon = (props) => <Icon component={Menu} {...props} />;
 export const NotificationIcon = (props) => <Icon component={Notification} {...props} />;
 export const AlertIcon = (props) => <Icon component={Alert} {...props} />;
@@ -551,3 +562,4 @@ export const ListViewIcon = (props) => <Icon component={ListView} {...props} />;
 export const NotAssignedIcon = (props) => <Icon component={NotAssigned} {...props} />;
 export const ActiveIcon = (props) => <Icon component={Active} {...props} />;
 export const DisabledIcon = (props) => <Icon component={Disabled} {...props} />;
+export const DevicesIcon = (props) => <Icon component={Disabled} {...props} />;

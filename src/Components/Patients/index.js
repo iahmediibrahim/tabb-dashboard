@@ -316,7 +316,12 @@ export default class Patients extends Component {
 		filterByStatus: 'all-patients',
 	};
 	rowClick = (item) => {
-		this.props.history.push(`/patients/${item.firstName}-${item.lastName}`);
+		console.log(item.deviceStatus);
+		if (item.deviceStatus === 'not-assigned') {
+			this.props.history.push(`/patients/${item.firstName}-${item.lastName}/AssignDevice`);
+		} else {
+			this.props.history.push(`/patients/${item.firstName}-${item.lastName}`);
+		}
 	};
 	handleChange = (value) => {
 		this.setState({ filterByStatus: value });

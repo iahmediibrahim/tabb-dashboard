@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Form, Table, Button, Modal, List } from 'antd';
+import { Form, Table, Button, Modal, List, Popover } from 'antd';
 import { Col, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { QuestionMarkIcon, CardiacIcon, BloodDropIcon, AssignIcon, ReferIcon, CallIcon } from './../../shared/Icons';
@@ -66,21 +66,27 @@ export class PatientDetailsModal extends Component {
 						<Row>
 							<Col md={4} sm={6} xs={6}>
 								<div>
-									<h4>MRN</h4>
+									<Popover content={mrn} title="MRN">
+										<h4>MRN</h4>
+									</Popover>
 									<QuestionMarkIcon />
 									<span> {mrn}</span>
 								</div>
 							</Col>
 							<Col md={4} sm={6} xs={6}>
 								<div>
-									<h4>NIN</h4>
+									<Popover content={min} title="NIN">
+										<h4>NIN</h4>
+									</Popover>
 									<QuestionMarkIcon />
 									<span> {min}</span>
 								</div>
 							</Col>
 							<Col md={4} sm={6} xs={6}>
 								<div>
-									<h4>NHID</h4>
+									<Popover content={nhid} title="NHID">
+										<h4>NHID</h4>
+									</Popover>
 									<QuestionMarkIcon />
 									<span> {nhid}</span>
 								</div>
