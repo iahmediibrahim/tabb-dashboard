@@ -17,37 +17,34 @@ export default class AssignDevice extends Component {
 		BloodDeviceName: '',
 		Heartmeasure: '',
 		BloodMeasure: '',
-		disabled: true
 	};
 	// click item hidden devices List  and return selected device details
 	onAddItem = (e, measure, text) => {
-		console.log(e.target.value, measure);
-
-		if (text == 'HeartRate') {
+		if (text === 'HeartRate') {
 			this.setState({
 				addHeartDeviceItem: true,
 				HeartDeviceName: e.target.value,
-				Heartmeasure: measure
+				Heartmeasure: measure,
 			});
-		} else if (text == 'BloodPressure') {
+		} else if (text === 'BloodPressure') {
 			this.setState({
 				addBloodDeviceItem: true,
 				BloodDeviceName: e.target.value,
-				BloodMeasure: measure
-			});
-		}
-		if (this.state.addBloodDeviceItem == false && this.state.addHeartDeviceItem == false) {
-			this.setState({
-				disabled: false
+				BloodMeasure: measure,
 			});
 		}
 	};
 	// click edit hidden  selected device details  and return devices List
-	onEditItem() {
-		this.setState({
-			addHeartDeviceItem: false,
-			addBloodDeviceItem: false
-		});
+	onEditItem(text) {
+		if (text === 'HeartRate') {
+			this.setState({
+				addHeartDeviceItem: false,
+			});
+		} else if (text === 'BloodPressure') {
+			this.setState({
+				addBloodDeviceItem: false,
+			});
+		}
 	}
 	// Daevice Value as name split -
 	capitalize(s) {
@@ -70,7 +67,7 @@ export default class AssignDevice extends Component {
 				name: 'ABCDF Heart Monitor Simulator',
 				measure: 'Heart Rate',
 				description: 'ABCDF Heart Monitor Simulator measurs Heart Rate',
-				itemsInStock: '5'
+				itemsInStock: '5',
 			},
 			{
 				id: 2,
@@ -79,7 +76,7 @@ export default class AssignDevice extends Component {
 				name: 'Nonin Pulse Oximeter 3230',
 				measure: 'Spo2 Rate',
 				description: 'ABCDF Heart Monitor Simulator measurs Heart Rate',
-				itemsInStock: '7'
+				itemsInStock: '7',
 			},
 			{
 				id: 3,
@@ -88,8 +85,8 @@ export default class AssignDevice extends Component {
 				name: 'Spo2 Simulator',
 				measure: 'Heart Rate',
 				description: 'ABCDF Heart Monitor Simulator measurs Heart Rate',
-				itemsInStock: '9'
-			}
+				itemsInStock: '9',
+			},
 		];
 		// other Device
 
@@ -101,7 +98,7 @@ export default class AssignDevice extends Component {
 				name: 'Omron 10 Blood Pressure Monitor',
 				measure: 'Spo2 Rate',
 				description: 'ABCDF Heart Monitor Simulator measurs Blood Pressure',
-				itemsInStock: '11'
+				itemsInStock: '11',
 			},
 			{
 				id: 8,
@@ -110,7 +107,7 @@ export default class AssignDevice extends Component {
 				name: 'Care Touch Blood Pressure Monitor Cuff',
 				measure: 'Spo2 Rate',
 				description: 'ABCDF Heart Monitor Simulator measurs Blood Pressure',
-				itemsInStock: '13'
+				itemsInStock: '13',
 			},
 			{
 				id: 8,
@@ -119,8 +116,8 @@ export default class AssignDevice extends Component {
 				name: 'Spo2 Simulator',
 				measure: 'Spo2 Rate',
 				description: 'ABCDF Heart Monitor Simulator measurs Blood Pressure',
-				itemsInStock: '15'
-			}
+				itemsInStock: '15',
+			},
 		];
 		const { addHeartDeviceItem, addBloodDeviceItem } = this.state;
 
@@ -143,9 +140,7 @@ export default class AssignDevice extends Component {
 											<span>{this.capitalize(this.state.HeartDeviceName)}</span> For Monitoring
 											Jameel's {this.state.Heartmeasure}
 										</p>
-										<button onClick={(e) => this.onEditItem(e, this.state.addBloodDeviceItem)}>
-											edit
-										</button>
+										<button onClick={() => this.onEditItem('HeartRate')}>edit</button>
 									</div>
 								) : (
 									<Checkbox.Group style={{ width: '100%' }} onChange={onChange}>
@@ -194,9 +189,7 @@ export default class AssignDevice extends Component {
 											<span>{this.capitalize(this.state.BloodDeviceName)}</span> For Monitoring
 											Jameel's {this.state.BloodMeasure}
 										</p>
-										<button onClick={(e) => this.onEditItem(e, this.state.addBloodDeviceItem)}>
-											edit
-										</button>
+										<button onClick={() => this.onEditItem('BloodPressure')}>edit</button>
 									</div>
 								) : (
 									<Checkbox.Group style={{ width: '100%' }} onChange={onChange}>
@@ -212,7 +205,7 @@ export default class AssignDevice extends Component {
 																	this.onAddItem(
 																		e,
 																		BloodDevice.measure,
-																		'BloodPressure'
+																		'BloodPressure',
 																	)}
 																value={BloodDevice.value}
 															>
@@ -239,7 +232,11 @@ export default class AssignDevice extends Component {
 										</Row>
 									</Checkbox.Group>
 								)}
-								<Button type="primary" htmlType="submit" disabled={this.state.disabled}>
+								<Button
+									type="primary"
+									htmlType="submit"
+									disabled={!(this.state.addBloodDeviceItem && this.state.addHeartDeviceItem)}
+								>
 									Submit
 								</Button>
 							</Form>
