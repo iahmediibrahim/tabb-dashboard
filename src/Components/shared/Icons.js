@@ -519,6 +519,7 @@ const Devices = () => (
 			id="ic_dvr_24px"
 			d="M21,3H3A2.006,2.006,0,0,0,1,5V17a2.006,2.006,0,0,0,2,2H8v2h8V19h5a2,2,0,0,0,1.99-2L23,5A2.006,2.006,0,0,0,21,3Zm0,14H3V5H21ZM19,8H8v2H19Zm0,4H8v2H19ZM7,8H5v2H7Zm0,4H5v2H7Z"
 			transform="translate(-1 -3)"
+			fill="#6dd3f9"
 		/>
 	</svg>
 );
