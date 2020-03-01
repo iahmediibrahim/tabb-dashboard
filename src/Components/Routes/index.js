@@ -16,7 +16,6 @@ const createRoutes = () => (
 		<Route exact path="/monitoredPatients/:userName" component={PatientProfile} />
 		<Route exact path="/patients/:userName" component={PatientProfile} />
 		<Route exact path="/patients/:userName/AssignDevice" component={AssignDevice} />
-
 		<Route path="/ALerts" component={ALerts} />
 		<Route path="/assignMeasurment" component={AssignMeasurment} />
 		<Route path="/patients" component={Patients} />

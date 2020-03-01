@@ -12,34 +12,34 @@ class CardiacTableChart extends Component {
 		this.state = {
 			edit: false,
 			actions: [],
-			saved_actions: [],
+			saved_actions: []
 		};
 	}
 	componentDidMount() {
 		const initial_actions = [
 			{
 				id: 1,
-				in_value: 80,
+				in_value: 80
 			},
 			{
 				id: 2,
-				in_value: 85,
+				in_value: 85
 			},
 			{
 				id: 3,
-				in_value: 90,
+				in_value: 90
 			},
 			{
 				id: 4,
-				in_value: 95,
-			},
+				in_value: 95
+			}
 		];
 
 		this.setState({
 			actions: JSON.parse(JSON.stringify(initial_actions)),
-			saved_actions: JSON.parse(JSON.stringify(initial_actions)),
+			saved_actions: JSON.parse(JSON.stringify(initial_actions))
 		});
-		console.log(this.state.initial_actions);
+		// console.log(this.state.initial_actions);
 	}
 	updateActionData = (ActionID, name, actionData) => {
 		var array = [ ...this.state.actions ];

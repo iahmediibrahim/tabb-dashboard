@@ -66,7 +66,7 @@ export class PatientDetailsModal extends Component {
 						<Row>
 							<Col md={4} sm={6} xs={6}>
 								<div>
-									<Popover content={mrn} title="MRN">
+									<Popover content="Medical Record Number" title="MRN">
 										<h4>MRN</h4>
 									</Popover>
 									<QuestionMarkIcon />
@@ -75,7 +75,7 @@ export class PatientDetailsModal extends Component {
 							</Col>
 							<Col md={4} sm={6} xs={6}>
 								<div>
-									<Popover content={min} title="NIN">
+									<Popover content="National Identification Number" title="NIN">
 										<h4>NIN</h4>
 									</Popover>
 									<QuestionMarkIcon />
@@ -84,7 +84,7 @@ export class PatientDetailsModal extends Component {
 							</Col>
 							<Col md={4} sm={6} xs={6}>
 								<div>
-									<Popover content={nhid} title="NHID">
+									<Popover content="National Health Insurance Database" title="NHID">
 										<h4>NHID</h4>
 									</Popover>
 									<QuestionMarkIcon />

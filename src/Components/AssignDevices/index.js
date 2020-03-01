@@ -6,7 +6,7 @@ import { Checkbox, Button, Form } from 'antd';
 import './styles.scss';
 
 function onChange(checkedValues) {
-	console.log('checked = ', checkedValues);
+	// console.log('checked = ', checkedValues);
 }
 
 export default class AssignDevice extends Component {
@@ -55,7 +55,7 @@ export default class AssignDevice extends Component {
 	// submit button after choosing Devices
 	handleSubmit = (e) => {
 		e.preventDefault();
-		console.log(e.target.value);
+		// console.log(e.target.value);
 	};
 	render() {
 		// Blood Pressure Devices
@@ -149,7 +149,7 @@ export default class AssignDevice extends Component {
 										<Row>
 											{devices.map((device) => {
 												return (
-													<Col md={4}>
+													<Col xl={4} lg={6} md={6} sm={12} xs={12}>
 														<div className="device-card-content" key={device.id}>
 															<Checkbox
 																onChange={(e) =>
@@ -198,7 +198,7 @@ export default class AssignDevice extends Component {
 										<Row>
 											{BloodDevices.map((BloodDevice) => {
 												return (
-													<Col md={4}>
+													<Col xl={4} lg={6} md={6} sm={12} xs={12}>
 														<div className="device-card-content" key={BloodDevice.id}>
 															<Checkbox
 																onChange={(e) =>
@@ -243,7 +243,7 @@ export default class AssignDevice extends Component {
 						</div>
 					</Col>
 					<Col xl={2} lg={2} md={12} sm={12} xs={12}>
-						<Profile />
+						<Profile physician={'physician name'} />
 					</Col>
 				</Row>
 			</Container>

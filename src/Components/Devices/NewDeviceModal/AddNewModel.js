@@ -5,14 +5,14 @@ const FormItem = Form.Item;
 
 class DynamicFieldSet extends React.Component {
 	state = {
-		fileList: [],
+		fileList: []
 	};
 	handleDeviceModelSubmit = (e) => {
 		e.preventDefault();
 
 		this.props.form.validateFields((err, values) => {
 			if (!err) {
-				console.log('Received values of form: ', values);
+				// console.log('Received values of form: ', values);
 			}
 		});
 	};
@@ -20,7 +20,7 @@ class DynamicFieldSet extends React.Component {
 		const UploadProps = {
 			action: 'https://www.mocky.io/v2/5cc8019d300000980a055e76',
 			onChange: this.props.handleUploadChange,
-			multiple: true,
+			multiple: true
 		};
 		const { getFieldDecorator, getFieldValue } = this.props.form;
 
@@ -35,11 +35,11 @@ class DynamicFieldSet extends React.Component {
 									rules: [
 										{
 											required: true,
-											message: 'Device Type Required!',
-										},
-									],
-								},
-							],
+											message: 'Device Type Required!'
+										}
+									]
+								}
+							]
 						})(<Input placeholder="Model Name" />)}
 					</div>
 					<div style={{ minWidth: '42%' }}>

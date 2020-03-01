@@ -13,37 +13,37 @@ export default class EditableCheckboxTable extends Component {
 				{ checked: false, notify: 'Everytime', times: 2, every: 'hours' },
 				{ checked: true, notify: 'Everytime', times: 2, every: 'hours' },
 				{ checked: false, notify: 'Everytime', times: 2, every: 'hours' },
-				{ checked: false, notify: 'Everytime', times: 2, every: 'hours' },
+				{ checked: false, notify: 'Everytime', times: 2, every: 'hours' }
 			],
 			'notify-caregiver': [
 				{ checked: true, notify: 'Everytime', times: 2, every: 'hours' },
 				{ checked: false, notify: 'Everytime', times: 2, every: 'hours' },
 				{ checked: true, notify: 'Everytime', times: 2, every: 'hours' },
 				{ checked: false, notify: 'Everytime', times: 2, every: 'hours' },
-				{ checked: false, notify: 'Everytime', times: 2, every: 'hours' },
+				{ checked: false, notify: 'Everytime', times: 2, every: 'hours' }
 			],
 			'notify-physician': [
 				{ checked: true, notify: 'Everytime', times: 2, every: 'hours' },
 				{ checked: false, notify: 'Everytime', times: 2, every: 'hours' },
 				{ checked: true, notify: 'Everytime', times: 2, every: 'hours' },
 				{ checked: false, notify: 'Everytime', times: 2, every: 'hours' },
-				{ checked: false, notify: 'Everytime', times: 2, every: 'hours' },
+				{ checked: false, notify: 'Everytime', times: 2, every: 'hours' }
 			],
 			'open-support-ticket': [
 				{ checked: true, notify: 'Everytime', times: 2, every: 'hours' },
 				{ checked: false, notify: 'Everytime', times: 2, every: 'hours' },
 				{ checked: true, notify: 'Everytime', times: 2, every: 'hours' },
 				{ checked: false, notify: 'Everytime', times: 2, every: 'hours' },
-				{ checked: false, notify: 'Everytime', times: 2, every: 'hours' },
+				{ checked: false, notify: 'Everytime', times: 2, every: 'hours' }
 			],
 			'change-sampling-rate': [
 				{ checked: true, notify: 'Everytime', times: 2, every: 'hours' },
 				{ checked: false, notify: 'Everytime', times: 2, every: 'hours' },
 				{ checked: true, notify: 'Everytime', times: 2, every: 'hours' },
 				{ checked: false, notify: 'Everytime', times: 2, every: 'hours' },
-				{ checked: false, notify: 'Everytime', times: 2, every: 'hours' },
-			],
-		},
+				{ checked: false, notify: 'Everytime', times: 2, every: 'hours' }
+			]
+		}
 	};
 	// static getDerivedStateFromProps(nextProps, prevState) {
 	// 	return {
@@ -61,7 +61,7 @@ export default class EditableCheckboxTable extends Component {
 		});
 		checkboxTableData[item] = newState;
 		this.setState({
-			checkboxTableData,
+			checkboxTableData
 		});
 	}
 	dynamicCheckboxTable() {
@@ -246,7 +246,7 @@ export default class EditableCheckboxTable extends Component {
 								className="btn btn-transparent py-0 pl-0 pr-3 text-white weight-600 font-Lsmall mx-1"
 								onClick={() => {
 									this.setState((prevState) => ({
-										editCheckboxTable: !prevState.editCheckboxTable,
+										editCheckboxTable: !prevState.editCheckboxTable
 									}));
 								}}
 							>
@@ -255,16 +255,16 @@ export default class EditableCheckboxTable extends Component {
 							<button
 								className="btn btn-transparent py-0 pl-0 pr-3 text-white weight-600 font-Lsmall mx-1"
 								onClick={() => {
-									console.log('copy', checkboxDataCopy);
-									console.log('state', this.state.checkboxTableData);
+									// console.log('copy', checkboxDataCopy);
+									// console.log('state', this.state.checkboxTableData);
 									this.setState(
 										(prevState) => ({
 											checkboxTableData: checkboxDataCopy,
-											editCheckboxTable: !prevState.editCheckboxTable,
+											editCheckboxTable: !prevState.editCheckboxTable
 										}),
 										() => {
 											console.log('change state', this.state.checkboxTableData);
-										},
+										}
 									);
 								}}
 							>
@@ -277,9 +277,9 @@ export default class EditableCheckboxTable extends Component {
 								className="btn btn-transparent py-0 pl-0 pr-3 text-white weight-600 font-Lsmall mx-1"
 								onClick={() => {
 									checkboxDataCopy = Object.assign({}, this.state.checkboxTableData);
-									console.log('copy', checkboxDataCopy);
+									// console.log('copy', checkboxDataCopy);
 									this.setState((prevState) => ({
-										editCheckboxTable: !prevState.editCheckboxTable,
+										editCheckboxTable: !prevState.editCheckboxTable
 									}));
 								}}
 							>

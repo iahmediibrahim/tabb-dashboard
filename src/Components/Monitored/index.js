@@ -12,7 +12,7 @@ import {
 	BloodDropIcon,
 	HeartDynamicIcon,
 	WeightIcon,
-	TempIcon,
+	TempIcon
 } from './../shared/Icons';
 const { Title } = Typography;
 var classNames = require('classnames');
@@ -36,7 +36,7 @@ const monitoredPatientsData = [
 				normal: false,
 				high: true,
 				criticalHigh: false,
-				value: '110',
+				value: '110'
 			},
 			{
 				type: 'spo2',
@@ -45,7 +45,7 @@ const monitoredPatientsData = [
 				normal: false,
 				high: false,
 				criticalHigh: true,
-				value: '130',
+				value: '130'
 			},
 			{
 				type: 'bgb',
@@ -54,7 +54,7 @@ const monitoredPatientsData = [
 				normal: false,
 				high: false,
 				criticalHigh: false,
-				value: '70',
+				value: '70'
 			},
 			{
 				type: 'bga',
@@ -63,7 +63,7 @@ const monitoredPatientsData = [
 				normal: false,
 				high: false,
 				criticalHigh: true,
-				value: '80',
+				value: '80'
 			},
 			{
 				type: 'bp',
@@ -72,7 +72,7 @@ const monitoredPatientsData = [
 				normal: false,
 				high: true,
 				criticalHigh: false,
-				value: '110',
+				value: '110'
 			},
 			{
 				type: 'temp',
@@ -81,7 +81,7 @@ const monitoredPatientsData = [
 				normal: true,
 				high: false,
 				criticalHigh: false,
-				value: '37',
+				value: '37'
 			},
 			{
 				type: 'weight',
@@ -90,8 +90,8 @@ const monitoredPatientsData = [
 				normal: false,
 				high: false,
 				criticalHigh: true,
-				value: '130',
-			},
+				value: '130'
+			}
 		],
 		alerts: [
 			{
@@ -101,7 +101,7 @@ const monitoredPatientsData = [
 				normal: false,
 				high: true,
 				criticalHigh: false,
-				value: '110',
+				value: '110'
 			},
 			{
 				type: 'spo2',
@@ -110,7 +110,7 @@ const monitoredPatientsData = [
 				normal: false,
 				high: false,
 				criticalHigh: true,
-				value: '130',
+				value: '130'
 			},
 			{
 				type: 'bgb',
@@ -119,12 +119,12 @@ const monitoredPatientsData = [
 				normal: false,
 				high: false,
 				criticalHigh: false,
-				value: '70',
-			},
+				value: '70'
+			}
 		],
 		gender: 'female',
 		age: '23',
-		dateCreated: '21/10/2014',
+		dateCreated: '21/10/2014'
 	},
 	{
 		key: '2',
@@ -140,7 +140,7 @@ const monitoredPatientsData = [
 				normal: false,
 				high: true,
 				criticalHigh: false,
-				value: '110',
+				value: '110'
 			},
 			{
 				type: 'spo2',
@@ -149,7 +149,7 @@ const monitoredPatientsData = [
 				normal: false,
 				high: false,
 				criticalHigh: true,
-				value: '130',
+				value: '130'
 			},
 			{
 				type: 'bgb',
@@ -158,7 +158,7 @@ const monitoredPatientsData = [
 				normal: false,
 				high: false,
 				criticalHigh: false,
-				value: '70',
+				value: '70'
 			},
 			{
 				type: 'bga',
@@ -167,7 +167,7 @@ const monitoredPatientsData = [
 				normal: false,
 				high: false,
 				criticalHigh: true,
-				value: '80',
+				value: '80'
 			},
 			{
 				type: 'bp',
@@ -176,7 +176,7 @@ const monitoredPatientsData = [
 				normal: false,
 				high: true,
 				criticalHigh: false,
-				value: '110',
+				value: '110'
 			},
 			{
 				type: 'temp',
@@ -185,7 +185,7 @@ const monitoredPatientsData = [
 				normal: true,
 				high: false,
 				criticalHigh: false,
-				value: '37',
+				value: '37'
 			},
 			{
 				type: 'weight',
@@ -194,8 +194,8 @@ const monitoredPatientsData = [
 				normal: false,
 				high: false,
 				criticalHigh: true,
-				value: '130',
-			},
+				value: '130'
+			}
 		],
 		alerts: [
 			{
@@ -205,7 +205,7 @@ const monitoredPatientsData = [
 				normal: false,
 				high: true,
 				criticalHigh: false,
-				value: '110',
+				value: '110'
 			},
 			{
 				type: 'spo2',
@@ -214,7 +214,7 @@ const monitoredPatientsData = [
 				normal: false,
 				high: false,
 				criticalHigh: true,
-				value: '130',
+				value: '130'
 			},
 			{
 				type: 'bgb',
@@ -223,12 +223,12 @@ const monitoredPatientsData = [
 				normal: false,
 				high: false,
 				criticalHigh: false,
-				value: '70',
-			},
+				value: '70'
+			}
 		],
 		gender: 'female',
 		age: '23',
-		dateCreated: '21/10/2014',
+		dateCreated: '21/10/2014'
 	},
 	{
 		key: '3',
@@ -244,7 +244,7 @@ const monitoredPatientsData = [
 				normal: true,
 				high: false,
 				criticalHigh: false,
-				value: '110',
+				value: '110'
 			},
 			{
 				type: 'temp',
@@ -253,7 +253,7 @@ const monitoredPatientsData = [
 				normal: true,
 				high: false,
 				criticalHigh: false,
-				value: '37',
+				value: '37'
 			},
 			{
 				type: 'weight',
@@ -262,8 +262,8 @@ const monitoredPatientsData = [
 				normal: true,
 				high: false,
 				criticalHigh: false,
-				value: '130',
-			},
+				value: '130'
+			}
 		],
 		alerts: [
 			{
@@ -273,7 +273,7 @@ const monitoredPatientsData = [
 				normal: true,
 				high: false,
 				criticalHigh: false,
-				value: '110',
+				value: '110'
 			},
 			{
 				type: 'spo2',
@@ -282,7 +282,7 @@ const monitoredPatientsData = [
 				normal: true,
 				high: false,
 				criticalHigh: false,
-				value: '130',
+				value: '130'
 			},
 			{
 				type: 'bgb',
@@ -291,12 +291,12 @@ const monitoredPatientsData = [
 				normal: true,
 				high: false,
 				criticalHigh: false,
-				value: '70',
-			},
+				value: '70'
+			}
 		],
 		gender: 'female',
 		age: '23',
-		dateCreated: '21/10/2014',
+		dateCreated: '21/10/2014'
 	},
 	{
 		key: '4',
@@ -313,7 +313,7 @@ const monitoredPatientsData = [
 				normal: false,
 				high: false,
 				criticalHigh: false,
-				value: '50',
+				value: '50'
 			},
 			{
 				type: 'spo2',
@@ -322,7 +322,7 @@ const monitoredPatientsData = [
 				normal: false,
 				high: false,
 				criticalHigh: false,
-				value: '60',
+				value: '60'
 			},
 			{
 				type: 'bgb',
@@ -331,7 +331,7 @@ const monitoredPatientsData = [
 				normal: false,
 				high: true,
 				criticalHigh: false,
-				value: '70',
+				value: '70'
 			},
 			{
 				type: 'bga',
@@ -340,7 +340,7 @@ const monitoredPatientsData = [
 				normal: false,
 				high: false,
 				criticalHigh: true,
-				value: '80',
+				value: '80'
 			},
 			{
 				type: 'bp',
@@ -349,7 +349,7 @@ const monitoredPatientsData = [
 				normal: false,
 				high: true,
 				criticalHigh: false,
-				value: '110',
+				value: '110'
 			},
 			{
 				type: 'temp',
@@ -358,7 +358,7 @@ const monitoredPatientsData = [
 				normal: true,
 				high: false,
 				criticalHigh: false,
-				value: '37',
+				value: '37'
 			},
 			{
 				type: 'weight',
@@ -367,8 +367,8 @@ const monitoredPatientsData = [
 				normal: false,
 				high: false,
 				criticalHigh: true,
-				value: '130',
-			},
+				value: '130'
+			}
 		],
 		alerts: [
 			{
@@ -378,7 +378,7 @@ const monitoredPatientsData = [
 				normal: false,
 				high: true,
 				criticalHigh: false,
-				value: '110',
+				value: '110'
 			},
 			{
 				type: 'spo2',
@@ -387,7 +387,7 @@ const monitoredPatientsData = [
 				normal: false,
 				high: false,
 				criticalHigh: true,
-				value: '130',
+				value: '130'
 			},
 			{
 				type: 'bgb',
@@ -396,13 +396,13 @@ const monitoredPatientsData = [
 				normal: false,
 				high: false,
 				criticalHigh: false,
-				value: '70',
-			},
+				value: '70'
+			}
 		],
 		gender: 'male',
 		age: '23',
-		dateCreated: '21/10/2014',
-	},
+		dateCreated: '21/10/2014'
+	}
 ];
 
 export default class MonitoredPatients extends Component {
@@ -414,7 +414,7 @@ export default class MonitoredPatients extends Component {
 		maxValue: 9,
 		selectedPatients: monitoredPatientsData,
 		viewPatient: false,
-		activeTab: '1',
+		activeTab: '1'
 	};
 	componentDidMount() {
 		this.getData();
@@ -422,11 +422,11 @@ export default class MonitoredPatients extends Component {
 	getData = () => {
 		dataService.get(HANDLE).then((items) => {
 			const monitoredPatients = items.filter((item) => item.assigned === true);
-			console.log(monitoredPatients);
+			// console.log(monitoredPatients);
 
 			this.setState({
 				viewPatient: false,
-				data: monitoredPatients,
+				data: monitoredPatients
 			});
 		});
 	};
@@ -437,30 +437,30 @@ export default class MonitoredPatients extends Component {
 		if (value <= 1) {
 			this.setState({
 				minValue: 0,
-				maxValue: 6,
+				maxValue: 6
 			});
 		} else {
 			this.setState({
 				minValue: this.state.maxValue,
-				maxValue: value * 6,
+				maxValue: value * 6
 			});
 		}
 	};
 	getPatient = (item) => {
-		console.log(item);
+		// console.log(item);
 		item.length === 0
 			? this.setState({
 					viewPatient: false,
-					selectedPatients: item,
+					selectedPatients: item
 				})
 			: this.setState({
 					viewPatient: true,
-					selectedPatients: item,
+					selectedPatients: item
 				});
 	};
 	changeTab = (activeKey) => {
 		this.setState({
-			activeTab: activeKey,
+			activeTab: activeKey
 		});
 	};
 	capitalize(s) {
@@ -541,7 +541,7 @@ export default class MonitoredPatients extends Component {
 			serial: false,
 			model: false,
 			type: false,
-			mrnDevices: false,
+			mrnDevices: false
 		};
 		return (
 			<div className="monitoredPatients">
@@ -588,12 +588,13 @@ export default class MonitoredPatients extends Component {
 						<Row type="flex" className="searchComponent">
 							<Col span={12}>
 								<Input.Search
+									placeholder="Search by name ..."
 									allowClear
 									onSearch={(nameSearch) =>
 										this.setState({
 											selectedPatients: monitoredPatientsData.filter((person) =>
-												person.firstName.toLowerCase().includes(nameSearch.toLowerCase()),
-											),
+												person.firstName.toLowerCase().includes(nameSearch.toLowerCase())
+											)
 										})}
 								/>
 							</Col>

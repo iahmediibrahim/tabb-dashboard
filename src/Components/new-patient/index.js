@@ -20,7 +20,7 @@ const patientData = [
 		mobile: '01185749638',
 		CaregiverName: 'AHMED ALI',
 		CaregiverPhone: '+966504769721',
-		PatientAddress: 'Al Sahafah,Riyadh 13321, Saudi Arabia',
+		PatientAddress: 'Al Sahafah,Riyadh 13321, Saudi Arabia'
 	},
 	{
 		key: '2',
@@ -36,7 +36,7 @@ const patientData = [
 		mobile: '01585749638',
 		CaregiverName: 'AHMED ALI',
 		CaregiverPhone: '+966504769721',
-		PatientAddress: 'Al Sahafah,Riyadh 13321, Saudi Arabia',
+		PatientAddress: 'Al Sahafah,Riyadh 13321, Saudi Arabia'
 	},
 	{
 		key: '3',
@@ -52,7 +52,7 @@ const patientData = [
 		mobile: '01085749638',
 		CaregiverName: 'AHMED ALI',
 		CaregiverPhone: '+966504769721',
-		PatientAddress: 'Al Sahafah,Riyadh 13321, Saudi Arabia',
+		PatientAddress: 'Al Sahafah,Riyadh 13321, Saudi Arabia'
 	},
 	{
 		key: '4',
@@ -68,7 +68,7 @@ const patientData = [
 		mobile: '01005749638',
 		CaregiverName: 'AHMED ALI',
 		CaregiverPhone: '+966504769721',
-		PatientAddress: 'Al Sahafah,Riyadh 13321, Saudi Arabia',
+		PatientAddress: 'Al Sahafah,Riyadh 13321, Saudi Arabia'
 	},
 	{
 		key: '5',
@@ -84,7 +84,7 @@ const patientData = [
 		mobile: '01115749638',
 		CaregiverName: 'AHMED ALI',
 		CaregiverPhone: '+966504769721',
-		PatientAddress: 'Al Sahafah,Riyadh 13321, Saudi Arabia',
+		PatientAddress: 'Al Sahafah,Riyadh 13321, Saudi Arabia'
 	},
 
 	{
@@ -101,7 +101,7 @@ const patientData = [
 		mobile: '01005749638',
 		CaregiverName: 'AHMED ALI',
 		CaregiverPhone: '+966504769721',
-		PatientAddress: 'Al Sahafah,Riyadh 13321, Saudi Arabia',
+		PatientAddress: 'Al Sahafah,Riyadh 13321, Saudi Arabia'
 	},
 
 	{
@@ -118,7 +118,7 @@ const patientData = [
 		mobile: '01005749638',
 		CaregiverName: 'AHMED ALI',
 		CaregiverPhone: '+966504769721',
-		PatientAddress: 'Al Sahafah,Riyadh 13321, Saudi Arabia',
+		PatientAddress: 'Al Sahafah,Riyadh 13321, Saudi Arabia'
 	},
 
 	{
@@ -135,7 +135,7 @@ const patientData = [
 		mobile: '01005749638',
 		CaregiverName: 'AHMED ALI',
 		CaregiverPhone: '+966504769721',
-		PatientAddress: 'Al Sahafah,Riyadh 13321, Saudi Arabia',
+		PatientAddress: 'Al Sahafah,Riyadh 13321, Saudi Arabia'
 	},
 
 	{
@@ -152,7 +152,7 @@ const patientData = [
 		mobile: '01005749638',
 		CaregiverName: 'AHMED ALI',
 		CaregiverPhone: '+966504769721',
-		PatientAddress: 'Al Sahafah,Riyadh 13321, Saudi Arabia',
+		PatientAddress: 'Al Sahafah,Riyadh 13321, Saudi Arabia'
 	},
 	{
 		key: '10',
@@ -168,7 +168,7 @@ const patientData = [
 		mobile: '01005749638',
 		CaregiverName: 'AHMED ALI',
 		CaregiverPhone: '+966504769721',
-		PatientAddress: 'Al Sahafah,Riyadh 13321, Saudi Arabia',
+		PatientAddress: 'Al Sahafah,Riyadh 13321, Saudi Arabia'
 	},
 	{
 		key: '10',
@@ -184,7 +184,7 @@ const patientData = [
 		mobile: '01005749638',
 		CaregiverName: 'AHMED ALI',
 		CaregiverPhone: '+966504769721',
-		PatientAddress: 'Al Sahafah,Riyadh 13321, Saudi Arabia',
+		PatientAddress: 'Al Sahafah,Riyadh 13321, Saudi Arabia'
 	},
 	{
 		key: '10',
@@ -200,7 +200,7 @@ const patientData = [
 		mobile: '01005749638',
 		CaregiverName: 'AHMED ALI',
 		CaregiverPhone: '+966504769721',
-		PatientAddress: 'Al Sahafah,Riyadh 13321, Saudi Arabia',
+		PatientAddress: 'Al Sahafah,Riyadh 13321, Saudi Arabia'
 	},
 	{
 		key: '10',
@@ -216,8 +216,8 @@ const patientData = [
 		mobile: '01005749638',
 		CaregiverName: 'AHMED ALI',
 		CaregiverPhone: '+966504769721',
-		PatientAddress: 'Al Sahafah,Riyadh 13321, Saudi Arabia',
-	},
+		PatientAddress: 'Al Sahafah,Riyadh 13321, Saudi Arabia'
+	}
 ];
 
 export default class NewPatient extends Component {
@@ -225,7 +225,7 @@ export default class NewPatient extends Component {
 		//(hashed till using Api) data: [],
 		visible: false,
 		referModal: false,
-		item: {},
+		item: {}
 	};
 	componentDidMount() {
 		this.getData();
@@ -233,25 +233,25 @@ export default class NewPatient extends Component {
 	getData = () => {
 		dataService.get(HANDLE).then((items) => {
 			const monitoredPatients = items.filter((item) => item.assigned === true);
-			console.log(monitoredPatients);
+			// console.log(monitoredPatients);
 
 			this.setState({
 				viewPatient: false,
-				data: monitoredPatients,
+				data: monitoredPatients
 			});
 		});
 	};
 	getPatient = (item) => {
-		console.log(item);
+		// console.log(item);
 	};
 
 	assignClick = (item) => {
 		console.log('ietmitem', item);
 		this.setState({
 			visible: true,
-			item,
+			item
 		});
-		console.log('rowclick', item);
+		// console.log('rowclick', item);
 	};
 	referClick = (e) => {
 		e.preventDefault();
@@ -259,21 +259,21 @@ export default class NewPatient extends Component {
 
 		this.setState(
 			{
-				referModal: true,
+				referModal: true
 			},
-			() => console.log(this.state),
+			() => console.log(this.state)
 		);
 	};
 	handleCancel = () => {
-		console.log('handlecancel');
+		// console.log('handlecancel');
 		this.setState({
-			visible: false,
+			visible: false
 		});
 	};
 	handleCancelRefer = () => {
-		console.log('handlecancel');
+		// console.log('handlecancel');
 		this.setState({
-			referModal: false,
+			referModal: false
 		});
 	};
 	render() {
@@ -302,7 +302,7 @@ export default class NewPatient extends Component {
 			serial: false,
 			model: false,
 			type: false,
-			mrnDevices: false,
+			mrnDevices: false
 		};
 		return (
 			<div className="Alerts">

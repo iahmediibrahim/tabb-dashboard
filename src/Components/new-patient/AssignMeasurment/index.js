@@ -10,7 +10,7 @@ import EditableCheckboxTable from '../../shared/EditableCheckboxTable';
 export class AssignMeasurment extends Component {
 	state = {
 		checked: false,
-		editCheckboxTable: false,
+		editCheckboxTable: false
 	};
 	handleCheckClick = () => {
 		this.setState({ checked: !this.state.checked });

@@ -731,7 +731,7 @@ export class PatientProfile extends Component {
 					</Col>
 
 					<Col xl={2} lg={2} md={2} sm={12} xs={12}>
-						<SideModal />
+						<SideModal physician={'physician name'} />
 					</Col>
 				</Row>
 			</Container>

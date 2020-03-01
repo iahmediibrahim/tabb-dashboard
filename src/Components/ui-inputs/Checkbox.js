@@ -5,7 +5,7 @@ import heart_checked from './../../assets/img/icons/heart_checked.svg';
 
 class Checkbox extends Component {
 	onSubmit = (values) => {
-		console.log(values);
+		// console.log(values);
 	};
 
 	form = (props) => {

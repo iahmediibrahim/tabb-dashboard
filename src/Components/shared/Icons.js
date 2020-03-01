@@ -283,7 +283,7 @@ const Refer = () => (
 const Patient = () => (
 	<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
 		<path
-			class="a"
+			className="a"
 			d="M12,2A10,10,0,1,0,22,12,10,10,0,0,0,12,2Zm0,3A3,3,0,1,1,9,8,3,3,0,0,1,12,5Zm0,14.2a7.2,7.2,0,0,1-6-3.22c.03-1.99,4-3.08,6-3.08s5.97,1.09,6,3.08A7.2,7.2,0,0,1,12,19.2Z"
 			transform="translate(-2 -2)"
 			fill="#6dd3f9"
@@ -326,7 +326,7 @@ const MegaPhone = () => (
 	<svg xmlns="http://www.w3.org/2000/svg" width="18.381" height="16.156" viewBox="0 0 18.381 16.156">
 		<g transform="translate(0 0)">
 			<path
-				class="a"
+				className="a"
 				d="M2.155,1.616V4.363a3.733,3.733,0,0,1,.539-.055H5.386V1.616a1.616,1.616,0,1,0-3.231,0Zm9.729,1.617V15.079a1.077,1.077,0,1,0,2.154,0V3.232a1.077,1.077,0,1,0-2.154,0Zm-5.42,1.9v8.053L10.806,14.9V3.406Zm9.544.218-.761.761a.538.538,0,1,0,.761.761l.761-.761a.538.538,0,0,0-.761-.761ZM2.693,5.386A2.7,2.7,0,0,0,.055,7.54H2.693a.538.538,0,1,1,0,1.077H0V9.693H2.693a.539.539,0,1,1,0,1.078H.055a2.7,2.7,0,0,0,2.638,2.154H5.385V5.386ZM16.73,8.617a.538.538,0,1,0,0,1.077h1.112a.538.538,0,1,0,0-1.077ZM15.245,11.44a.537.537,0,0,0,0,.761l.761.762a.539.539,0,0,0,.761-.762l-.761-.761a.538.538,0,0,0-.761,0Z"
 				transform="translate(18.381 16.156) rotate(180)"
 			/>
@@ -351,7 +351,7 @@ const Edit = () => (
 const Cancel = () => (
 	<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
 		<path
-			class="a"
+			className="a"
 			d="M11,2a9,9,0,1,0,9,9A9,9,0,0,0,11,2ZM3.8,11A7.2,7.2,0,0,1,11,3.8a7.112,7.112,0,0,1,4.41,1.521L5.321,15.41A7.112,7.112,0,0,1,3.8,11ZM11,18.2a7.112,7.112,0,0,1-4.41-1.521L16.679,6.59A7.112,7.112,0,0,1,18.2,11,7.2,7.2,0,0,1,11,18.2Z"
 			transform="translate(-2 -2)"
 			fill="#fff"
@@ -363,7 +363,7 @@ const Save = () => (
 	<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
 		{' '}
 		<path
-			class="a"
+			className="a"
 			d="M15.444,3H4.778A1.777,1.777,0,0,0,3,4.778V17.222A1.777,1.777,0,0,0,4.778,19H17.222A1.783,1.783,0,0,0,19,17.222V6.556ZM11,17.222a2.667,2.667,0,1,1,2.667-2.667A2.663,2.663,0,0,1,11,17.222Zm2.667-8.889H4.778V4.778h8.889Z"
 			transform="translate(-3 -3)"
 			fill="#fff"
@@ -467,7 +467,7 @@ const Motion = () => (
 const MonitorView = () => (
 	<svg xmlns="http://www.w3.org/2000/svg" width="15" height="13" viewBox="0 0 15 13">
 		<path
-			class="a"
+			className="a"
 			d="M3,10.222H9.667V3H3ZM3,16H9.667V11.667H3Zm8.333,0H18V8.778H11.333Zm0-13V7.333H18V3Z"
 			transform="translate(-3 -3)"
 		/>
@@ -476,7 +476,7 @@ const MonitorView = () => (
 const ListView = () => (
 	<svg xmlns="http://www.w3.org/2000/svg" width="15" height="13" viewBox="0 0 15 13">
 		<path
-			class="a"
+			className="a"
 			d="M3,14.8H4.667V12.2H3ZM3,20H4.667V17.4H3ZM3,9.6H4.667V7H3Zm3.333,5.2H18V12.2H6.333Zm0,5.2H18V17.4H6.333Zm0-13V9.6H18V7Z"
 			transform="translate(-3 -7)"
 		/>
@@ -486,7 +486,7 @@ const Active = () => (
 	<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
 		<path
 			fill="#2187ff"
-			class="a"
+			className="a"
 			d="M12,2A10,10,0,1,0,22,12,10,10,0,0,0,12,2ZM10,17,5,12l1.41-1.41L10,14.17l7.59-7.59L19,8Z"
 			transform="translate(-2 -2)"
 		/>
@@ -496,7 +496,7 @@ const NotAssigned = () => (
 	<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
 		<path
 			fill="#8e3188"
-			class="a"
+			className="a"
 			d="M12,2A10,10,0,1,0,22,12,10,10,0,0,0,12,2Zm1,15H11V15h2Zm0-4H11V7h2Z"
 			transform="translate(-2 -2)"
 		/>
@@ -506,7 +506,7 @@ const Disabled = () => (
 	<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
 		<path
 			fill="#8992ad"
-			class="a"
+			className="a"
 			d="M12,2A10,10,0,1,0,22,12,9.991,9.991,0,0,0,12,2Zm5,13.59L15.59,17,12,13.41,8.41,17,7,15.59,10.59,12,7,8.41,8.41,7,12,10.59,15.59,7,17,8.41,13.41,12Z"
 			transform="translate(-2 -2)"
 		/>
@@ -562,4 +562,4 @@ export const ListViewIcon = (props) => <Icon component={ListView} {...props} />;
 export const NotAssignedIcon = (props) => <Icon component={NotAssigned} {...props} />;
 export const ActiveIcon = (props) => <Icon component={Active} {...props} />;
 export const DisabledIcon = (props) => <Icon component={Disabled} {...props} />;
-export const DevicesIcon = (props) => <Icon component={Disabled} {...props} />;
+export const DevicesIcon = (props) => <Icon component={Devices} {...props} />;

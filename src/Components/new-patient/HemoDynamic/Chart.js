@@ -18,11 +18,11 @@ class CardiacChart extends React.Component {
 
 		//diastolic_chart_data UP
 		let list = newData.map((mes, i) => {
-			console.log(mes);
+			// console.log(mes);
 
 			let width = (mes.rangeUp - 72) * (1 / 130) * 100;
 			let height = (mes.rangeDown - 52) * (1 / 70) * 100;
-			console.log(width, height);
+			// console.log(width, height);
 			return (
 				<div className={mes.type + ' val'} style={{ width: width + '%', height: height + '%' }} key={i}>
 					<span>{mes.type.toUpperCase()}</span>

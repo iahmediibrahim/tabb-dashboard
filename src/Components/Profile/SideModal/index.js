@@ -9,7 +9,7 @@ import {
 	AllergiesMedicationIcon,
 	RecentVisitsIcon,
 	ContactIcon,
-	HospitalVisitsIcon
+	HospitalVisitsIcon,
 } from './../../shared/Icons';
 
 const { TabPane } = Tabs;
@@ -39,7 +39,7 @@ class Profile extends Component {
 						reason: 'Heavy chest pain',
 						describedMeds: 'Glimipride',
 						Physician: 'Dr. Salem Salah',
-						moreDetails: 'Lorem'
+						moreDetails: 'Lorem',
 					},
 					{
 						hospitalName: 'King Fahd Hospital-2',
@@ -47,7 +47,7 @@ class Profile extends Component {
 						reason: 'Heavy chest pain',
 						describedMeds: 'Glimipride',
 						Physician: 'Dr. Salem Salah',
-						moreDetails: 'Lorem'
+						moreDetails: 'Lorem',
 					},
 					{
 						hospitalName: 'King Fahd Hospital-3',
@@ -55,7 +55,7 @@ class Profile extends Component {
 						reason: 'Heavy chest pain',
 						describedMeds: 'Glimipride',
 						Physician: 'Dr. Salem Salah',
-						moreDetails: 'Lorem'
+						moreDetails: 'Lorem',
 					},
 					{
 						hospitalName: 'King Fahd Hospital-4',
@@ -63,17 +63,17 @@ class Profile extends Component {
 						reason: 'Heavy chest pain',
 						describedMeds: 'Glimipride',
 						Physician: 'Dr. Salem Salah',
-						moreDetails: 'Lorem'
-					}
-				]
-			}
-		]
+						moreDetails: 'Lorem',
+					},
+				],
+			},
+		],
 	};
 
 	showHide = () => {
 		this.setState((prevState) => ({
 			translateX: prevState.translateX === '0' ? '800' : '0',
-			collapsed: !this.state.collapsed
+			collapsed: !this.state.collapsed,
 		}));
 	};
 
@@ -97,13 +97,13 @@ class Profile extends Component {
 									<Icon type={this.state.collapsed ? 'right' : 'left'} />
 								</Button>
 								<div className="profile-header">
-									<div class="media">
+									<div className="media">
 										<img
 											src={patientProfile}
 											alt="patient profile img"
-											class="mr-3 rounded-circle"
+											className="mr-3 rounded-circle"
 										/>
-										<div class="media-body">
+										<div className="media-body">
 											<h4>{PatientInfo.name}</h4>
 											<p>{PatientInfo.age}</p>
 										</div>
@@ -124,6 +124,13 @@ class Profile extends Component {
 												NHID: <span>{PatientInfo.nhid} </span>
 											</h5>
 										</div>
+										{this.props.physician && (
+											<div className="db-item">
+												<h5>
+													Physician: <span>{this.props.physician} </span>
+												</h5>
+											</div>
+										)}
 									</div>
 								</div>
 								<div className="AllergiesMedicationIcon">
@@ -165,7 +172,7 @@ class Profile extends Component {
 																onClick={() =>
 																	this.setState({
 																		translateX: '0',
-																		collapsed: false
+																		collapsed: false,
 																	})}
 															>
 																<h5>

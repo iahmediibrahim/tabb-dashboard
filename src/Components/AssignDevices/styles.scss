@@ -35,15 +35,18 @@
 		font-family: 'Inter-SemiBold';
 		margin-left: 3px;
 	}
+
 	.row {
-		> div {
+		>div {
 			display: inline-flex;
 		}
 	}
+
 	.device-card-content {
 		background-color: #fff;
 		padding: 25px;
 		overflow: hidden;
+		width: 100%;
 
 		label {
 			span {
@@ -93,7 +96,7 @@
 					object-fit: cover;
 
 					&:hover {
-						transform: scale(1.5, 1.5);
+						transform: scale(2, 2);
 					}
 				}
 			}
@@ -103,6 +106,7 @@
 	.selected-device {
 		background-color: #fff;
 		padding: 20px;
+
 		p {
 			color: #1a243b;
 			font-family: 'Inter-Regular';
@@ -118,6 +122,7 @@
 				margin-right: 10px;
 			}
 		}
+
 		button {
 			background: #2781ff;
 			border: 0 none;

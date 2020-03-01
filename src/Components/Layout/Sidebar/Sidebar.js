@@ -8,7 +8,7 @@ import {
 	PatientIcon,
 	MonitoredPatientIcon,
 	AlertIcon,
-	DevicesIcon,
+	DevicesIcon
 } from './../../shared/Icons';
 
 class SideNav extends Component {
@@ -52,7 +52,7 @@ class SideNav extends Component {
 					</li>
 					<li className="list-item">
 						<NavLink to="/devices" activeclassname="active">
-							<AlertIcon />
+							<DevicesIcon />
 							<span>Devices</span>
 						</NavLink>
 					</li>

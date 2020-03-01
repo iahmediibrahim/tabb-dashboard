@@ -14,7 +14,7 @@ class BloodPressure extends Component {
 			systolic_actions: [],
 			systolic_saved_actions: [],
 			diastolic_actions: [],
-			diastolic_initial_actions: [],
+			diastolic_initial_actions: []
 		};
 	}
 	componentDidMount() {
@@ -22,40 +22,40 @@ class BloodPressure extends Component {
 		const systolic_initial_actions = [
 			{
 				id: 1,
-				in_value: 120,
+				in_value: 120
 			},
 			{
 				id: 2,
-				in_value: 140,
+				in_value: 140
 			},
 			{
 				id: 3,
-				in_value: 160,
+				in_value: 160
 			},
 			{
 				id: 4,
-				in_value: 200,
-			},
+				in_value: 200
+			}
 		];
 
 		// Diastolic intial values
 		const diastolic_initial_actions = [
 			{
 				id: 5,
-				in_value: 75,
+				in_value: 75
 			},
 			{
 				id: 6,
-				in_value: 80,
+				in_value: 80
 			},
 			{
 				id: 7,
-				in_value: 90,
+				in_value: 90
 			},
 			{
 				id: 8,
-				in_value: 100,
-			},
+				in_value: 100
+			}
 		];
 
 		this.setState({
@@ -64,9 +64,9 @@ class BloodPressure extends Component {
 			systolic_saved_actions: JSON.parse(JSON.stringify(systolic_initial_actions)),
 			//
 			diastolic_actions: JSON.parse(JSON.stringify(diastolic_initial_actions)),
-			diastolic_saved_actions: JSON.parse(JSON.stringify(diastolic_initial_actions)),
+			diastolic_saved_actions: JSON.parse(JSON.stringify(diastolic_initial_actions))
 		});
-		console.log(this.state.systolic_initial_actions);
+		// console.log(this.state.systolic_initial_actions);
 	}
 	updateActionData = (ActionID, name, actionData) => {
 		var systolic = [ ...this.state.systolic_actions ];
@@ -84,10 +84,10 @@ class BloodPressure extends Component {
 			}
 			return data;
 		});
-		console.log('update', systolic, diastolic);
+		// console.log('update', systolic, diastolic);
 		this.setState({
 			systolic_actions: systolic,
-			diastolic_actions: diastolic,
+			diastolic_actions: diastolic
 		});
 	};
 	renderHeaderButtons = () => {
@@ -96,7 +96,7 @@ class BloodPressure extends Component {
 			systolic_actions,
 			systolic_saved_actions,
 			diastolic_actions,
-			diastolic_saved_actions,
+			diastolic_saved_actions
 		} = this.state;
 		if (edit) {
 			return (
@@ -107,7 +107,7 @@ class BloodPressure extends Component {
 							this.setState({
 								edit: false,
 								systolic_saved_actions: JSON.parse(JSON.stringify(systolic_actions)),
-								diastolic_saved_actions: JSON.parse(JSON.stringify(diastolic_actions)),
+								diastolic_saved_actions: JSON.parse(JSON.stringify(diastolic_actions))
 							});
 						}}
 					>
@@ -120,7 +120,7 @@ class BloodPressure extends Component {
 								edit: false,
 								systolic_actions: JSON.parse(JSON.stringify(systolic_saved_actions)),
 
-								diastolic_actions: JSON.parse(JSON.stringify(diastolic_saved_actions)),
+								diastolic_actions: JSON.parse(JSON.stringify(diastolic_saved_actions))
 							});
 						}}
 					>

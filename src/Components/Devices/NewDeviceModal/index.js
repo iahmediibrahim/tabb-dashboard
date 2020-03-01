@@ -24,6 +24,34 @@ class NewDeviceModal extends Component {
 		showSerial: false,
 		selectModel: true,
 		fileList: [],
+		review: true,
+		opportunityDetails: [
+			{
+				serialNumber1: 'Some data',
+				serialNumber2: 'Some data',
+				serialNumber3: 'Some data',
+				serialNumber4: 'Some data',
+				serialNumber5: 'Some data',
+				serialNumber6: 'Some data',
+				serialNumber7: 'Some data',
+				serialNumber8: 'Some data',
+				serialNumber9: 'Some data',
+				serialNumber10: 'Some data',
+				serialNumber11: 'Some data',
+				serialNumber12: 'Some data',
+				serialNumber13: 'Some data',
+				serialNumber14: 'Some data',
+				serialNumber15: 'Some data',
+			},
+		].map((obj) => {
+			const objKeys = Object.keys(obj);
+			return objKeys.map((itemKey) => {
+				return {
+					itemKey,
+					itemValue: obj[itemKey],
+				};
+			});
+		}),
 	};
 	handleDeviceTypes = (value) => {
 		console.log(value);
@@ -92,7 +120,6 @@ class NewDeviceModal extends Component {
 	};
 
 	handleSubmit = (e) => {
-		console.log(e);
 		e.preventDefault();
 		this.props.form.validateFields((err, values) => {
 			if (!err) {
@@ -100,8 +127,9 @@ class NewDeviceModal extends Component {
 			}
 		});
 	};
+
 	render() {
-		const { newDevice, selectModel, showSerial } = this.state;
+		const { newDevice, selectModel, showSerial, review } = this.state;
 		const UploadProps = {
 			action: 'https://www.mocky.io/v2/5cc8019d300000980a055e76',
 			onChange: this.handleUploadChange,
@@ -109,15 +137,54 @@ class NewDeviceModal extends Component {
 		};
 		const { getFieldDecorator, getFieldValue } = this.props.form;
 
-		var newkeys = [];
+		let newkeys = [];
+
 		getFieldDecorator('newkeys', { initialValue: [] });
 		newkeys = getFieldValue('newkeys');
 
 		const formItems = newkeys.map((k, index) => {
 			return (
-				<div key={k}>
-					<FormItem>
-						{getFieldDecorator('serial' + k, {
+				<FormItem key={k}>
+					{getFieldDecorator('serial', {
+						validate: [
+							{
+								trigger: [ 'onBlur' ],
+								rules: [
+									{
+										required: true,
+										message: 'Serial Number Required!',
+									},
+								],
+							},
+						],
+					})(
+						<div className="d-flex">
+							<Input placeholder="Enter Serial" />
+							<Button
+								type="link"
+								className="font-weight-bold d-flex align-items-center"
+								style={{ fontSize: 20, color: '#8992AD' }}
+								onClick={() => this.remove(k)}
+							>
+								<Icon type="close" />
+							</Button>
+						</div>,
+					)}
+				</FormItem>
+			);
+		});
+		const renderDynamicElWrapper = () => {
+			return this.state.opportunityDetails.map((items) => {
+				return renderDynamicEl(items);
+			});
+		};
+
+		const renderDynamicEl = (els) => {
+			return els.map((el) => {
+				return (
+					<FormItem key={el.itemKey}>
+						{getFieldDecorator(el.itemKey, {
+							initialValue: el.itemValue,
 							validate: [
 								{
 									trigger: [ 'onBlur' ],
@@ -131,21 +198,13 @@ class NewDeviceModal extends Component {
 							],
 						})(
 							<div className="d-flex">
-								<Input placeholder="Enter Serial" />
-								<Button
-									type="link"
-									className="font-weight-bold d-flex align-items-center"
-									style={{ fontSize: 20, color: '#8992AD' }}
-									onClick={() => this.remove(k)}
-								>
-									<Icon type="close" />
-								</Button>
+								<Input placeholder={el.itemValue} defaultValue={el.itemValue} />
 							</div>,
 						)}
 					</FormItem>
-				</div>
-			);
-		});
+				);
+			});
+		};
 		return (
 			<Modal
 				onCancel={this.props.handleCancel}
@@ -250,22 +309,40 @@ class NewDeviceModal extends Component {
 												showIcon
 											/>
 											<div className="upload-excel mt-3">
-												<FormItem>
-													<Upload {...UploadProps} fileList={this.state.fileList}>
-														<Button>
-															<Icon type="upload" /> Upload
-														</Button>
-													</Upload>
-												</FormItem>
+												{review && (
+													<FormItem>
+														<Upload {...UploadProps} fileList={this.state.fileList}>
+															<Button>
+																<Icon type="upload" /> Upload
+															</Button>
+														</Upload>
+													</FormItem>
+												)}
+												{!review && renderDynamicElWrapper()}
 											</div>
 										</TabPane>
 									</Tabs>
 								</Radio.Group>
 							</div>
 							<div className="d-flex justify-content-end mt-3">
-								<Button type="primary" htmlType="submit" className="mr-2">
-									Submit
-								</Button>
+								{!review && (
+									<Button type="primary" htmlType="submit" className="mr-2">
+										Submit
+									</Button>
+								)}
+								{review && (
+									<Button
+										className="mr-2"
+										type="primary"
+										onClick={() =>
+											this.setState({
+												review: false,
+											})}
+									>
+										Review
+									</Button>
+								)}
+
 								<Button onClick={this.props.handleCancel}>Cancel</Button>
 							</div>
 						</div>

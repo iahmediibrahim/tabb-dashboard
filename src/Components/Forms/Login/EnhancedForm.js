@@ -11,6 +11,6 @@ export const EnhancedForm = withFormik({
 	}),
 
 	handleSubmit: (values, { props, setSubmitting, setErrors }) => {
-		console.log('loggedin');
+		// console.log('loggedin');
 	}
 })(InnerForm);
