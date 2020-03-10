@@ -16,7 +16,7 @@ export default class AssignDevice extends Component {
 		HeartDeviceName: '',
 		BloodDeviceName: '',
 		Heartmeasure: '',
-		BloodMeasure: '',
+		BloodMeasure: ''
 	};
 	// click item hidden devices List  and return selected device details
 	onAddItem = (e, measure, text) => {
@@ -24,13 +24,13 @@ export default class AssignDevice extends Component {
 			this.setState({
 				addHeartDeviceItem: true,
 				HeartDeviceName: e.target.value,
-				Heartmeasure: measure,
+				Heartmeasure: measure
 			});
 		} else if (text === 'BloodPressure') {
 			this.setState({
 				addBloodDeviceItem: true,
 				BloodDeviceName: e.target.value,
-				BloodMeasure: measure,
+				BloodMeasure: measure
 			});
 		}
 	};
@@ -38,11 +38,11 @@ export default class AssignDevice extends Component {
 	onEditItem(text) {
 		if (text === 'HeartRate') {
 			this.setState({
-				addHeartDeviceItem: false,
+				addHeartDeviceItem: false
 			});
 		} else if (text === 'BloodPressure') {
 			this.setState({
-				addBloodDeviceItem: false,
+				addBloodDeviceItem: false
 			});
 		}
 	}
@@ -58,6 +58,14 @@ export default class AssignDevice extends Component {
 		// console.log(e.target.value);
 	};
 	render() {
+		// Monitoring Period
+		const monitoringPeriod = [
+			{
+				monitoringPeriod: '2 Years',
+				startDate: '20/2/2020',
+				endtDate: '20/2/2022'
+			}
+		];
 		// Blood Pressure Devices
 		const devices = [
 			{
@@ -67,7 +75,7 @@ export default class AssignDevice extends Component {
 				name: 'ABCDF Heart Monitor Simulator',
 				measure: 'Heart Rate',
 				description: 'ABCDF Heart Monitor Simulator measurs Heart Rate',
-				itemsInStock: '5',
+				itemsInStock: '5'
 			},
 			{
 				id: 2,
@@ -76,7 +84,7 @@ export default class AssignDevice extends Component {
 				name: 'Nonin Pulse Oximeter 3230',
 				measure: 'Spo2 Rate',
 				description: 'ABCDF Heart Monitor Simulator measurs Heart Rate',
-				itemsInStock: '7',
+				itemsInStock: '7'
 			},
 			{
 				id: 3,
@@ -85,11 +93,10 @@ export default class AssignDevice extends Component {
 				name: 'Spo2 Simulator',
 				measure: 'Heart Rate',
 				description: 'ABCDF Heart Monitor Simulator measurs Heart Rate',
-				itemsInStock: '9',
-			},
+				itemsInStock: '9'
+			}
 		];
 		// other Device
-
 		const BloodDevices = [
 			{
 				id: 7,
@@ -98,7 +105,7 @@ export default class AssignDevice extends Component {
 				name: 'Omron 10 Blood Pressure Monitor',
 				measure: 'Spo2 Rate',
 				description: 'ABCDF Heart Monitor Simulator measurs Blood Pressure',
-				itemsInStock: '11',
+				itemsInStock: '11'
 			},
 			{
 				id: 8,
@@ -107,7 +114,7 @@ export default class AssignDevice extends Component {
 				name: 'Care Touch Blood Pressure Monitor Cuff',
 				measure: 'Spo2 Rate',
 				description: 'ABCDF Heart Monitor Simulator measurs Blood Pressure',
-				itemsInStock: '13',
+				itemsInStock: '13'
 			},
 			{
 				id: 8,
@@ -116,16 +123,39 @@ export default class AssignDevice extends Component {
 				name: 'Spo2 Simulator',
 				measure: 'Spo2 Rate',
 				description: 'ABCDF Heart Monitor Simulator measurs Blood Pressure',
-				itemsInStock: '15',
-			},
+				itemsInStock: '15'
+			}
 		];
+
 		const { addHeartDeviceItem, addBloodDeviceItem } = this.state;
 
 		return (
 			<Container fluid={true}>
 				<Row>
 					<Col xl={10} lg={10} md={10} sm={12} xs={12}>
-						<DiagnosesCard />
+						{monitoringPeriod.map((monPer) => {
+							return (
+								<div className="monitoringPeriod-details">
+									<Row>
+										<Col xl={4} lg={6} md={6} sm={12} xs={12}>
+											<h3>
+												Monitor Period : <span>{monPer.monitoringPeriod}</span>
+											</h3>
+										</Col>
+										<Col xl={4} lg={6} md={6} sm={12} xs={12}>
+											<h3>
+												start Date: <span>{monPer.startDate}</span>
+											</h3>
+										</Col>
+										<Col xl={4} lg={6} md={6} sm={12} xs={12}>
+											<h3>
+												End Date: <span>{monPer.endtDate}</span>
+											</h3>
+										</Col>
+									</Row>
+								</div>
+							);
+						})}
 
 						<div className="assignPatientDevices">
 							<Form onSubmit={this.handleSubmit}>
@@ -205,7 +235,7 @@ export default class AssignDevice extends Component {
 																	this.onAddItem(
 																		e,
 																		BloodDevice.measure,
-																		'BloodPressure',
+																		'BloodPressure'
 																	)}
 																value={BloodDevice.value}
 															>
